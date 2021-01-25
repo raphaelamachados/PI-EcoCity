@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+   background-color: #838789;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+main .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 700px;
+    height: 350px;
+    max-width: 90%;
+    background-color: white; 
+    border-radius: 35px;
+}
+section.img {
+    width:50%;
+    height:350px;
+}
+img.login_image {
+    height: 100%;
+}
+section {
+    width:50%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: roboto, sans-serif;
+    width: 500px;
+    height: 80%;
+}
+
+section h1 {
+    color:#7CB13E;
+    font-weight: 550;
+    font-size: 2.5rem;
+}
+
+section form {
+   display: flex;
+   flex-direction: column;
+}
+
+form input {
+    /* width: 100%; */
+    border-radius: 10px;
+    background-color: rgba(205, 216, 187, 0.6);
+    border:none;
+    padding: 10px;
+}
+
+input.email{
+    margin: 20px 0;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(38, 50, 56, 0.35);
+ }
+
+form input:focus{
+    outline: none;
+    border-radius:10px;border:1px solid rgba(38, 50, 56, 0.45);
+}
+
+form p{
+    font-size: .85rem;;
+    color: #263238;
+    text-align: center;
+}
+
+form p a{
+    padding: 15px;     
+    color: #ec3d17;
+    font-weight: bold;
+    text-align: center;
+}
+
+form p a:hover{
+    /* color: #a32a0f; */
+    color: #ff6744;
+    text-decoration: none;
+}
+
+form button {
+    align-self: center;
+    background-color:#7CB13E;
+    color:white;
+    border:none;
+    border-radius:10px;
+    height: 40px;
+    width: 290px;
+    
+}
+
+form button:focus{
+    outline: none;
+    border-radius:10px;border:1px solid #547a27;
+}
+
+
+@media (max-width: 700px) {
+    img.login_image {
+        max-height: 90%;
+     }
+    
+     section form {
+        width:80%;
+     } 
+     form button {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 576px) { 
+    img.login_image {
+        max-height: 80%;
+     }
+}
+
+@media (max-width: 576px) { 
+    img.login_image {
+        display: none;
+     }
+     section.img {
+        display: none;
+    }
+    section{
+        width: 80%;
+    }
+      section form {
+        width:100%;
+     }  
+     form button {
+        width: 100%;
+    } 
+    
+
+/*  */
+
+
+}
+
+
+
+

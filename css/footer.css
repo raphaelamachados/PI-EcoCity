@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer{
+    height: 30px;
+    width:100%;
+    background-color: #c4c4c4;
+    display: flex;
+    justify-content:space-around;
+    position: fixed;
+    padding: 5px ;
+    height: 35px;
+    bottom: 0;
+    
+}
+
+footer  p{
+    text-align: center;
+    color:#505a5f
+}
+
+footer  i{
+    text-align: center;
+    margin-left: 25px;;
+    font-size: 16px;
+    color:#263238;
+}
+.fa-envelope:before {
+    margin-right: 6px;
+}
+.fa-instagram-square:before {
+    margin-right: 6px;
+}
+.fa-twitter-square:before {
+    margin-right: 6px;
+}
+.fa-facebook:before {
+    margin-right: 6px;
+}
