@@ -145,7 +145,10 @@ div.card-img{
 }
 
 div.card-img img{
-    /* object-fit: cover; */
+    filter: grayscale(100%);
     padding: 40px;
-
+    transition-duration: 0.5s;
+}
+div.card-img img:hover{
+    filter: grayscale(0%);
 }
