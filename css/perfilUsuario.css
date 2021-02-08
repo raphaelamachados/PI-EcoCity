@@ -130,24 +130,42 @@ div.card-total{
     border-radius: 10px;
 }
 
-div.card-total h3{
-    font-weight: 900;
-    font-size: 1.5rem;
+div.card-total-mobile {
+    display:none;
 }
 div.card-total h2{
     font-size: 2rem;
     font-weight: 900;
 }
 
-section.carrossel{
+    h3.parceiro {
+    height: 5px;  
+    display: flex;
+    justify-content: center;
+    font-family: Nunito, sans-serif;
+    font-size: .7rem;
+    text-align: left;
+    color: #263238;
+    top:380px;
+
+    position: absolute;
+    width: 43%;
+
+}
+
+
+section.carrossel {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     padding: 10px;
-    top: 380px;
+    top: 385px;
     height: 25%;
     width: 700px;
     position: absolute;
+}
+section.carrossel-mobile {
+    display: none;
 }
 
 div.card-img{
@@ -182,3 +200,145 @@ img.arrow {
 img.arrow:hover {
     opacity: 0.5;
 }
+
+@media (max-width: 786px) {
+
+    section.pontuacao {
+        top: 160px;
+        padding: 54px;
+        width: 100%;
+    }
+
+    h3.parceiro {
+       
+        top:373px;
+    
+    
+    }
+
+    section.carrossel {
+        padding: 47px;
+        top: 340px;
+        width: 100%;
+
+    }
+
+    .card .small-logo {
+        height: 27%;
+    }
+
+    img.arrow {
+        height: 12%;
+        position: relative;
+        top: 25px;
+    }
+}
+
+@media (max-width: 576px){
+
+    img.foto {
+        width: 92px;
+        top: -63px;
+    }
+
+    article.usuario h1 {
+        
+        left: 31px;
+        font-size: 1.4rem;
+        
+    }
+
+    section.pontuacao {
+        flex-wrap: wrap;
+        top: 90px;
+        padding: 30px;
+        width: 100%;
+    }
+    
+    
+    
+    div.card {
+        margin: 6px 7px;
+        width: 45%;
+    }
+    
+    div.card-total {
+        display:none;
+    }
+    div.card-total-mobile {
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        display: flex;
+        background-color:#263238;
+        margin: 0 15px;
+        color: white;
+        height: 150px;  
+        width:27%;
+        border-radius: 10px;
+        
+        
+        
+        margin: 6px 12px;
+        height: 50px;
+        width: 100%;
+    }
+
+    main .container {
+        top: 30px;
+        position: relative;
+        height: 568px;
+    }
+    
+    section.imagem{
+        position: relative;
+        top: -61px;
+    }
+
+      h3.parceiro {
+       
+        width: 60%;
+        top: 367px;
+        height: 5px;  
+        display: flex;
+        justify-content: center;
+        font-family: Nunito, sans-serif;
+        font-size: .7rem;
+        text-align: left;
+        color: #263238;
+    
+    }
+   
+
+    section.carrossel{
+        display: none;
+    }
+    section.carrossel-mobile {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: row;
+        height: 25%;
+    
+        position: absolute;
+       
+        padding: 47px;
+        top: 445px;
+        width: 100%;
+    }
+    
+    div.card-img {
+        margin:  0px 4px;
+        width: 45%;
+    }
+
+    img.arrow {
+        height: 12%;
+        position: relative;
+        top: 0px;
+    }    
+    
+}
+
+

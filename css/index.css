@@ -49,7 +49,6 @@ main p {
     font-family: Roboto ;
     font-size: 1rem;
     margin: 20px 0px 50px; 
-    
 }
 
 main button {
@@ -63,15 +62,60 @@ main button {
 }
 
 
-@media (max-width: 700px) {
-  
+
+
+@media (max-width: 786px) {
+    .main-text{
+        display:flex;
+        flex-direction: column;
+        width: 42%;
+        justify-content:center;
+        align-items: center;
+        
+    }
+
+    main h1 {
+        font-family: Nunito ;
+        width: 100%;
+        font-weight: 700;
+        margin-top: 0px ; 
+        font-size: 3.5rem;
+    }
+    main p{
+        width: 100%;
+    }
 
 }
 
-@media (max-width: 576px) { 
-   
+@media (max-width: 576px){
+    
+    .bg-img{
+        display: none;
+    }
 
+    main{
+        display:flex;
+        align-items:center;
+    }
+    .main-text{
+        display:flex;
+        flex-direction: column;
+        width: 85%;
+        justify-content:center;
+        align-items: center;
+        
+    }
+    
+    main h1 {
+        font-family: Nunito ;
+        font-weight: 700;
+        margin-top: 25px ; 
+        font-size: 4rem;
+    }
+ 
 }
+
+
 
 
 

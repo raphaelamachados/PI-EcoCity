@@ -35,3 +35,17 @@ header .container{
     margin-right: 35px;
     margin-left: 25px;
 }
+
+
+/* .navbar-collapse.collapse.show {
+    background-color: white;
+  color: #263238;
+} */
+
+@media (max-width: 990px) {
+
+    .nav-item2 a::before{
+       display: none;
+       
+    }
+}
