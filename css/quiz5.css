@@ -1,0 +1,131 @@
+html {
+    height: calc(100% - 5.75em);
+}
+
+body {
+    background-image: url(../images/fundo5.jpg);
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: #030303;
+    text-align: center;
+    margin: 0;
+    padding: 1em;
+    box-sizing: border-box;
+    height: 100%;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-weight: bold;
+    text-shadow: -1px -1px 8px #FFFCFC;
+    align-items: center;
+    height: 100%;
+}
+
+h1,
+h2 {
+    font-weight: 400;
+    font-weight: bold;
+}
+
+section.question {
+    margin-top: 50px;
+}
+
+input[type="radio"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+}
+
+#answers {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    padding: .5em 2em;
+    background: rgba(255, 255, 255, .85);
+    /* background: #0d5155; */
+    color: black;
+    /* color: #fefff0; */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(8, 8, 8, 0.993);
+}
+
+#congrats {
+    opacity: 0;
+    font-size: 2em;
+    color: rgb(51, 34, 2)
+}
+
+.ans {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ans:not(:last-child) {
+    border-bottom: 1px solid black;
+}
+
+label {
+    position: relative;
+    font-size: 1.5em;
+    flex-grow: 1;
+    margin: 1em 0;
+    cursor: pointer;
+}
+
+label:first-child:after,
+label:last-child:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    top: calc(50% - .5em);
+    width: 1em;
+    height: 1em;
+    background-color: black;
+    /* background-color: #c5d2ab; */
+}
+
+label:first-child {
+    padding-left: 2em;
+    margin-right: 1em;
+}
+
+label:last-child {
+    padding-right: 2em;
+    margin-left: 1em;
+}
+
+label:first-child:after {
+    left: 0;
+}
+
+label:last-child:after {
+    right: 0;
+}
+
+#SãoPaulo:checked~main [for="São Paulo"]:first-child:after,
+#RiodeJaneiro:checked~main [for="Rio de Janeiro"]:last-child:after,
+#Marrom:checked~main [for="Florianópolis"]:last-child:after {
+    background-color: black;
+    box-shadow: 0 0 0 2px #bcafbc, 0 0 0 5px #ffffff;
+}
+
+#Florianópolis:checked~main #congrats {
+    transition: .5s opacity;
+    opacity: 1;
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 80%;
+    }
+}
