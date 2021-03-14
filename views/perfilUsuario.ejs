@@ -1,0 +1,83 @@
+<%- include('./partials/header') %>
+<link rel="stylesheet" href="./css/perfilUsuario.css">
+    
+  <main>
+    <div class="container">
+      <div class class="header-container">
+        <section class="imagem" >
+          <img src="./images/faixa_perfil_usuario.png" alt="faixa_perfil_usuario" class="faixa_perfil_usuario">
+          <article class="usuario">
+            <img src="./images/upload_image.png" alt="upload_imagem_" class="foto"> 
+            <h1>Carlos Eduardo Vieira </h1>
+          </article>
+        </section>
+      </div>
+      <div class="main-container">
+        <section class="pontuacao">
+            <div class="card">
+              <div class="content">
+                <img class="small-logo" src="./images/recicling-img.png" alt="recicling-card">
+                <h3>Reciclagem</h3>
+                <h2>500 pts</h2>
+                <div class="bar"> 
+                  <div class ="progress-bar"> 
+                    <span>65</span>
+                    <span>%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <div class="card-total">
+              <h2>Total</h2>
+              <h2>1000 pts</h2>
+            </div>
+            <!-- ------------------- versão mobile-----------------------------  -->
+            <div class="card-total-mobile">
+              <h2>Total 1000 pts</h2>
+            </div>
+            <span class="parceiro">Troque já seus pontos em um de nossos parceiros</span>
+        </section>
+          
+          
+        <section class="parceiros">
+            <article class="carrossel">
+              <img class="arrow" src="./images/arrow-back.png" alt="back">
+              
+              <div class="card-parceiro">
+                <img class="img-parceiro" src="./images/lg_1.png" alt="...">
+              </div>
+              
+              <div class="card-parceiro">
+                <img class="img-parceiro" src="./images/lg_2.png" alt="...">
+              </div>
+              
+              <div class="card-parceiro">
+                <img class="img-parceiro" src="./images/lg_3.png" alt="...">
+              </div>
+
+              <div class="card-parceiro">
+                <img class="img-parceiro" src="./images/lg_4.png" alt="...">
+              </div>
+              <img class="arrow" src="./images/arrow-front.png" alt="front">
+            </article>
+          <!-- ------------------- fim da versão mobile-----------------------------  -->
+          <article class="carrossel-mobile">
+            <img class="arrow" src="./images/arrow-back.png" alt="back">
+            <div class="card-parceiro">
+              <img class="img-parceiro" src="./images/lg_1.png" alt="...">
+            </div>
+            
+            <div class="card-parceiro">
+              <img class="img-parceiro" src="./images/lg_2.png" alt="...">
+            </div>
+            
+            <img class="arrow" src="./images/arrow-front.png" alt="front">
+          </article>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  
+  <%- include('./partials/footer') %>

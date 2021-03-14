@@ -1,0 +1,38 @@
+<%- include('./partials/header') %>
+<link rel="stylesheet" href="./css/cadastro.css">
+     <main>
+      <div class="container">
+        <section class="img" >
+           <img src="./images/upload_image.png" alt="upload_image" class="upload_image">
+          <a href="">carregue sua foto</a>
+        </section>
+        
+        <section>
+          
+          <div class="form">
+            <section class="img-phone" >
+              <h1>Cadastro</h1>
+              <img src="./images/upload_image.png" alt="upload_image" class="upload_image">
+           </section>
+              <h1>Cadastro</h1>
+              <p>Escolha uma opção</p>
+              <div class="escolha">
+                <button class="cliente" type="submit" name="button">Cliente</button>
+                <button class="empresa"type="submit" name="button">Empresa</button>
+              </div>
+              
+              <form action="#" method="post">
+                  <input class = "nome" type="text" id="nome" name="nome" placeholder="Nome">
+                  <input class = "email" type="text" id="email" name="email" placeholder="E-mail">
+                  <input class = "senha" type="password" id="senha" name="password" placeholder="Senha" >
+                  <input class = "senha-confirm" type="password" id="senha-confirm" name="password" placeholder="Confirmar Senha" >
+                 
+                  <button type="submit" name="button">ENVIAR CADASTRO</button>
+              </form>
+          </div>
+        </section>
+      
+      </div>
+
+
+<%- include('./partials/footer') %>

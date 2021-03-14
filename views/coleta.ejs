@@ -1,0 +1,88 @@
+<%- include('./partials/header') %>
+<link rel="stylesheet" href="./css/coleta.css">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
+
+  <main>
+    <div class="container">
+
+    <section class="banner">
+      <div class="row">
+          <div class="col-6">
+            <h1 class="a">Quanto mais você recicla, <span style="color:#3DBB6F">mais pontos</span> você ganha! </h1>   
+          </div>
+          <div class="col-6">
+              <img class="img-programa" src="./images/img_programa.png">
+          </div>
+        </div>
+    </section>
+
+    <div>
+      <section class="latas">
+        <h1>Troque seu lixo por pontos</h1>
+        <img class="img-latas" src="./images/latas_programa.png">
+      </section>  
+    </div>
+
+    <section>
+      <table class="tab">
+          <tr>
+              <th>Material</th>
+              <th>Tempo de decomposição</th>
+              <th>Pontos</th>
+          </tr>
+          <tr>
+              <td>Papel</td>
+              <td>6 meses</td>
+              <td>100</td>
+          </tr>
+          <tr>
+              <td>Vidro</td>
+              <td>mais de 1000 anos</td>
+              <td>200</td>
+          </tr>
+          <tr>
+              <td>Plástico</td>
+              <td>500 anos</td>
+              <td>200</td>
+          </tr>
+          <tr>
+              <td>Metal</td>
+              <td>mais de 1000 anos</td>
+              <td>200</td>
+          </tr>
+          <tr>
+              <td>Eletrônicos</td>
+              <td> podem até não se decompor</td>
+              <td>300</td>
+          </tr>
+      </table>
+    </section>
+
+    <section class="mapa">
+
+      <h1>Encontre o <span style="color:#EFD23A">ponto de coleta</span> mais próximo </h1>
+
+    </section>
+
+    <div id="map"></div>
+
+    <section class="quiz">
+
+          <h1>Responda o Quiz e ganhe até <span style="color:#A84B4B">1000</span> pontos </h1>
+          <button type="submit" name="button">ENTRAR NO QUIZ</button>
+    </section>
+
+    </div>  
+  </main>
+
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script src="./javascripts/coletamap.js"></script>   
+<%- include('./partials/footer') %>
+   
