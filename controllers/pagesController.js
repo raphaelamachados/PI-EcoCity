@@ -2,12 +2,12 @@ const pagesController = {
     index: (req, res) => {
        return res.render("index")
     },
-    login: (req,res) => {
-        return res.render("login")
-    },
-    cadastro: (req,res) => {
-        return res.render("cadastro")
-    },
+    // login: (req,res) => {
+    //     return res.render("login")
+    // },
+    // cadastro: (req,res) => {
+    //     return res.render("cadastro")
+    // },
     coleta: (req,res) => {
         return res.render("coleta")
     },

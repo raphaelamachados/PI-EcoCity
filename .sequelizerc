@@ -4,4 +4,3 @@ module.exports = {
   config: path.resolve("configs"),
   "models-path": path.resolve("models"),
 };
-

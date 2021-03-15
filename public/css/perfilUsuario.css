@@ -181,18 +181,14 @@ div.card-total h2{
 }
 
 span.parceiro{
-    height: 5px;  
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    color: #263238;
+    
     font-family: Nunito, sans-serif;
     font-size: 1rem;
-    text-align: left;
-    color: #263238;
-    top:380px;
-
-    position: absolute;
-    width: 43%;
+    text-align: center;
 }
+
 section.parceiros {
     display: flex;
     justify-content: center;
