@@ -1,4 +1,5 @@
 <%- include('./partials/header') %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@5.4.0/keen-slider.min.css"/>
 <link rel="stylesheet" href="./css/perfilUsuario.css">
     
   <main>
@@ -40,43 +41,60 @@
           
           
         <section class="parceiros">
-            <article class="carrossel">
-              <img class="arrow" src="./images/arrow-back.png" alt="back">
-              
-              <div class="card-parceiro">
-                <img class="img-parceiro" src="./images/lg_1.png" alt="...">
-              </div>
-              
-              <div class="card-parceiro">
-                <img class="img-parceiro" src="./images/lg_2.png" alt="...">
-              </div>
-              
-              <div class="card-parceiro">
-                <img class="img-parceiro" src="./images/lg_3.png" alt="...">
-              </div>
-
-              <div class="card-parceiro">
-                <img class="img-parceiro" src="./images/lg_4.png" alt="...">
-              </div>
-              <img class="arrow" src="./images/arrow-front.png" alt="front">
-            </article>
-          <!-- ------------------- fim da versão mobile-----------------------------  -->
-          <article class="carrossel-mobile">
-            <img class="arrow" src="./images/arrow-back.png" alt="back">
-            <div class="card-parceiro">
+          <article id="my-keen-slider" class="keen-slider">
+            
+            <div class="keen-slider__slide number-slide">
               <img class="img-parceiro" src="./images/lg_1.png" alt="...">
             </div>
             
-            <div class="card-parceiro">
+            <div class="keen-slider__slide number-slide">
               <img class="img-parceiro" src="./images/lg_2.png" alt="...">
             </div>
             
-            <img class="arrow" src="./images/arrow-front.png" alt="front">
+            <div class="keen-slider__slide number-slide">
+              <img class="img-parceiro" src="./images/lg_3.png" alt="...">
+            </div>
+  
+            <div class="keen-slider__slide number-slide">
+              <img class="img-parceiro" src="./images/lg_4.png" alt="...">
+            </div>
+            <div class="keen-slider__slide number-slide">
+              <img class="img-parceiro" src="./images/lg_3.png" alt="...">
+            </div>
+            <div class="keen-slider__slide number-slide">
+              <img class="img-parceiro" src="./images/lg_2.png" alt="...">
+            </div>
           </article>
-        </section>
+      </section>
 
       </div>
     </div>
   </main>
+
   
+  <script src="https://cdn.jsdelivr.net/npm/keen-slider@5.4.0/keen-slider.min.js"></script>
+
+    <script>
+      var slider = new KeenSlider("#my-keen-slider", {
+        spacing: 25,
+        slidesPerView: 1,
+        centered: true,
+        loop: true,
+        mode: "snap",
+        breakpoints: {
+          "(min-width: 455px)": {
+            slidesPerView: 2,
+            mode: "free-snap",
+          },
+          "(min-width: 768px)": {
+            slidesPerView: 3,
+            mode: "free-snap",
+          },
+          "(min-width: 1200px)": {
+            slidesPerView: 4,
+            mode: "free-snap",
+          },
+        },
+      })
+    </script>
   <%- include('./partials/footer') %>
