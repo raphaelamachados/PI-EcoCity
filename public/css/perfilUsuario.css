@@ -54,7 +54,7 @@ article.usuario{
 
 img.foto{
     z-index: 1;
-    width: 100px;
+    width: 85px;
     position: relative;
     top:-70px;
     left: 20px;
@@ -64,7 +64,7 @@ article.usuario h1{
     width: auto;
     position: relative;
     top: -37px;
-    left: 50px;
+    left: 25px;
     font-size:1.6rem;
     font-family:roboto, sans-serif;
     color: white;
@@ -81,11 +81,12 @@ section.pontuacao{
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    position: relative;
     top: 20px;
     padding: 10px;
     height: 50%;
     width: 100%;
-
+    
 }
 
 div.card{
@@ -95,6 +96,7 @@ div.card{
     border-radius: 10px;
     border: 1px solid #B0C2B8;
     margin: 0 15px;
+    min-width: 180px;
     
     font-family: Nunito, sans-serif;
 }
@@ -158,29 +160,32 @@ div.card h2{
 }
 
 
-div.card-total{
+div.historico{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    display: flex;
     background-color:#263238;
     margin: 0 15px;
     color: white;
     height: 150px;  
     width:27%;
     border-radius: 10px;
+    min-width: 180px;
 }
 
-div.card-total-mobile{
+div.historico-mobile{
     display:none;
 }
 
-div.card-total h2{
+div.historico h2{
     font-size: 2rem;
+    text-align: center;
     font-weight: 900;
 }
 
 span.parceiro{
+    margin-top: 5px;
     width: 100%;
     color: #263238;
     
@@ -204,7 +209,6 @@ article.carrossel {
     flex-direction: row;
     padding: 10px;
     width: 100%;
- 
 }
 
 article.carrossel-mobile{
@@ -225,9 +229,18 @@ div.card-parceiro{
 }
 
 div.card-parceiro img{
+    
     filter: grayscale(100%);
-    padding: 40px;
+    /* padding: 10px; */
     transition-duration: 0.5s;
+}
+
+img.img-parceiro{
+    max-width: 90%;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    padding: 10px;
 }
 
 div.card-parceiro img:hover{
@@ -235,144 +248,149 @@ div.card-parceiro img:hover{
 }
 
 img.arrow{
-    height: 10%;
+    /* height: 10%; */
     align-self: center;
+    transition-duration:  0.3s;
 }
 
 img.arrow:hover{
     opacity: 0.5;
 }
-.img-parceiro{
-    width: 90%;
+
+/*--------------------- responsividade ------------------------------------*/
+
+@media (max-width: 800px){
+    div.card-parceiro{
+        max-height: 100px;  
+        width:20%;
+    }
+    
+    img.arrow{
+        /* height: 10%; */
+        align-self: center;
+        transition-duration:  0.3s;
+    }
+
+    span.parceiro{
+        align-self: center;
+        width: 90%;
+        margin-top: 30px;
+        font-size: .7rem;
+    }
+
+    div.card{
+        top: 0px;
+        /* width: 50%; */
+        height: 150px;
+        min-width: 100px;
+    }
+    div.historico{
+        /* width: 30%; */
+        height: 150px;  
+        min-width: 150px; 
+    }
+    div.historico h2{
+        font-size:1.5rem; 
+    }
+
 }
-
-/* responsividade */
-/* 
-@media (max-width: 786px){
-
-    section.pontuacao {
-        top: 160px;
-        padding: 54px;
-        width: 100%;
-    }
-
-    h3.parceiro {
-        top:373px;
-    }
-
-    article.carrossel {
-        padding: 47px;
-        top: 340px;
-        width: 100%;
-    }
-
-    .card .small-logo {
-        height: 27%;
-    }
-
-    img.arrow {
-        height: 12%;
-        position: relative;
-        top: 25px;
-    }
-} */
-
-@media (max-width: 576px){
-
-    img.foto {
-        width: 92px;
-        top: -63px;
+@media (max-width: 455px){
+        img.foto {
+        width: 70px;
+        top: -43px;
     }
 
     article.usuario h1 {
-        left: 31px;
-        font-size: 1.4rem;
-    }
-
-    section.pontuacao {
-        flex-wrap: wrap;
-        top: 90px;
-        padding: 30px;
         width: 100%;
+        top: -20px;
+        left: 30px;
+        /* text-align: left; */
+        font-size: 1.2rem;
+        
     }
-    
-    div.card {
-        margin: 6px 7px;
-        width: 45%;
-    }
-    
-    div.card-total {
-        display:none;
+    section.pontuacao{
+        flex-direction: column;
+        height: 60%;
     }
 
-    div.card-total-mobile {
-        flex-direction: column;
+    div.card{
+        margin-top:15px;
+        width: 90%;
+        height: 120px;
+    }
+
+    div.card h3{
+        color: #ec3d17;
+        font-weight: 900;
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
+    
+    div.card h2{
+        font-size: 1.6rem;
+        margin-top: -10px;
+    }
+
+    .bar{
+        margin-top: 5px;
+        position: relative;
+        top: 10px;
+    }
+    
+    .bar span {
+        font-size: .8rem;
+    }
+    
+    div.historico {
+        display:none;
+    } 
+
+    div.historico-mobile{
+        display: flex;
         justify-content: center;
         align-items: center; 
-        display: flex;
         background-color:#263238;
-        margin: 0 15px;
         color: white;
-        height: 150px;  
-        width:27%;
-        border-radius: 10px;
-        
-        margin: 6px 12px;
-        height: 50px;
-        width: 100%;
+        margin: 15px 0px;
+        height: 45px;  
+        width:90%;
+        border-radius:10px;
+        min-width: 180px;
     }
 
-    main .container {
-        top: 30px;
-        position: relative;
-        height: 568px;
-    }
-    
-    section.imagem{
-        position: relative;
-        top: -61px;
+    div.historico-mobile h2{
+        font-size: 1rem;
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 0;
     }
 
-      h3.parceiro {
-       
-        width: 60%;
-        top: 367px;
-        height: 5px;  
+    span.parceiro{
+        width: 90%;
+        margin: 0px;
+    }
+
+    section.parceiros {
         display: flex;
         justify-content: center;
-        font-family: Nunito, sans-serif;
-        font-size: .7rem;
-        text-align: left;
-        color: #263238;
+        align-items: center;
+    
+        width: 100%;
+        height: 45%;
     }
-
-    article.carrossel{
-        display: none;
+    article.carrossel {
+        display: none
     }
 
     article.carrossel-mobile {
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
         flex-direction: row;
-        height: 25%;
-    
-        position: absolute;
-       
-        padding: 47px;
-        top: 445px;
+        padding: 10px;
         width: 100%;
     }
     
-    div.card-parceiro {
-        margin:  0px 4px;
-        width: 45%;
+    div.card-parceiro{
+        width:40%;
     }
-    
-    img.arrow{
-        height: 12%;
-        position: relative;
-        top: 0px;
-        padding: 10px;
-    }    
 }

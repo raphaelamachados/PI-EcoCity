@@ -6,7 +6,7 @@ const userController = require("../controllers/userController")
 const authController = require("../controllers/authController")
 
 const authMiddleware = require("../middlewares/auth")
-const uploads = require("../configs/uploads")
+
 
 router.get('/', pagesController.index)
 router.get('/sobrenos', pagesController.sobrenos)
@@ -19,7 +19,7 @@ router.post('/login', authController.store)
 
 
 router.get('/cadastro', userController.create)
-router.post('/cadastro', uploads.single("photo"), userController.store)
+router.post('/cadastro', userController.store)
 
 
 router.get('/perfilUsuario', authMiddleware, pagesController.perfilUsuario)

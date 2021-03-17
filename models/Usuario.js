@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
       "Usuario",
       {
         nome: DataTypes.STRING,
-        username: {
+        cpf: {
           type: DataTypes.STRING,
           unique: true,
         },

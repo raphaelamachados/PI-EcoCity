@@ -60,6 +60,11 @@ main button {
     width: 265px;
 }
 
+a button:hover{
+    transition:  0.8s;
+    background-color:#33454e;
+}
+
 @media (max-width: 786px) {
     .main-text{
         display:flex;

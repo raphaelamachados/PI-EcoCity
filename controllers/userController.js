@@ -14,9 +14,10 @@ const userController = {
             email: email,
             senha: Bcrypt.hashSync(password, 10),
         })
-    if (!usuario) {
-        return res.send("houve um erro ao salvar o usuario")
+    if(!usuario) {
+            return res.send("houve um erro ao salvar o usuario")
     }
+       
  
     return res.redirect("/login")
     },

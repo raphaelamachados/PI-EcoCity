@@ -105,13 +105,10 @@ form input {
     
 }
 input.nome{
-    margin-top: 10px;
-}
-input.email{
     margin: 10px 0;
 }
-input.senha-confirm{
-    margin: 10px 0;
+input.email, .cpf, .senha {
+    margin-bottom: 10px;
 }
 
 ::-webkit-input-placeholder {
@@ -135,8 +132,6 @@ form button {
     border-radius:10px;
     height: 30px;
     width: 290px;
-    margin-top: 5px;
-    
 }
 
 form button:focus{
