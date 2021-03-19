@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   background-color:white;
+    height: 100vh;
+    font-family: Roboto;
+}
+
+
+td{
+    height:100%;
+}
+.form-control {
+    width: 100%;
+    border: none;
+    background-color: rgb(245, 245, 245);
+}
+.form-select{
+    background-color: rgb(245, 245, 245);
+    line-height: 1.5;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    color: #495057;
+    width: 100%;
+    border: none;
+    background-clip: padding-box;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+} 
+

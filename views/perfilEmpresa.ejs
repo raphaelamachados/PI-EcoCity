@@ -1,0 +1,72 @@
+<%- include('./partials/header') %>
+<link rel="stylesheet" href="./css/perfilEmpresa.css">
+
+ 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mt-3">
+          <h3>Cadastro
+            <small class="text-muted ">de materiais recicláveis</small>
+          </h3>
+        </div>
+      </div>
+      <form action="/perfilEmpresa" method="post"">
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" class="btn btn-success float-right mb-3">Adicionar novos Itens</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive-md">
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">CPF Cliente</th>
+                    <th scope="col">Material</th>
+                    <th scope="col">Peso (kg)</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>
+                      <Input type="number" class="form-control" name="cpf" id="cpf" placeholder="CPF do Cliente" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" required></Input>
+                    </td>
+                    <td>
+                      <select class="form-select" name= material id="material" required>
+                        <option selected disabled value="">Tipo</option>
+                        <option>Papel</option>
+                        <option>Vidro</option>
+                        <option>Plástico</option>
+                        <option>Metal</option>
+                        <option>Eletrônicos</option>
+                      </select>
+                    </td>
+                    <td>
+                      <Input type="number" class="form-control" name="peso" id="peso" placeholder="Peso do Material" step="0.10" />
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-secondary" name="editar" id="editar"><i class="fas fa-edit"></i></button>
+                      <button type="button" class="btn btn-danger" name="editar" id="editar"><i class="fas fa-trash"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-success float-right mt-3">SALVAR PEDIDO</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+   
+  <script src="./javascripts/crudEmpresa.js"></script>   
+<%- include('./partials/footer') %>
+   

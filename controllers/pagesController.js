@@ -1,5 +1,5 @@
 const pagesController = {
-    index: (req, res) => {
+    index: (_req, res) => {
        return res.render("index")
     },
     // login: (req,res) => {
@@ -8,19 +8,19 @@ const pagesController = {
     // cadastro: (req,res) => {
     //     return res.render("cadastro")
     // },
-    coleta: (req,res) => {
+    coleta: (_req,res) => {
         return res.render("coleta")
     },
-    sobrenos: (req,res) => {
+    sobrenos: (_req,res) => {
         return res.render("sobrenos")
     },
-    perfilUsuario: (req,res) => {
+    perfilUsuario: (_req,res) => {
         return res.render("perfilUsuario")
     },
-    quiz: (req,res) => {
-        return res.render("quiz1")
+    perfilEmpresa: (_req,res) => {
+        return res.render("perfilEmpresa")
     },
-    menu: (req,res) => {
+    menu: (_req,res) => {
         return res.render("menu")
     },
 }
