@@ -44,7 +44,7 @@ const empresaController = {
     if(!pedido){
       return res.send('Houve um erro ao cadastrar o pedido')
     }
-      return res.redirect('/')
+      return res.redirect('/perfilEmpresa')
   },
 };
 
