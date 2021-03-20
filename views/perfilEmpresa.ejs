@@ -11,9 +11,21 @@
           </h3>
         </div>
       </div>
-      <form action="/perfilEmpresa" method="post">
-        <div class="row">
-          <div class="col-md-12">
+      <div class="row">
+        <% if(typeof usuario !="undefined"){ %>
+
+          <div class="col-5">
+            <%= usuario.nome %> 
+          </div>
+        <% } %> 
+        <div class="col-md-8">
+          <form class= "d-flex justify-content-center" action="/perfilEmpresa" method="get">
+            <input type="string" name="cpf" id="cpf" placeholder="CPF do Cliente" />
+            <button type="submit" class="btn btn-success float-right mb-3" >Buscar</button>
+          </form>
+        </div>
+        <form action="/perfilEmpresa" method="post">
+          <div class="col-md-2">
             <button type="button" class="btn btn-success float-right mb-3" onclick="cadPedido(cpf.value, material.value, peso.value, status.value)">Adicionar novos Itens</button>
           </div>
         </div>
@@ -33,17 +45,15 @@
                 <tbody>
                   <tr>
                     <th scope="row"></th>
-                    <td>
-                      <Input type="number" class="form-control" name="cpf" id="cpf" placeholder="CPF do Cliente" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" required></Input>
-                    </td>
+                    <!-- <td>
+                    </td> -->
                     <td>
                       <select class="form-select" name= material id="material" required>
                         <option selected disabled value="">Tipo</option>
-                        <option>Papel</option>
-                        <option>Vidro</option>
-                        <option>Plástico</option>
-                        <option>Metal</option>
-                        <option>Eletrônicos</option>
+                        <% materiais.forEach(material => { %>
+                          <option><%= material.tipo %> </option>
+                          <% }) %> 
+                        
                       </select>
                     </td>
                     <td>
@@ -62,9 +72,9 @@
         
 
          
-          <div class="col-md-12"></div>
+          <div class="col-md-12 mt-5"></div>
             <table id="tableshow" class="table">
-            <thead class="thead-dark">
+            <thead class="thead-light">
               <tr>
                 <th scope="col">Id</th>
                 <th scope="col">CPF Cliente</th>
@@ -75,13 +85,19 @@
             </thead>
           </table>
           <div class="row">
-            <div class="col-md-12">
+            <% if(typeof usuario !="undefined"){ %>
+
+              <input hidden type="text" name= "idCliente" value="<%= usuario.id %> ">
+              
+            <% } %> 
+            <div class="col-md-12 mb-5">
               <button type="submit" class="btn btn-success float-right mt-3">SALVAR PEDIDO</button>
             </div>
         </div>
 
         </div>
       </form>
+
     </div>
 
    

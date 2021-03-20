@@ -1,4 +1,4 @@
-const {Pedido, Usuario} = require('../models')
+const {Item, Usuario, Material} = require('../models')
 const fs = require('fs')
 const empresaController = {
   index: async(_req, res) => {
@@ -30,18 +30,39 @@ const empresaController = {
 
     // return res.render("index", {pedidos: pedidosFormatados});
   },
-  create: (req, res) => {
-    res.render("perfilEmpresa")
+  create: async (req, res) => {
+
+    const {cpf} = req.query
+
+    let usuario 
+
+    if(cpf){
+      usuario = await Usuario.findOne({ 
+        where: {
+          cpf: cpf,
+        }
+      })
+  
+    }
+    
+    const materiais = await Material.findAll()
+    res.render("perfilEmpresa", {materiais, usuario})
+    
   },
   store: async (req, res) => {
-    // const {file } = req
     const { cpf, material, peso, } = req.body
-    const pedido = await Pedido.create({
-       cpf: cpf,
-       material: material,
-       peso: peso,
+
+    
+   
+    const item = await Item.create({
+      pedido: material,
+      peso: peso,
+      
+
     })
-    if(!pedido){
+
+
+    if(!item){
       return res.send('Houve um erro ao cadastrar o pedido')
     }
       return res.redirect('/perfilEmpresa')
