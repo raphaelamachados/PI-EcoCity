@@ -1,41 +1,13 @@
 const {Item, Usuario, Material} = require('../models')
 const fs = require('fs')
 const empresaController = {
-  index: async(_req, res) => {
-    return res.render("perfilEmpresa")
-    // const pedidos = await Pedido.findAll({
-    //   include:[ 
-    //     {
-    //     model: Foto,
-    //     required: true,
-    //   },
-    //   {
-    //     model: Usuario,
-    //     required: true,
-    //   },
-    //   ],
-    //   order: [["created_at", "DESC"]]
-    // })
-
-    // const pedidosFormatados = pedidos.map((pedido) => {
-    //   const data = new Date(pedido.created_at);
-    //   const dataformatada = new Intl.DateTimeFormat("pt-BR", {
-    //     dateStyle: "medium",
-    //     timeStyle: "short",
-    //   }).format(data);
-
-    //   return { ...pedido, created_at: dataformatada };
-    // });
-       
-
-    // return res.render("index", {pedidos: pedidosFormatados});
-  },
+  // index: async(_req, res) => {
+  // },
   create: async (req, res) => {
 
+    // recebendo o cpf do front para ligar com o ID do cliente que está no banco de dados 
     const {cpf} = req.query
-
     let usuario 
-
     if(cpf){
       usuario = await Usuario.findOne({ 
         where: {
@@ -44,20 +16,19 @@ const empresaController = {
       })
   
     }
-    
+    // buscanco o material do banco de dados para e exportando para o front para apresentar no cadastro de pedido no furmulário
     const materiais = await Material.findAll()
     res.render("perfilEmpresa", {materiais, usuario})
-    
-  },
-  store: async (req, res) => {
-    const { cpf, material, peso, } = req.body
 
-    
-   
+  },
+
+  store: async (req, res) => {
+    const {idCliente, material, peso, } = req.body
+
     const item = await Item.create({
       pedido: material,
       peso: peso,
-      
+      id: idCliente,
 
     })
 

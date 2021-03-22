@@ -2,105 +2,119 @@
 <script src="./javascripts/crudEmpresa.js"></script>  
 <link rel="stylesheet" href="./css/perfilEmpresa.css">
 
- 
-    <div class="container">
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12 mt-3">
+      <h3>Cadastro
+        <small class="text-muted ">de materiais recicláveis</small>
+      </h3>
+    </div>
+  </div>
+  
+  <div class="row mt-5 my-3"> 
+    <div class="col-md-4 ">
+      <form  action="/perfilEmpresa" method="get">
+        <tbody>
+          <tr>
+            <td>
+              <!-- recebendo o cpf do cliente para que seja possivel fazer uma relação com o Id do cliente e devolver esse idp ara o backend   -->
+              <input type="string" name="cpf" id="cpf" placeholder= "Digite o CPF do Cliente" />
+              <button type="submit" class="btn btn-success ml-3  " >Buscar</button>
+            </td>
+            <td>
+            </td>
+    </div>
+            <td>
+              <div class="col-md-6 align-self-end">
+                <!-- se o usuario for emcontrato, imprimir nome do usuario -->
+                <div class="cliente" >
+                 <span> Nome do usuário: </span> 
+                   <% if(typeof usuario !="undefined"){ %>
+                    <span>
+                      <%=  usuario.nome %> 
+                    </span>
+                    <% } %> 
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </form>
+  </div>
+
+  <form action="/perfilEmpresa" method="post">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">id do usuario</th>
+              <th scope="col">Material</th>
+              <th scope="col">Peso (kg)</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td ></td>
+              <td>
+               <!-- se o usuario for emcontrato, imprimir nome do usuario  -->
+              <% if(typeof usuario !="undefined"){ %>
+                <div class="col-5">
+                <%= usuario.id %> 
+              <% } %> 
+              </td>
+              <td>
+                <!-- recebeno lista de materiais do backend (banco de dados) e imprimindo atrés de um loop -->
+                <select class="form-select" name= material id="material" required>
+                  <option selected disabled value="">Tipo</option>
+                  <% materiais.forEach(material => { %>
+                    <option><%= material.tipo %> </option>
+                    <% }) %> 
+                </select>
+              </td>
+              <td>
+                <Input type="number" class="form-control" name="peso" id="peso" placeholder="Peso do Material" step="0.10" required/>
+              </td>
+              <td>
+                
+                                <button type="button" class="btn btn-secondary" name="editar" id="editar"><i class="fas fa-edit"></i></button>
+                                <button type="button" class="btn btn-danger" name="deletar" id="deletar"><i class="fas fa-trash"></i></button>
+                <button type="button" class="btn btn-success float-right mb-2" onclick="cadPedido(idCliente.value, material.value, peso.value, editar.value, deletar.value)">Adicionar novos Itens</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+     <!-- Apresentação dos pedidos adicionados na tela -->
+      <table id="tableshow" class="table">
+        <div class="col-md-12">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">ID do usuario</th>
+              <th scope="col">Material</th>
+              <th scope="col">Peso (kg)</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+      </table>
       <div class="row">
-        <div class="col-md-12 mt-3">
-          <h3>Cadastro
-            <small class="text-muted ">de materiais recicláveis</small>
-          </h3>
+        <!-- --------------------passando o id do cliente para o backend, porém dixando oculto no front ------------------- -->
+              <% if(typeof usuario !="undefined"){ %>
+                <input hidden type="text" name="idCliente" value="<%= usuario.id %> ">
+              <% } %> 
+        <div class="col-md-12 mb-5">
+          <button type="submit" class="btn btn-success float-right mt-3">SALVAR PEDIDO</button>
         </div>
       </div>
-      <div class="row">
-        <% if(typeof usuario !="undefined"){ %>
-
-          <div class="col-5">
-            <%= usuario.nome %> 
-          </div>
-        <% } %> 
-        <div class="col-md-8">
-          <form class= "d-flex justify-content-center" action="/perfilEmpresa" method="get">
-            <input type="string" name="cpf" id="cpf" placeholder="CPF do Cliente" />
-            <button type="submit" class="btn btn-success float-right mb-3" >Buscar</button>
-          </form>
-        </div>
-        <form action="/perfilEmpresa" method="post">
-          <div class="col-md-2">
-            <button type="button" class="btn btn-success float-right mb-3" onclick="cadPedido(cpf.value, material.value, peso.value, status.value)">Adicionar novos Itens</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="table-responsive-md">
-              <table class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">CPF Cliente</th>
-                    <th scope="col">Material</th>
-                    <th scope="col">Peso (kg)</th>
-                    <th scope="col">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row"></th>
-                    <!-- <td>
-                    </td> -->
-                    <td>
-                      <select class="form-select" name= material id="material" required>
-                        <option selected disabled value="">Tipo</option>
-                        <% materiais.forEach(material => { %>
-                          <option><%= material.tipo %> </option>
-                          <% }) %> 
-                        
-                      </select>
-                    </td>
-                    <td>
-                      <Input type="number" class="form-control" name="peso" id="peso" placeholder="Peso do Material" step="0.10" required/>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-secondary" name="editar" id="editar"><i class="fas fa-edit"></i></button>
-                      <button type="button" class="btn btn-danger" name="deletar" id="deletar"><i class="fas fa-trash"></i></button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        
-
-         
-          <div class="col-md-12 mt-5"></div>
-            <table id="tableshow" class="table">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">CPF Cliente</th>
-                <th scope="col">Material</th>
-                <th scope="col">Peso (kg)</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-          </table>
-          <div class="row">
-            <% if(typeof usuario !="undefined"){ %>
-
-              <input hidden type="text" name= "idCliente" value="<%= usuario.id %> ">
-              
-            <% } %> 
-            <div class="col-md-12 mb-5">
-              <button type="submit" class="btn btn-success float-right mt-3">SALVAR PEDIDO</button>
-            </div>
-        </div>
-
-        </div>
-      </form>
-
-    </div>
+  </form>
+</div>
 
    
-  <!-- <script src="./javascripts/crudEmpresa.js"></script>    -->
 <%- include('./partials/footer') %>
    
