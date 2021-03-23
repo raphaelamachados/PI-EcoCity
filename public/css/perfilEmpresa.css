@@ -32,3 +32,14 @@ td{
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 } 
 
+.cliente span:first-child{
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+.cliente span:last-child{
+    font-size: 1.2rem;
+    color: #6c757d;
+    font-weight: bold;
+}
+

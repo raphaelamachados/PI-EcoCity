@@ -1,47 +1,39 @@
-const {Pedido, Usuario} = require('../models')
+const {Item, Usuario, Material} = require('../models')
 const fs = require('fs')
 const empresaController = {
-  index: async(_req, res) => {
-    return res.render("perfilEmpresa")
-    // const pedidos = await Pedido.findAll({
-    //   include:[ 
-    //     {
-    //     model: Foto,
-    //     required: true,
-    //   },
-    //   {
-    //     model: Usuario,
-    //     required: true,
-    //   },
-    //   ],
-    //   order: [["created_at", "DESC"]]
-    // })
+  // index: async(_req, res) => {
+  // },
+  create: async (req, res) => {
 
-    // const pedidosFormatados = pedidos.map((pedido) => {
-    //   const data = new Date(pedido.created_at);
-    //   const dataformatada = new Intl.DateTimeFormat("pt-BR", {
-    //     dateStyle: "medium",
-    //     timeStyle: "short",
-    //   }).format(data);
+    // recebendo o cpf do front para ligar com o ID do cliente que está no banco de dados 
+    const {cpf} = req.query
+    let usuario 
+    if(cpf){
+      usuario = await Usuario.findOne({ 
+        where: {
+          cpf: cpf,
+        }
+      })
+  
+    }
+    // buscanco o material do banco de dados para e exportando para o front para apresentar no cadastro de pedido no furmulário
+    const materiais = await Material.findAll()
+    res.render("perfilEmpresa", {materiais, usuario})
 
-    //   return { ...pedido, created_at: dataformatada };
-    // });
-       
-
-    // return res.render("index", {pedidos: pedidosFormatados});
   },
-  create: (req, res) => {
-    res.render("perfilEmpresa")
-  },
+
   store: async (req, res) => {
-    // const {file } = req
-    const { cpf, material, peso, } = req.body
-    const pedido = await Pedido.create({
-       cpf: cpf,
-       material: material,
-       peso: peso,
+    const {idCliente, material, peso, } = req.body
+
+    const item = await Item.create({
+      pedido: material,
+      peso: peso,
+      id: idCliente,
+
     })
-    if(!pedido){
+
+
+    if(!item){
       return res.send('Houve um erro ao cadastrar o pedido')
     }
       return res.redirect('/perfilEmpresa')

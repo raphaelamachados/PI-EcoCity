@@ -17,7 +17,13 @@ module.exports = (sequelize, DataTypes) => {
         tableName: "empresa-coletora",
         timestamps: false,
       }
-    );
+    )
+    empresa_coletora.associate = (models) => {
+      empresa_coletora.hasMany(models.Item, {
+      foreignKey: "item_id",
+      as: "item",
+    })
+  }
   
     return empresa_coletora;
   };

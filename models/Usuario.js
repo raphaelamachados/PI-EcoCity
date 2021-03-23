@@ -22,6 +22,13 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: true,
       }
     );
+
+    usuario.associate = (models) => {
+      usuario.hasMany(models.Item, {
+      foreignKey: "item_id",
+      as: "item",
+    })
+  }
   
-    return usuario;
-  };
+    return usuario
+}
