@@ -13,6 +13,7 @@ router.get('/', pagesController.index)
 router.get('/sobrenos', pagesController.sobrenos)
 router.get('/coleta', pagesController.coleta)
 router.get('/menu', pagesController.menu)
+router.get('/adm', pagesController.adm)
 
 router.get('/login', authController.create)
 router.post('/login', authController.store)

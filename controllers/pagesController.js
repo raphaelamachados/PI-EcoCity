@@ -23,5 +23,8 @@ const pagesController = {
     menu: (_req,res) => {
         return res.render("menu")
     },
+    adm: (_req,res) => {
+        return res.render("adm")
+    },
 }
 module.exports = pagesController
