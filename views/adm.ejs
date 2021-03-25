@@ -1,0 +1,120 @@
+<%- include('./partials/header') %>
+<link rel="stylesheet" href="./css/adm.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <h1 >Pagina do ADM</h1>
+      </div>
+    </div>
+    <form action="/adm" method="post">
+      <div class="row">
+        <div class="col-md-12">
+          <br/>
+          <br/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive-md">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  
+                  <td >
+                    <Input type="number" class="form-control" name="id" id="id" placeholder="id desejado" step="0.10" required/>
+                    </td>
+                    <td>
+                      <select class="form-select" name= Tipo id="tipo" required>
+                          <option selected disabled value="">Cliente/Empresa</option>
+                          <option>Cliente</option>
+                          <option>Empresa</option>
+                        </select>  
+                    </td>
+                    <td>
+                      <Input type="name" class="form-control" name="nome" id="nome" placeholder="Insira o nome" step="0.10" required/>
+                    </td>
+                    <td>
+                      <Input type="email" class="form-control" name="email" id="email" placeholder="Insira o email" step="0.10" required/>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-success col-lg">Filtrar</button>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            
+          </div>
+        </div>
+      </div>
+      
+
+       
+        <div class="col-md-12"></div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Email</th>
+            </tr>
+
+            <tr>
+              <th><input type="number" id="txtColuna1" placeholder="id desejado"/></th>
+              <th><input type="text" id="txtColuna2" placeholder="Insira Cliente/Empresa"/></th>
+              <th><input type="text" id="txtColuna3" placeholder="Insira o nome"/></th>
+              <th><input type="email" id="txtColuna4" placeholder="Insira o email"/></th>
+          </tr>  
+
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Cliente</td>
+              <td>Otavio</td>
+              <td>@uol</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Empresa</td>
+              <td>Rafael</td>
+              <td>@hotmail</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Empresa</td>
+              <td>Marcos</td>
+              <td>@gmail</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      </div>
+    </form>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include('./partials/footer') %>

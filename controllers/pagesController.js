@@ -23,7 +23,13 @@ const pagesController = {
         console.log(usuario)
         return res.render("perfilUsuario", {usuario})
     },
+<<<<<<< HEAD
 
     
+=======
+    adm: (_req,res) => {
+        return res.render("adm")
+    },
+>>>>>>> d7816107828da5f50cdacc5f4b459a79ba54ea29
 }
 module.exports = pagesController
