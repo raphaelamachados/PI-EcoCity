@@ -1,8 +1,7 @@
 const {Item, Usuario, Material} = require('../models')
 const fs = require('fs')
 const empresaController = {
-  // index: async(_req, res) => {
-  // },
+ 
   create: async (req, res) => {
 
     // recebendo o cpf do front para ligar com o ID do cliente que está no banco de dados 
@@ -26,17 +25,17 @@ const empresaController = {
     const {idCliente, material, peso, } = req.body
 
     const item = await Item.create({
-      pedido: material,
+      material_id: material,
       peso: peso,
       id: idCliente,
 
     })
 
-
     if(!item){
       return res.send('Houve um erro ao cadastrar o pedido')
     }
-      return res.redirect('/perfilEmpresa')
+    return res.redirect('/perfilEmpresa')
+    console.log(item)
   },
 };
 

@@ -19,9 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       }
     )
     empresa_coletora.associate = (models) => {
-      empresa_coletora.hasMany(models.Item, {
-      foreignKey: "item_id",
-      as: "item",
+      empresa_coletora.hasMany(models.Pedido, {
+      foreignKey: "empresa_coletora_id",
+      
     })
   }
   

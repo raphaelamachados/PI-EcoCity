@@ -1,22 +1,22 @@
 
 module.exports = (sequelize, DataTypes) => {
-    const materiais = sequelize.define(
+    const material = sequelize.define(
       "Material",
       {
         tipo: DataTypes.STRING,
         pontos_por_peso: DataTypes.NUMBER,
       },
       {
-        tableName: "materiais",
+        tableName: "material",
         timestamps: false,
       }
     );
-    materiais.associate = (models) => {
-      materiais.hasMany(models.Item, {
-      foreignKey: "item_id",
-      as: "item",
+    material.associate = (models) => {
+      material.hasMany(models.Item, {
+      foreignKey: "meterial_id",
+      
     })
   }
   
-    return materiais
+    return material
 }

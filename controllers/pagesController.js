@@ -1,3 +1,4 @@
+const { Usuario } = require('../models')
 const pagesController = {
     index: (_req, res) => {
        return res.render("index")
@@ -14,14 +15,15 @@ const pagesController = {
     sobrenos: (_req,res) => {
         return res.render("sobrenos")
     },
-    perfilUsuario: (_req,res) => {
-        return res.render("perfilUsuario")
+    perfilUsuario: async(_req,res) => {
+        const usuario = await Usuario.findAll({
+
+        })
+        
+        console.log(usuario)
+        return res.render("perfilUsuario", {usuario})
     },
-    perfilEmpresa: (_req,res) => {
-        return res.render("perfilEmpresa")
-    },
-    menu: (_req,res) => {
-        return res.render("menu")
-    },
+
+    
 }
 module.exports = pagesController

@@ -26,19 +26,38 @@ main .container{
     background-color: white; 
     border-radius: 10px;
 }
+section.img {
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 section img.upload_image {
-    width:70%;
+    width:20%;
 }
-section.img a {
-    margin-top: 30px;
+section.img img.upload-image {
+    /* background-color:green; */
+    /* align-self: center; */
+    justify-self: center;
+}
+.control-label {
+    margin-top: 20px;
     text-align: center;
-    font-size:16px;
-    color: #263238
+    color: #263238;
+    font-weight: bold;
 }
-section a:hover{
-    text-decoration: none;
-    color:#446577;
+div.form-group {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
 }
+.control-label:hover {
+    cursor: pointer;
+}
+
 
 section {
     width:50%;
@@ -48,9 +67,7 @@ section {
     align-items: center;
     flex-direction: column;
 }
-.img-phone{
-    display: none
-}
+
 
 section .form{
     display: flex;
@@ -77,7 +94,6 @@ button.cliente{
     border-radius: 10px 0 0 10px;
     margin-right:-2px;
     width:50%;
-    /* height:30px; */
 }
 button.empresa{
     color: #263238;
@@ -86,28 +102,29 @@ button.empresa{
     margin-left:-2px;
     border-radius:0 10px 10px 0;
     width:50%;
-    /* height:30px; */
     
 }
 
-section form {
+section .form-input {
    display: flex;
    flex-direction: column;
+   align-items: center;
 }
 
-form input {
+.form-input input {
     
     border-radius: 10px;
     background-color: rgba(205, 216, 187, 0.6);
     border:none;
+    width: 100%;
     padding: 6px;
     height:35px;
     
 }
-input.nome{
+.form-input input.nome{
     margin: 10px 0;
 }
-input.email, .cpf, .senha {
+.form-input input.email, .cpf, .senha {
     margin-bottom: 10px;
 }
 
@@ -115,16 +132,16 @@ input.email, .cpf, .senha {
     color: rgba(38, 50, 56, 0.35);
  }
 
-form input:focus{
+ .form-input  input:focus{
     outline: none;
     border-radius:10px;border:1px solid rgba(38, 50, 56, 0.45);
 }
-section p{
+/* section p{
     margin-bottom: 2px;
     font-size:.7rem;
-}
+} */
 
-form button {
+.form-input button {
     align-self: center;
     background-color:#7CB13E;
     color:white;
@@ -132,9 +149,10 @@ form button {
     border-radius:10px;
     height: 30px;
     width: 290px;
+    margin-bottom: 10px;
 }
 
-form button:focus{
+.form-input button:focus{
     outline: none;
     border-radius:10px;border:1px solid #547a27;
 }
@@ -144,7 +162,7 @@ form button:focus{
         max-height: 100%;
      }
     
-     form button {
+     .form-input button {
         
         width: 200px;
     }
@@ -153,7 +171,7 @@ form button:focus{
 
 
 
-@media (max-width: 576px) { 
+@media (max-width: 576px) {     
 
     main .container {
         display: flex;
@@ -198,15 +216,15 @@ form button:focus{
       section form {
         width:100%;
      }  
-     form button {
+     .form-input button { 
         width: 100%;
         margin-bottom: 20px;
     } 
 
   
-footer{
-    display: none;
-}
+    footer{
+        display: none;
+    }
 
 
 } 

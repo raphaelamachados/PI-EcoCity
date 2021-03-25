@@ -69,7 +69,7 @@
               </td>
               <td>
                 <!-- recebeno lista de materiais do backend (banco de dados) e imprimindo atrés de um loop -->
-                <select class="form-select" name= material id="material" required>
+                <select class="form-select" name= material id="material" >
                   <option selected disabled value="">Tipo</option>
                   <% materiais.forEach(material => { %>
                     <option><%= material.tipo %> </option>
@@ -77,7 +77,7 @@
                 </select>
               </td>
               <td>
-                <Input type="number" class="form-control" name="peso" id="peso" placeholder="Peso do Material" step="0.10" required/>
+                <Input type="number" class="form-control" name="peso" id="peso" placeholder="Peso do Material" step="0.10" />
               </td>
               <td>
                 

@@ -9,9 +9,14 @@ module.exports = (sequelize, DataTypes) => {
       },
       {
         tableName: "empresa-parceira",
-        timestamps: false,
+        timestamps: true,
       }
-    );
-  
+    )
+     empresa_parceira.associate = (models) => {
+     empresa_parceira.hasMany(models.Voucher, {
+      foreignKey: "empresa_parceira_id",
+      
+    })
+  }
     return empresa_parceira;
-  };
+  }

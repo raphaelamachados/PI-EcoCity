@@ -24,9 +24,13 @@ module.exports = (sequelize, DataTypes) => {
     );
 
     usuario.associate = (models) => {
-      usuario.hasMany(models.Item, {
-      foreignKey: "item_id",
-      as: "item",
+      usuario.hasMany(models.Pedido, {
+      foreignKey: "usuario_id",
+      
+    })
+      usuario.hasMany(models.Voucher, {
+      foreignKey: "usuario_id",
+      
     })
   }
   

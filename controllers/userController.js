@@ -1,25 +1,29 @@
 const { Usuario } = require('../models')
 const Bcrypt = require('bcrypt')
+const fs = require('fs')
 
 const userController = {
-    create: (_req, res) => res.render("cadastro"),
+    create: async (_req, res) => {
+        res.render("cadastro")
+    },
+   
     store: async(req,res) => {
         const {file } = req
-        console.log(file)
-        const { name, username, email, password, } = req.body
+        const { name, cpf, email, password, } = req.body
         
         const usuario = await Usuario.create({
             nome: name,
-            username: username,
+            cpf: cpf,
             email: email,
             senha: Bcrypt.hashSync(password, 10),
+            imagem: file.filename, 
         })
     if(!usuario) {
-            return res.send("houve um erro ao salvar o usuario")
+        fs.unlinkSync(file.path)
+        return res.send("houve um erro ao salvar o usuario")
     }
-       
  
-    return res.redirect("/login")
+        return res.redirect("/login")
     },
 }
 
