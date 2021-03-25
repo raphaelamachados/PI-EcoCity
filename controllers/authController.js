@@ -3,7 +3,7 @@ const Bcrypt = require("bcrypt")
 
 const authController = {
     create: (_req, res) => res.render("login"),
-    store: async (req, res) => {
+    login: async (req, res) => {
         const { email, password } = req.body
 
         const usuario = await Usuario.findOne({ 
@@ -11,11 +11,9 @@ const authController = {
                 email,
             },
         })
-
         if (!usuario) {
             return res.send("Usuário ou senha inválidos")
         }
-
         if (!Bcrypt.compareSync(password, usuario.senha)) {
             return res.send("Usuário ou senha inválidos")
         }

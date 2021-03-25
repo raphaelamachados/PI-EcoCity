@@ -64,7 +64,8 @@
                <!-- se o usuario for emcontrato, imprimir nome do usuario  -->
               <% if(typeof usuario !="undefined"){ %>
                 <div class="col-5">
-                <%= usuario.id %> 
+                  <input type="text" name="idCliente" value="<%= usuario.id %> ">
+                
               <% } %> 
               </td>
               <td>
@@ -72,7 +73,7 @@
                 <select class="form-select" name= material id="material" >
                   <option selected disabled value="">Tipo</option>
                   <% materiais.forEach(material => { %>
-                    <option><%= material.tipo %> </option>
+                    <option value=<%=material.id %>><%= material.tipo %> </option>
                     <% }) %> 
                 </select>
               </td>
@@ -81,9 +82,9 @@
               </td>
               <td>
                 
-                                <button type="button" class="btn btn-secondary" name="editar" id="editar"><i class="fas fa-edit"></i></button>
-                                <button type="button" class="btn btn-danger" name="deletar" id="deletar"><i class="fas fa-trash"></i></button>
-                <button type="button" class="btn btn-success float-right mb-2" onclick="cadPedido(idCliente.value, material.value, peso.value, editar.value, deletar.value)">Adicionar novos Itens</button>
+                  <!-- <button type="button" class="btn btn-secondary" name="editar" id="editar"><i class="fas fa-edit"></i></button>
+                  <button type="button" class="btn btn-danger" name="deletar" id="deletar"><i class="fas fa-trash"></i></button> -->
+                <button type="button" class="btn btn-success float-right mb-2" onclick="cadPedido(idCliente.value, material.value, peso.value, )">Adicionar novos Itens</button>
               </td>
             </tr>
           </tbody>
@@ -105,11 +106,9 @@
       </table>
       <div class="row">
         <!-- --------------------passando o id do cliente para o backend, porém dixando oculto no front ------------------- -->
-              <% if(typeof usuario !="undefined"){ %>
-                <input hidden type="text" name="idCliente" value="<%= usuario.id %> ">
-              <% } %> 
+            
         <div class="col-md-12 mb-5">
-          <button type="submit" class="btn btn-success float-right mt-3">SALVAR PEDIDO</button>
+          <button type="submit" class="btn btn-success float-right mt-3" >SALVAR PEDIDO</button>
         </div>
       </div>
   </form>

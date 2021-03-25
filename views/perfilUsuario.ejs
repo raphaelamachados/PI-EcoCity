@@ -6,9 +6,9 @@
     <div class="container">
       <div class class="header-container">
         <section class="imagem" >
-          <img src="./images/faixa_perfil_usuario.png" alt="faixa_perfil_usuario" class="faixa_perfil_usuario">
+          <img src="/images/faixa_perfil_usuario.png" alt="faixa_perfil_usuario" class="faixa_perfil_usuario">
           <article class="usuario">
-            <img src="./post/<%= usuario.imagem %> " alt="upload_imagem" class="foto"> 
+            <img src="/post/<%=usuario.imagem %>" alt="upload_imagem" class="foto"> 
             <h1> <%= user.nome %>  </h1>
           </article>
         </section>
@@ -19,7 +19,7 @@
             <div class="content">
               <img class="small-logo" src="./images/recicling-img.png" alt="recicling-card">
               <h3>Reciclagem</h3>
-              <h2>500 pts</h2>
+              <h2><%= usario.pontuacao %> </h2>
               <div class="bar"> 
                 <div class ="progress-bar"> 
                   <span>65</span>

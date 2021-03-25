@@ -1,4 +1,4 @@
-const {Item, Usuario, Material} = require('../models')
+const {Item, Usuario, Material, Pedido} = require('../models')
 const fs = require('fs')
 const empresaController = {
  
@@ -13,7 +13,6 @@ const empresaController = {
           cpf: cpf,
         }
       })
-  
     }
     // buscanco o material do banco de dados para e exportando para o front para apresentar no cadastro de pedido no furmulário
     const materiais = await Material.findAll()
@@ -23,13 +22,29 @@ const empresaController = {
 
   store: async (req, res) => {
     const {idCliente, material, peso, } = req.body
-
+    const pedido = await Pedido.create({
+      usuario_id: idCliente
+    })
     const item = await Item.create({
       material_id: material,
       peso: peso,
-      id: idCliente,
+      pedido_id: pedido.id,
+      
 
     })
+    const tabelaMaterial = await Material.findByPk(material) 
+    const tabelaUsuario = await Usuario.findByPk(idCliente) 
+    const pontos = tabelaMaterial.pontos_por_peso * peso
+    const usuario = await Usuario.update({
+      pontuacao: tabelaUsuario.pontuacao + pontos
+      
+    }, {
+      where: {
+        id: idCliente
+      }
+    }) 
+
+
 
     if(!item){
       return res.send('Houve um erro ao cadastrar o pedido')

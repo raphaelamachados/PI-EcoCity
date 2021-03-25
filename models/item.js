@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     })
         item.belongsTo(models.Material, {
         foreignKey: "material_id",
-        
       })
       
   }

@@ -15,16 +15,18 @@ const pagesController = {
     sobrenos: (_req,res) => {
         return res.render("sobrenos")
     },
-    perfilUsuario: async(_req,res) => {
-        const usuario = await Usuario.findAll({
-
-        })
+    perfilUsuario: async(req,res) => {
+        const { id } = req.session
+        const usuario = await Usuario.findByPk(id)
         
-        console.log(usuario)
+        
         return res.render("perfilUsuario", {usuario})
     },
     adm: (_req,res) => {
         return res.render("adm")
+    },
+    menu: (_req,res) => {
+        return res.render("menu")
     },
 }
 module.exports = pagesController
