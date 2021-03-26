@@ -18,10 +18,20 @@ const userController = {
             senha: Bcrypt.hashSync(password, 10),
             imagem: file.filename, 
         })
+
+        // if (email === usuario.email){
+        //     // alert("Usuário já cadastrado")
+        //     return res.send("Email já cadastrado")
+            
+        // }
+
         if(!usuario) {
             fs.unlinkSync(file.path)
             return res.send("houve um erro ao salvar o usuario")
+        } else {
+            alert("usuario cadastrado com sucesso")
         }
+
        
         return res.redirect("/login")
     },

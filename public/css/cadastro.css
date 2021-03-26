@@ -110,7 +110,7 @@ section .form-input {
    align-items: center;
 }
 
-.form-input input {
+.form-input.cliente input {
     
     border-radius: 10px;
     background-color: rgba(205, 216, 187, 0.6);
@@ -120,10 +120,23 @@ section .form-input {
     height:35px;
     
 }
+
+.form-input.empresa input {
+    
+    border-radius: 10px;
+    background-color: rgba(205, 216, 187, 0.6);
+    border:none;
+    width: 100%;
+    padding: 6px;
+    height:25px;
+    
+}
+
+
 .form-input input.nome{
     margin: 10px 0;
 }
-.form-input input.email, .cpf, .senha {
+.form-input input.email, .cpf, .senha, .cep, .cnpj {
     margin-bottom: 10px;
 }
 

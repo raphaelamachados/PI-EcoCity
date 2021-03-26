@@ -1,5 +1,5 @@
 <%- include('./partials/header') %>
-<script src="./javascripts/crudEmpresa.js"></script>  
+
 <link rel="stylesheet" href="./css/perfilEmpresa.css">
 
 
@@ -44,7 +44,7 @@
       </form>
   </div>
 
-  <form action="/perfilEmpresa" method="post">
+  <form action="/perfilEmpresa" id="form-empresa" method="post">
     <div class="row">
       <div class="col-md-12">
         <table class="table">
@@ -64,6 +64,7 @@
                <!-- se o usuario for emcontrato, imprimir nome do usuario  -->
               <% if(typeof usuario !="undefined"){ %>
                 <div class="col-5">
+                   <!-- --------------------passando o idCcliente para o backend, ------------------- -->
                   <input type="text" name="idCliente" value="<%= usuario.id %> ">
                 
               <% } %> 
@@ -82,9 +83,9 @@
               </td>
               <td>
                 
-                  <!-- <button type="button" class="btn btn-secondary" name="editar" id="editar"><i class="fas fa-edit"></i></button>
-                  <button type="button" class="btn btn-danger" name="deletar" id="deletar"><i class="fas fa-trash"></i></button> -->
-                <button type="button" class="btn btn-success float-right mb-2" onclick="cadPedido(idCliente.value, material.value, peso.value, )">Adicionar novos Itens</button>
+                  <!-- <button type="button" class="btn btn-secondary" name="editar" id="editar"><i class="fas fa-edit"></i></button> -->
+                  <!-- <button type="button" class="btn btn-danger" name="deletar" id="deletar"><i class="fas fa-trash"></i></button> -->
+                <button type="button" class="btn btn-success float-right mb-2" onclick="cadPedido(idCliente.value, material.value, peso.value, material[material.selectedIndex].text)">Adicionar novos Itens</button>
               </td>
             </tr>
           </tbody>
@@ -92,7 +93,7 @@
       </div>
     </div>
      <!-- Apresentação dos pedidos adicionados na tela -->
-      <table id="tableshow" class="table">
+      <table  class="table">
         <div class="col-md-12">
           <thead class="thead-light">
             <tr>
@@ -103,12 +104,15 @@
               <th scope="col">Status</th>
             </tr>
           </thead>
+          <tbody id="tableshow">
+           
+          </tbody >
       </table>
       <div class="row">
-        <!-- --------------------passando o id do cliente para o backend, porém dixando oculto no front ------------------- -->
+       
             
         <div class="col-md-12 mb-5">
-          <button type="submit" class="btn btn-success float-right mt-3" >SALVAR PEDIDO</button>
+          <button type="submit" id="enviar" class="btn btn-success float-right mt-3" >SALVAR PEDIDO</button>
         </div>
       </div>
   </form>
@@ -116,4 +120,4 @@
 
    
 <%- include('./partials/footer') %>
-   
+<script src="./javascripts/crudEmpresa.js"></script>  

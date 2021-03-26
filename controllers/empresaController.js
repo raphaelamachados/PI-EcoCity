@@ -21,20 +21,27 @@ const empresaController = {
   },
 
   store: async (req, res) => {
-    const {idCliente, material, peso, } = req.body
+    const {idCliente, material, peso, listMateriais, listPeso } = req.body
+    console.log(listMateriais, listPeso)
+
+    
     const pedido = await Pedido.create({
       usuario_id: idCliente
     })
-    const item = await Item.create({
-      material_id: material,
-      peso: peso,
-      pedido_id: pedido.id,
-      
 
+    const itens = listMateriais.map( (material, index) => {
+      return {material_id: material, peso: listPeso[index],  pedido_id: pedido.id }
     })
+
+    console.log(itens)
+    const item = await Item.bulkCreate(itens)
+
+
     const tabelaMaterial = await Material.findByPk(material) 
     const tabelaUsuario = await Usuario.findByPk(idCliente) 
-    const pontos = tabelaMaterial.pontos_por_peso * peso
+
+
+    const pontos = _contadorDePontos(listMaterias)
     const usuario = await Usuario.update({
       pontuacao: tabelaUsuario.pontuacao + pontos
       
@@ -52,6 +59,11 @@ const empresaController = {
     return res.redirect('/perfilEmpresa')
     console.log(item)
   },
+  
 };
+
+function _contadorDePontos(){
+
+}
 
 module.exports = empresaController;

@@ -15,12 +15,12 @@ const pagesController = {
     sobrenos: (_req,res) => {
         return res.render("sobrenos")
     },
-    perfilUsuario: async(_req,res) => {
-        // const { id } = req.session
-        // const usuario = await Usuario.findByPk(id)
-        const usuario = await Usuario.findAll({
+    perfilUsuario: async(req,res) => {
+        const { id } = req.session.user
+        const usuario = await Usuario.findByPk(id)
+        // const usuario = await Usuario.findAll({
 
-        })
+        // })
         
         console.log(usuario)
         return res.render("perfilUsuario", {usuario})

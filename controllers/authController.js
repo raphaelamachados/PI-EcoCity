@@ -18,6 +18,10 @@ const authController = {
             return res.send("Usuário ou senha inválidos")
         }
 
+        if (usuario.email == "admin@admin.com"){
+            return res.redirect("/adm")
+        }
+
         req.session.user = {
             id: usuario.id,
             nome: usuario.nome,
