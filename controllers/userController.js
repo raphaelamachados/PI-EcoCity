@@ -18,11 +18,11 @@ const userController = {
             senha: Bcrypt.hashSync(password, 10),
             imagem: file.filename, 
         })
-    if(!usuario) {
-        fs.unlinkSync(file.path)
-        return res.send("houve um erro ao salvar o usuario")
-    }
- 
+        if(!usuario) {
+            fs.unlinkSync(file.path)
+            return res.send("houve um erro ao salvar o usuario")
+        }
+       
         return res.redirect("/login")
     },
 }

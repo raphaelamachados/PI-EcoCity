@@ -3,7 +3,7 @@ const Bcrypt = require("bcrypt")
 
 const authController = {
     create: (_req, res) => res.render("login"),
-    login: async (req, res) => {
+    store: async (req, res) => {
         const { email, password } = req.body
 
         const usuario = await Usuario.findOne({ 

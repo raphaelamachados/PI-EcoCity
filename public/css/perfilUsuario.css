@@ -115,7 +115,7 @@ div.card{
     position: absolute;
     top: -20px;
 }
-.bar{
+/* .bar{
     width:90%;
     border-radius: 5px;;
     background-color:white;
@@ -138,7 +138,7 @@ div.card{
     justify-content: flex-end;
     position: relative;
     top: -5px;
-}
+} */
 
 div.card span{
     color: #263238;
@@ -331,7 +331,7 @@ img.arrow:hover{
         margin-top: -10px;
     }
 
-    .bar{
+    /* .bar{
         margin-top: 5px;
         position: relative;
         top: 10px;
@@ -339,7 +339,7 @@ img.arrow:hover{
     
     .bar span {
         font-size: .8rem;
-    }
+    } */
     
     div.historico {
         display:none;

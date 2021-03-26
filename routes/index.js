@@ -18,7 +18,7 @@ router.get('/menu', pagesController.menu)
 router.get('/adm', pagesController.adm)
 
 router.get('/login', authController.create)
-router.post('/login', authController.login)
+router.post('/login', authController.store)
 
 
 router.get('/cadastro', userController.create)

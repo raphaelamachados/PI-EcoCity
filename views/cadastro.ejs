@@ -2,36 +2,35 @@
 <link rel="stylesheet" href="./css/cadastro.css">
 <main>
   <div class="container">
-       <section class="img" >
+            <section class="img" >
           <form action="/cadastro" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-              <img src="./images/upload_image.png" alt="upload_image" class="upload-image">
-              <label for="fupload" class="control-label label-bordered">Clique aqui <br> para escolher um arquivo</label>
-              <div class="nomeArquivo"></div>
-              <input  hidden type="file" id="fupload" name="fupload" class="fupload form-control" />
-          </div>
-        </section>
-        
- 
-        <section>
-          <div class="form">
-              <h1>Cadastro</h1>
-              <p>Escolha uma opção</p>
-              <div class="escolha">
-                <button class="cliente" type="submit" name="button">Cliente</button>
-                <button class="empresa"type="submit" name="button">Empresa</button>
+                <div class="form-group">
+                  <img src="./images/upload_image.png" alt="upload_image" class="upload-image">
+                  <label for="fupload" class="control-label label-bordered"><strong>Clique aqui</strong> <br> para escolher um arquivo</label>
+                  <div class="nomeArquivo"></div>
+                  <input hidden type="file" id="fupload" name="foto" class="fupload form-control" />
               </div>
-              
-              <div class= "form-input" >
-                  <input class = "nome" type="text" id="nome" name="name" placeholder="Nome">
-                  <input class = "cpf" type="text" id="cpf" name="cpf" placeholder="Cpf">
-                  <input class = "email" type="text" id="email" name="email" placeholder="E-mail">
-                  <input class = "senha" type="password" id="senha" name="password" placeholder="Senha" >
-                 
-                  <button type="submit" name="button">ENVIAR CADASTRO</button>
-              </div>
-              </form>
-          </div>
+            </section>
+    
+            <section>
+              <div class="form">
+                  <h1>Cadastro</h1>
+                  <p>Escolha uma opção</p>
+                  <div class="escolha">
+                    <button class="cliente" type="submit" name="button">Cliente</button>
+                    <button class="empresa"type="submit" name="button">Empresa</button>
+                  </div>
+                  
+                  <div class= "form-input" >
+                      <input class = "nome" type="text" id="nome" name="name" placeholder="Nome">
+                      <input class = "cpf" type="text" id="cpf" name="cpf" placeholder="Cpf">
+                      <input class = "email" type="text" id="email" name="email" placeholder="E-mail">
+                      <input class = "senha" type="password" id="senha" name="password" placeholder="Senha" >
+                    
+                      <button type="submit" name="button">ENVIAR CADASTRO</button>
+                    </div>
+                  </div>
+                </form>
         </section>
       
       </div>
