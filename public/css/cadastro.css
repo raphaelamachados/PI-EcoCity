@@ -87,22 +87,33 @@ section h1 {
     width: 100%;
 }
 button.cliente{
-    color: white;
-    background-color: #263238;
+    /* color: white;
+    background-color: #263238; */
     border: none;
     border-radius: 10px 0 0 10px;
     margin-right:-2px;
     width:50%;
 }
-button.empresa{
-    color: #263238;
-    background-color: rgba(205, 216, 187, 0.6);
+
+.darkMode{
+    color: white;
+    background-color: #263238;
+}
+.hidden{
+    display: none;
+}
+
+
+.button{
+    /* color: #263238;
+    background-color: rgba(205, 216, 187, 0.6); */
     border: none;
     margin-left:-2px;
     border-radius:0 10px 10px 0;
     width:50%;
     
 }
+
 
 section .form-input {
    display: flex;

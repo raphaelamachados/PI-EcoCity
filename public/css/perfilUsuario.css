@@ -58,6 +58,7 @@ img.foto{
     position: relative;
     top:-70px;
     left: 20px;
+    border-radius: 85px;
 }
 
 article.usuario h1{

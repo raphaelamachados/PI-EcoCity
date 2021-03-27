@@ -2,7 +2,7 @@
 //     this.value = parseFloat(this.value).toFixed(2);
 //  });
 const formSalvarPedido =  document.querySelector('#form-empresa')
- function cadPedido(idCliente, materialId, peso, materialNome, editar, deletar) {
+ function cadPedido(idCliente, materialId, peso, materialNome, ) {
     var tb = document.getElementById("tableshow");
     var qtdLinhas = tb.rows.length;
     var linha = tb.insertRow(qtdLinhas);
@@ -21,13 +21,16 @@ const formSalvarPedido =  document.querySelector('#form-empresa')
     
     cellId.innerHTML = qtdLinhas+1;
     cellIdCliente.innerHTML = idCliente;
+
+  //  alem da celula que é visualizada pelo cliente(cellMAterial) também é criado e enviado um input para o front (listMateriais)
     cellMaterial.innerHTML = materialNome;
     const listMateriais = document.createElement('input')
     listMateriais.setAttribute('name', 'listMateriais')
     listMateriais.value = materialId
     listMateriais.setAttribute('hidden', true)
-
     formSalvarPedido.appendChild(listMateriais)
+
+  //  alem da celula que é visualizada pelo cliente(cellPeso) também é criado e enviado um input para o front (listPeso)
     cellPeso.innerHTML = peso;
     const listPeso = document.createElement('input')
     listPeso.setAttribute('name', 'listPeso')
@@ -40,19 +43,4 @@ const formSalvarPedido =  document.querySelector('#form-empresa')
         linha.remove();
     })
 
-  //   tb.addEventListener("submit", () => {
-     
-  //    linha.
-      
-  // })
-
-
-
-
-
-
-
-
-
-    // console.log(cadPedido)
   };

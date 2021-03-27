@@ -36,12 +36,10 @@ const empresaController = {
     console.log(itens)
     const item = await Item.bulkCreate(itens)
 
-
     const tabelaMaterial = await Material.findByPk(material) 
     const tabelaUsuario = await Usuario.findByPk(idCliente) 
 
-
-    const pontos = _contadorDePontos(listMaterias)
+    const pontos = _contadorDePontos(listMateriais)
     const usuario = await Usuario.update({
       pontuacao: tabelaUsuario.pontuacao + pontos
       
@@ -50,7 +48,6 @@ const empresaController = {
         id: idCliente
       }
     }) 
-
 
 
     if(!item){
@@ -62,8 +59,10 @@ const empresaController = {
   
 };
 
-function _contadorDePontos(){
-
-}
+// function _contadorDePontos(){
+//   itens.forEach(function(item, i){
+    
+//       })
+//   }
 
 module.exports = empresaController;

@@ -28,9 +28,7 @@ const userController = {
         if(!usuario) {
             fs.unlinkSync(file.path)
             return res.send("houve um erro ao salvar o usuario")
-        } else {
-            alert("usuario cadastrado com sucesso")
-        }
+        } 
 
        
         return res.redirect("/login")

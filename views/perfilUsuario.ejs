@@ -20,12 +20,6 @@
               <img class="small-logo" src="./images/recicling-img.png" alt="recicling-card">
               <h3>Reciclagem</h3>
               <h2><%= usuario.pontuacao%><span>pts</span></h2>
-              <!-- <div class="bar"> 
-                <div class ="progress-bar"> 
-                  <span>65</span>
-                  <span>%</span>
-                </div>
-              </div> -->
             </div>
           </div>
     
@@ -38,7 +32,6 @@
           </div>
         </section>
         <span class="parceiro">Troque já seus pontos em um de nossos parceiros</span>
-          
           
         <section class="parceiros">
           <article id="my-keen-slider" class="keen-slider">
@@ -65,36 +58,13 @@
               <img class="img-parceiro" src="./images/lg_2.png" alt="...">
             </div>
           </article>
-      </section>
-
+        </section>
       </div>
     </div>
   </main>
-
   
   <script src="https://cdn.jsdelivr.net/npm/keen-slider@5.4.0/keen-slider.min.js"></script>
+  <script src="./javascripts/perfilUsuarioCarrosel.js"></script> 
 
-    <script>
-      var slider = new KeenSlider("#my-keen-slider", {
-        spacing: 25,
-        slidesPerView: 1,
-        centered: true,
-        loop: true,
-        mode: "snap",
-        breakpoints: {
-          "(min-width: 455px)": {
-            slidesPerView: 2,
-            mode: "free-snap",
-          },
-          "(min-width: 768px)": {
-            slidesPerView: 3,
-            mode: "free-snap",
-          },
-          "(min-width: 1200px)": {
-            slidesPerView: 4,
-            mode: "free-snap",
-          },
-        },
-      })
-    </script>
+   
   <%- include('./partials/footer') %>
