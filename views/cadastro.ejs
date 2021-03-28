@@ -1,16 +1,19 @@
 <%- include('./partials/header') %>
 <link rel="stylesheet" href="./css/cadastro.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <main>
   <div class="container">
             <section class="img" >
           <form action="/cadastro" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                  <img src="./images/upload_image.png" alt="upload_image" class="upload-image">
+                  <img src="./images/upload_image.png" id="imgUpload" alt="upload_image" class="upload-image">
                   <label for="fupload" class="control-label label-bordered"><strong>Clique aqui</strong> <br> para escolher um arquivo</label>
                   <div class="nomeArquivo"></div>
                   <input hidden type="file" id="fupload" name="foto" class="fupload form-control" />
               </div>
             </section>
+
     
             <section>
               <div class="form">
@@ -29,7 +32,7 @@
                     
                       <button type="submit" name="button">ENVIAR CADASTRO</button>
                     </div>
-
+<!-- 
                     <div hidden class= "form-input empresa " id="f-empresa" >
                       <input class = "nome" type="text" id="nomeEmpresa" name="name" placeholder="Nome">
                       <input class = "cnpj" type="text" id="cnpj" name="cnpj" placeholder="CNPJ">
@@ -38,7 +41,7 @@
                       <input class = "senha" type="password" id="senhaEmpresa" name="password" placeholder="Senha" >
                     
                       <button type="submit" name="button">ENVIAR CADASTRO</button>
-                    </div>
+                    </div> -->
 
                     
                   </div>

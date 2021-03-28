@@ -33,13 +33,19 @@ section.img {
     align-items: center;
     flex-direction: column;
 }
-section img.upload_image {
+/* section img.upload_image {
     width:20%;
-}
+} */
 section.img img.upload-image {
     /* background-color:green; */
     /* align-self: center; */
     justify-self: center;
+}
+#imgUpload{
+    width: 250px;
+    width: 250px;
+    object-fit:cover;
+    border-radius:100%;
 }
 .control-label {
     margin-top: 20px;
