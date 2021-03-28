@@ -2,105 +2,48 @@
 <link rel="stylesheet" href="./css/perfilAdm.css">
     
   <main>
-    <div class="container">
+    <div class="container-main">
       <div class class="header-container">
         <section class="imagem" >
           <img src="/images/faixa_perfil_usuario.png" alt="faixa_perfil_usuario" class="faixa_perfil_usuario">
           <article class="usuario">
-            <img src="/images/upload_image.png" alt="upload_imagem" class="foto"> 
-            <h1> Perfil Admin</h1>
+            <img src="./images/user-admin.png" alt="upload_imagem" class="foto"> 
+            <h1> Administrador</h1>
           </article>
         </section>
       </div>
-      <div class="main-container">
-       
-          <div class="container">
-            <div class="card-deck">
-              <div class="card text-center">
-                  <div class="card-block">
-                      <h4 class="card-title">Permits</h4>
-                      <p class="card-text">
-                          Apply for parking permit<br />
-                          View existing permit requests<br />
-                          Activate Visitor permits<br />
-                      </p>
-                  </div>
-                  <div class="card-footer">
-                      @Html.ActionLink("Permits", "Index", "Home", new { Area = "Permit" }, new { @class = "btn btn-primary" })
-                  </div>
-              </div>
-
-              <div class="card text-center">
-                  <div class="card-block">
-                      <h4 class="card-title">Vehicles</h4>
-                      <p class="card-text">
-                          View and manage your vehicles
-                      </p>
-                  </div>
-                  <div class="card-footer">
-                      @Html.ActionLink("My Vehicles", "Index", "Vehicle", null, new { @class = "btn btn-primary" })
-                  </div>
-                  <div class="card text-center">
-                    <div class="card-block">
-                        <h4 class="card-title">Vehicles</h4>
-                        <p class="card-text">
-                            View and manage your vehicles
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        @Html.ActionLink("My Vehicles", "Index", "Vehicle", null, new { @class = "btn btn-primary" })
-                    </div>
-                </div>
+        <div class="main-container">
+            <div class="bg">
+            <img src="./images/bg-adm.png" alt="upload_imagem" class="bg-adm"> 
                 
-              </div>
-              <div class="card text-center">
-                <div class="card-block">
-                    <h4 class="card-title">Vehicles</h4>
-                    <p class="card-text">
-                        View and manage your vehicles
-                    </p>
-                </div>
-                <div class="card-footer">
-                    @Html.ActionLink("My Vehicles", "Index", "Vehicle", null, new { @class = "btn btn-primary" })
-                </div>
-                <div class="card text-center">
-                  <div class="card-block">
-                      <h4 class="card-title">Vehicles</h4>
-                      <p class="card-text">
-                          View and manage your vehicles
-                      </p>
-                  </div>
-                  <div class="card-footer">
-                      @Html.ActionLink("My Vehicles", "Index", "Vehicle", null, new { @class = "btn btn-primary" })
-                  </div>
-              </div>
-              
             </div>
-            <div class="card text-center">
-              <div class="card-block">
-                  <h4 class="card-title">Vehicles</h4>
-                  <p class="card-text">
-                      View and manage your vehicles
-                  </p>
-              </div>
-              <div class="card-footer">
-                  @Html.ActionLink("My Vehicles", "Index", "Vehicle", null, new { @class = "btn btn-primary" })
-              </div>
-              <div class="card text-center">
-                <div class="card-block">
-                    <h4 class="card-title">Vehicles</h4>
-                    <p class="card-text">
-                        View and manage your vehicles
-                    </p>
-                </div>
-                <div class="card-footer">
-                    @Html.ActionLink("My Vehicles", "Index", "Vehicle", null, new { @class = "btn btn-primary" })
+            <div class="row p-4">
+                <div class="col-sm-6">
+                    <div class="card text-center" style="width: 15rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Cadastro de parceiros</h5>
+                            <p class="card-text">Cadastre uma empresa parceira para que o usuario troque seus pontos por vouchers</p>
+                            <a href="#" class="btn btn-success">Criar Cadastro</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-          </div>
+            <div class="row p-4">
+                <div class="col-sm-6">
+                    <div class="card text-center" style="width: 15rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Fazer Buscas</h5>
+                            <p class="card-text">Fazer buscas encontrando usuarios e empresas coletoras que foram cadastradas</p>
+                            <a href="/perfilAdm/adm" class="btn btn-success">Realizar Buscas</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+           
+
+
+
+        </div>
         
   </main>
   
