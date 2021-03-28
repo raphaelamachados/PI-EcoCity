@@ -15,7 +15,8 @@ router.get('/coleta', pagesController.coleta)
 router.get('/perfilUsuario', authMiddleware, pagesController.perfilUsuario)
 
 router.get('/menu', pagesController.menu)
-router.get('/adm', pagesController.adm)
+router.get('/perfilAdm/adm', pagesController.adm)
+router.get('/perfilAdm', pagesController.perfilAdm)
 
 router.get('/login', authController.create)
 router.post('/login', authController.store)

@@ -1,0 +1,389 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   background-color: #838789;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 82vh;
+    
+}
+
+main .container{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: auto;
+    height: 90%;
+    width: 80%;
+    margin:auto;
+    background-color: #E5E5E5;
+    border-radius: 10px 10px 0 0;
+
+    min-height: 450px;
+}
+
+.header-container{
+    max-height: 17%;
+}
+
+section.imagem {
+    height: 80px;
+}
+
+section.imagem .faixa_perfil_usuario {
+    max-width: 100%;
+    width: 100%;
+    height: 80px;
+    border-radius: 10px 10px 0 0;
+}
+
+article.usuario{
+    width: 100%;
+    display: flex;
+}
+
+img.foto{
+    z-index: 1;
+    width: 85px;
+    position: relative;
+    top:-70px;
+    left: 20px;
+    border-radius: 85px;
+}
+
+article.usuario h1{
+    width: auto;
+    position: relative;
+    top: -37px;
+    left: 25px;
+    font-size:1.6rem;
+    font-family:roboto, sans-serif;
+    color: white;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+section.pontuacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    top: 20px;
+    padding: 10px;
+    height: 50%;
+    width: 100%;
+    
+}
+
+div.card{
+    background-color: white;
+    height: 150px;
+    width: 60%;
+    border-radius: 10px;
+    border: 1px solid #B0C2B8;
+    margin: 0 15px;
+    min-width: 180px;
+    
+    font-family: Nunito, sans-serif;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.card .small-logo{
+    height: 30%;
+    position: absolute;
+    top: -20px;
+}
+/* .bar{
+    width:90%;
+    border-radius: 5px;;
+    background-color:white;
+    margin-top: 10px;
+    position: relative;
+    top: 10px;
+}
+
+.progress-bar{
+    background-color: #7CB13E;
+    border-radius: 5px;;
+    height: 10px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.bar span {
+    justify-content: flex-end;
+    position: relative;
+    top: -5px;
+} */
+
+div.card span{
+    color: #263238;
+    align-self: flex-end;
+    
+}
+
+div.card h3{
+    color: #ec3d17;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+div.card h2{
+    color: #263238;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+
+div.historico{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color:#263238;
+    margin: 0 15px;
+    color: white;
+    height: 150px;  
+    width:27%;
+    border-radius: 10px;
+    min-width: 180px;
+}
+
+div.historico-mobile{
+    display:none;
+}
+
+div.historico h2{
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 900;
+}
+
+span.parceiro{
+    margin-top: 5px;
+    width: 100%;
+    color: #263238;
+    
+    font-family: Nunito, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.section.parceiros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 50%;
+}
+
+article.keen-slider {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 10px;
+    width: 100%;
+}
+
+article.keen-slider-mobile{
+    display: none;
+}
+
+div.keen-slider__slide{
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    display: flex;
+    background-color:white;
+    height: 150px;  
+    width:20%;
+    font-family: Nunito, sans-serif;
+    border-radius: 10px;
+    border: 1px solid #B0C2B8;
+}
+
+div.keen-slider__slide img{
+    
+    filter: grayscale(100%);
+    /* padding: 10px; */
+    transition-duration: 0.5s;
+}
+
+img.img-parceiro{
+    max-width: 90%;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    padding: 10px;
+}
+
+div.keen-slider__slide img:hover{
+    filter: grayscale(0%);
+}
+
+img.arrow{
+    /* height: 10%; */
+    align-self: center;
+    transition-duration:  0.3s;
+}
+
+img.arrow:hover{
+    opacity: 0.5;
+}
+
+/*--------------------- responsividade ------------------------------------*/
+
+@media (max-width: 800px){
+    div.card-parceiro{
+        max-height: 100px;  
+        width:20%;
+    }
+    
+    img.arrow{
+        /* height: 10%; */
+        align-self: center;
+        transition-duration:  0.3s;
+    }
+
+    span.parceiro{
+        align-self: center;
+        width: 90%;
+        margin-top: 30px;
+        font-size: .7rem;
+    }
+
+    div.card{
+        top: 0px;
+        /* width: 50%; */
+        height: 150px;
+        min-width: 100px;
+    }
+    div.historico{
+        /* width: 30%; */
+        height: 150px;  
+        min-width: 150px; 
+    }
+    div.historico h2{
+        font-size:1.5rem; 
+    }
+
+}
+@media (max-width: 455px){
+        img.foto {
+        width: 70px;
+        top: -43px;
+    }
+
+    article.usuario h1 {
+        width: 100%;
+        top: -20px;
+        left: 30px;
+        /* text-align: left; */
+        font-size: 1.2rem;
+        
+    }
+    section.pontuacao{
+        flex-direction: column;
+        height: 60%;
+    }
+
+    div.card{
+        margin-top:15px;
+        width: 90%;
+        height: 120px;
+    }
+
+    div.card h3{
+        color: #ec3d17;
+        font-weight: 900;
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
+    
+    div.card h2{
+        font-size: 1.6rem;
+        margin-top: -10px;
+    }
+
+    /* .bar{
+        margin-top: 5px;
+        position: relative;
+        top: 10px;
+    }
+    
+    .bar span {
+        font-size: .8rem;
+    } */
+    
+    div.historico {
+        display:none;
+    } 
+
+    div.historico-mobile{
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        background-color:#263238;
+        color: white;
+        margin: 15px 0px;
+        height: 45px;  
+        width:90%;
+        border-radius:10px;
+        min-width: 180px;
+    }
+
+    div.historico-mobile h2{
+        font-size: 1rem;
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    span.parceiro{
+        width: 90%;
+        margin: 0px;
+    }
+
+    section.parceiros {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        width: 100%;
+        height: 45%;
+    }
+    article.carrossel {
+        display: none
+    }
+
+    div.card-parceiro{
+        width:40%;
+    }
+}

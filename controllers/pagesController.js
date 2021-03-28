@@ -22,6 +22,9 @@ const pagesController = {
         // console.log(usuario)
         return res.render("perfilUsuario", {usuario})
     },
+    perfilAdm: (_req,res) => {
+        return res.render("perfilAdm")
+    },
     adm: (_req,res) => {
         return res.render("adm")
     },
