@@ -1,0 +1,263 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+   background-color: #838789;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+main .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 700px;
+    height: 350px;
+    max-width: 90%;
+    background-color: white; 
+    border-radius: 10px;
+}
+section.img {
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* section img.upload_image {
+    width:20%;
+} */
+section.img img.upload-image {
+    /* background-color:green; */
+    /* align-self: center; */
+    justify-self: center;
+}
+#imgUpload{
+    width: 250px;
+    width: 250px;
+    object-fit:cover;
+    border-radius:100%;
+}
+.control-label {
+    margin-top: 20px;
+    text-align: center;
+    color: #263238;
+}
+div.form-group {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+.control-label:hover {
+    cursor: pointer;
+}
+
+
+section {
+    width:50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+section .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: roboto, sans-serif;
+    /* width: 500px;
+    height: 60%; */
+}
+
+section h1 {
+    color:#7CB13E;
+    font-weight: 550;
+    font-size: 2.5rem;
+}
+.escolha {
+    width: 100%;
+}
+button.cliente{
+    /* color: white;
+    background-color: #263238; */
+    border: none;
+    border-radius: 10px 0 0 10px;
+    margin-right:-2px;
+    width:50%;
+}
+
+.darkMode{
+    color: white;
+    background-color: #263238;
+}
+.hidden{
+    display: none;
+}
+
+
+.button{
+    /* color: #263238;
+    background-color: rgba(205, 216, 187, 0.6); */
+    border: none;
+    margin-left:-2px;
+    border-radius:0 10px 10px 0;
+    width:50%;
+    
+}
+
+
+section .form-input {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.form-input.cliente input {
+    
+    border-radius: 10px;
+    background-color: rgba(205, 216, 187, 0.6);
+    border:none;
+    width: 100%;
+    padding: 6px;
+    height:35px;
+    
+}
+
+.form-input.empresa input {
+    
+    border-radius: 10px;
+    background-color: rgba(205, 216, 187, 0.6);
+    border:none;
+    width: 100%;
+    padding: 6px;
+    height:25px;
+    
+}
+
+
+.form-input input.nome{
+    margin: 10px 0;
+}
+.form-input input.email, .cpf, .senha, .cep, .cnpj {
+    margin-bottom: 10px;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(38, 50, 56, 0.35);
+ }
+
+ .form-input  input:focus{
+    outline: none;
+    border-radius:10px;border:1px solid rgba(38, 50, 56, 0.45);
+}
+/* section p{
+    margin-bottom: 2px;
+    font-size:.7rem;
+} */
+
+.form-input button {
+    align-self: center;
+    background-color:#7CB13E;
+    color:white;
+    border:none;
+    border-radius:10px;
+    height: 30px;
+    width: 290px;
+    margin-bottom: 10px;
+}
+
+.form-input button:focus{
+    outline: none;
+    border-radius:10px;border:1px solid #547a27;
+}
+
+@media (max-width: 700px) {
+    section img.upload_image {
+        max-height: 100%;
+     }
+    
+     .form-input button {
+        
+        width: 200px;
+    }
+
+}
+
+
+
+@media (max-width: 576px) {     
+
+    main .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        width: 700px;
+        height: 450px;
+        max-width: 90%;
+        background-color: white;
+        border-radius: 35px;
+    }
+
+    h1 {
+        margin-top: 20px;
+        display: none;
+    }
+    
+
+    .img-phone{
+        display: flex;
+        float: right;
+        width:50%;
+        margin-bottom: 10px;
+    }
+    .img-phone h1 {
+        display: flex;
+    }
+        .form{
+            /* display: flex; */
+            flex-direction:row;
+         width: 75%;
+     }
+     section.img {
+        display: none;
+        
+    }
+    section{
+        width: 100%;
+      
+    }
+      section form {
+        width:100%;
+     }  
+     .form-input button { 
+        width: 100%;
+        margin-bottom: 20px;
+    } 
+
+  
+    footer{
+        display: none;
+    }
+
+
+} 
+
+
+
+

@@ -31,5 +31,8 @@ const pagesController = {
     menu: (_req,res) => {
         return res.render("menu")
     },
+    cadastroParceiro: (_req,res) => {
+        return res.render("cadastroParceiro")
+    },
 }
 module.exports = pagesController
