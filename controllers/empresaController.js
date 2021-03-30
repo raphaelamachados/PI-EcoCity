@@ -1,82 +1,70 @@
-const {Item, Usuario, Material, Pedido} = require('../models')
-const fs = require('fs')
-
-
-
+const { Item, Usuario, Material, Pedido } = require("../models");
+const fs = require("fs");
 
 const empresaController = {
- 
   create: async (req, res) => {
-
-    // recebendo o cpf do front para ligar com o ID do cliente que está no banco de dados 
-    const {cpf} = req.query
-    let usuario 
-    if(cpf){
-      usuario = await Usuario.findOne({ 
+    // recebendo o cpf do front para ligar com o ID do cliente que está no banco de dados
+    const { cpf } = req.query;
+    let usuario;
+    if (cpf) {
+      usuario = await Usuario.findOne({
         where: {
           cpf: cpf,
-        }
-      })
+        },
+      });
     }
     // buscanco o material do banco de dados para e exportando para o front para apresentar no cadastro de pedido no furmulário
-    const materiais = await Material.findAll()
-    res.render("perfilEmpresa", {materiais, usuario})
-
+    const materiais = await Material.findAll();
+    res.render("perfilEmpresa", { materiais, usuario });
   },
 
   store: async (req, res) => {
-    const {idCliente, material, peso, listMateriais, listPeso } = req.body
-    console.log(listMateriais, listPeso)
+    const { idCliente, material, peso, listMateriais, listPeso } = req.body;
+    console.log(listMateriais, listPeso);
 
-    
-    
     const pedido = await Pedido.create({
-      usuario_id: idCliente
-    })
+      usuario_id: idCliente,
+    });
 
-    const itens = listMateriais.map( (material, index) => {
-      return {material_id: material, peso: listPeso[index],  pedido_id: pedido.id }
-    })
-
+    const itens = listMateriais.map((material, index) => {
+      return {
+        material_id: material,
+        peso: listPeso[index],
+        pedido_id: pedido.id,
+      };
+    });
     console.log(itens)
-    const item = await Item.bulkCreate(itens)
 
-    let pontosPorPeso = []
+    const item = await Item.bulkCreate(itens);
+
+    let pontuacaoPedido = 0
+
+    itens.forEach(async item =>{
+      const materialBanco = await Material.findByPk(item.material_id)
+      pontuacaoPedido += materialBanco.pontos_por_peso * item.peso
+      // console.log(materialBanco.pontos_por_peso, item.peso)
+      console.log(materialBanco, item.material_id)
+    })
    
-
-    listMateriais.forEach (async material => {
-      const tabelaMaterial = await Material.findByPk(material) 
-      pontosPorPeso.push(tabelaMaterial.pontos_por_peso)
-    })
-
-    let pontuacao = 0
-
-    listPeso.forEach((peso, index)=> {
-      pontuacao += pontosPorPeso[index] * peso
-    })
-
-    const tabelaUsuario = await Usuario.findByPk(idCliente) 
-
-
-    await Usuario.update({
-      pontuacao: tabelaUsuario.pontuacao + pontuacao
-      
-    }, {
-      where: {
-        id: idCliente
+    const tabelaUsuario = await Usuario.findByPk(idCliente);
+console.log(pontuacaoPedido)
+    await Usuario.update(
+      {
+        pontuacao: tabelaUsuario.pontuacao + pontuacaoPedido,
+      },
+      {
+        where: {
+          id: idCliente,
+        },
       }
-    }) 
+    );
 
-
-    if(!item){
-      return res.send('Houve um erro ao cadastrar o pedido')
+    if (!item) {
+      return res.send("Houve um erro ao cadastrar o pedido");
     }
-    return res.redirect('/perfilEmpresa')
-    console.log(item)
+    return res.redirect("/perfilEmpresa");
+    console.log(item);
   },
-  
 };
-
-
 
 module.exports = empresaController;

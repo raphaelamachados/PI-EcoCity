@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       pedido.associate = (models) => {
       pedido.belongsTo(models.Usuario, {
       foreignKey: "usuario_id",
+      as: 'pedido'
       
     })
         pedido.belongsTo(models.Empresa_Coletora, {
@@ -21,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       })
       pedido.hasMany(models.Item, {
         foreignKey: "pedido_id",
-        
+        as: 'item'
       })
   }
 
