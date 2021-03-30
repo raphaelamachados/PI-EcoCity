@@ -1,5 +1,9 @@
 const {Item, Usuario, Material, Pedido} = require('../models')
 const fs = require('fs')
+
+
+
+
 const empresaController = {
  
   create: async (req, res) => {
@@ -25,6 +29,7 @@ const empresaController = {
     console.log(listMateriais, listPeso)
 
     
+    
     const pedido = await Pedido.create({
       usuario_id: idCliente
     })
@@ -36,12 +41,25 @@ const empresaController = {
     console.log(itens)
     const item = await Item.bulkCreate(itens)
 
-    const tabelaMaterial = await Material.findByPk(material) 
+    let pontosPorPeso = []
+   
+
+    listMateriais.forEach (async material => {
+      const tabelaMaterial = await Material.findByPk(material) 
+      pontosPorPeso.push(tabelaMaterial.pontos_por_peso)
+    })
+
+    let pontuacao = 0
+
+    listPeso.forEach((peso, index)=> {
+      pontuacao += pontosPorPeso[index] * peso
+    })
+
     const tabelaUsuario = await Usuario.findByPk(idCliente) 
 
-    const pontos = _contadorDePontos(listMateriais)
-    const usuario = await Usuario.update({
-      pontuacao: tabelaUsuario.pontuacao + pontos
+
+    await Usuario.update({
+      pontuacao: tabelaUsuario.pontuacao + pontuacao
       
     }, {
       where: {
@@ -59,10 +77,6 @@ const empresaController = {
   
 };
 
-// function _contadorDePontos(){
-//   itens.forEach(function(item, i){
-    
-//       })
-//   }
+
 
 module.exports = empresaController;

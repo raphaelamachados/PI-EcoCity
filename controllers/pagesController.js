@@ -25,8 +25,17 @@ const pagesController = {
     perfilAdm: (_req,res) => {
         return res.render("perfilAdm")
     },
-    adm: (_req,res) => {
+    adm: async(req,res) => {
+        // const { id, email } = req.session.user
+
+
+        // const usuarios = await Usuario.findAll({
+        //     attributes: [id, 'nome, email ]
+        //   });
+
+
         return res.render("adm")
+
     },
     menu: (_req,res) => {
         return res.render("menu")

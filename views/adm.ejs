@@ -45,7 +45,12 @@
                         </select>  
                     </td>
                     <td>
-                      <Input type="name" class="form-control" name="nome" id="nome" placeholder="Insira o nome" step="0.10" required/>
+                      <% if(typeof usuario !="undefined"){ %>
+                        <div class="col-5">
+                           <!-- --------------------passando o idCcliente para o backend, ------------------- -->
+                          <Input type="name" class="form-control" name="nome" id="nome" value="<%= usuario.id %>" placeholder="Insira o nome" step="0.10" required/>
+                        
+                      <% } %> 
                     </td>
                     <td>
                       <Input type="email" class="form-control" name="email" id="email" placeholder="Insira o email" step="0.10" required/>
