@@ -29,93 +29,79 @@
                   <th scope="col">Tipo</th>
                   <th scope="col">Nome</th>
                   <th scope="col">Email</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  
                   <td >
-                    <Input type="number" class="form-control" name="id" id="id" placeholder="id desejado" step="0.10" required/>
-                    </td>
-                    <td>
-                      <select class="form-select" name= Tipo id="tipo" required>
-                          <option selected disabled value="">Cliente/Empresa</option>
-                          <option>Cliente</option>
-                          <option>Empresa</option>
-                        </select>  
-                    </td>
-                    <td>
-                      <% if(typeof usuario !="undefined"){ %>
-                        <div class="col-5">
-                           <!-- --------------------passando o idCcliente para o backend, ------------------- -->
-                          <Input type="name" class="form-control" name="nome" id="nome" value="<%= usuario.id %>" placeholder="Insira o nome" step="0.10" required/>
-                        
-                      <% } %> 
-                    </td>
-                    <td>
-                      <Input type="email" class="form-control" name="email" id="email" placeholder="Insira o email" step="0.10" required/>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-success col-lg">Filtrar</button>
-                    </td>
-                  </tr>
-                </tbody>
+                    <Input type="number" class="form-control" name="id" id="id" placeholder="Id desejado" required/>
+                  </td>
+                  <td>
+                    <select class="form-select" name= Tipo id="tipo" required>
+                      <option selected disabled value="">Cliente/Empresa</option>
+                      <option>Cliente</option>
+                      <option>Empresa</option>
+                    </select>  
+                  </td>
+                  <td>
+                    <Input type="text" class="form-control" name="nome" id="nome" placeholder="Insira o nome" />
+                  </td>
+                  <td>
+                    <Input type="email" class="form-control" name="email" id="email" placeholder="Insira o email"  required/>
+                  </td>
+                  <td>
+                    <button type="submit" class="btn btn-success col-lg">Filtrar</button>
+                  </td>
+                </tr>
+              </tbody>
             </table>
-            
           </div>
         </div>
       </div>
-      
-
-       
-        <div class="col-md-12"></div>
-        <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">id</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Email</th>
-            </tr>
-
-            <tr>
-              <th><input type="number" id="txtColuna1" placeholder="id desejado"/></th>
-              <th><input type="text" id="txtColuna2" placeholder="Insira Cliente/Empresa"/></th>
-              <th><input type="text" id="txtColuna3" placeholder="Insira o nome"/></th>
-              <th><input type="email" id="txtColuna4" placeholder="Insira o email"/></th>
-          </tr>  
-
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Cliente</td>
-              <td>Otavio</td>
-              <td>@uol</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Empresa</td>
-              <td>Rafael</td>
-              <td>@hotmail</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Empresa</td>
-              <td>Marcos</td>
-              <td>@gmail</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      </div>
     </form>
+      
+        <div class="col-md-12 mt-3"></div>
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th></th>
+              </tr>
+              <!-- <tr>
+                  <th><input type="number" id="txtColuna1" placeholder="id desejado"/></th>
+                  <th><input type="text" id="txtColuna2" placeholder="Insira Cliente/Empresa"/></th>
+                  <th><input type="text" id="txtColuna3" placeholder="Insira o nome"/></th>
+                  <th><input type="email" id="txtColuna4" placeholder="Insira o email"/></th>
+                  <th></th>
+              </tr> -->
+            </thead>
+            <tbody>
+              <% usuarios.forEach(usuario => { %>
+                <tr>
+                  <th scope="row"><%= usuario.id %></th>
+                  <td>Cliente(ajustar)</td>
+                  <td><%= usuario.nome %>  </td>
+                  <td><%= usuario.email %>  </td> 
+                  <td>
+                    <form action="/perfilAdm/adm/deletar/<%= usuario.id %>?_method = DELETE" method="post">
+                    <button type="submit" class="btn btn-danger" ><i class="fas fa-trash"></i></button>
+                    </form>
+                  </td>
+                </tr>
+              <% }) %>  
+            </tbody>
+          </table>
+      </div>
+
+      </div>
   </div>
 
 
 
-  <%- include('./partials/footer') %>
 
 
 

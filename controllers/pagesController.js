@@ -25,18 +25,19 @@ const pagesController = {
     perfilAdm: (_req,res) => {
         return res.render("perfilAdm")
     },
-    adm: async(req,res) => {
-        // const { id, email } = req.session.user
 
-
-        // const usuarios = await Usuario.findAll({
-        //     attributes: [id, 'nome, email ]
-        //   });
-
-
-        return res.render("adm")
-
+    admListar: async(_req,res) => {
+        const usuarios = await Usuario.findAll().then(function(usuarios){
+            return res.render("adm", {usuarios})
+        })
     },
+
+    admDeletar: (req, res) => {
+        const {id} = req.params
+        // return res.render("adm")
+        return res.send("estou deletando o produto com id: " + id)
+    },
+
     menu: (_req,res) => {
         return res.render("menu")
     },

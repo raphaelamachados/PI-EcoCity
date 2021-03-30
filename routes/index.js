@@ -15,8 +15,10 @@ router.get('/coleta', pagesController.coleta)
 router.get('/perfilUsuario', authMiddleware, pagesController.perfilUsuario)
 
 router.get('/menu', pagesController.menu)
-router.get('/perfilAdm/adm', pagesController.adm)
-router.get('/perfilAdm/cadastroParceiro', pagesController.cadastroParceiro)
+
+router.get('/perfilAdm/adm',  pagesController.admListar)
+router.delete('/perfilAdm/adm/deletar/:id',  pagesController.admDeletar)
+router.get('/perfilAdm/cadastroParceiro',  pagesController.cadastroParceiro)
 router.get('/perfilAdm', pagesController.perfilAdm)
 
 router.get('/login', authController.create)
