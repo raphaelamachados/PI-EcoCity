@@ -1,38 +1,31 @@
 <%- include('./partials/header') %>
-<link rel="stylesheet" href="./css/cadastroParceiro.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/cadastroParceiro.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<main>
-  <div class="container">
-            <section class="img" >
-          <form action="/cadastro" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                  <img src="./images/upload_image.png" id="imgUpload" alt="upload_image" class="upload-image">
-                  <label for="fupload" class="control-label label-bordered"><strong>Clique aqui</strong> <br> para escolher um arquivo</label>
-                  <div class="nomeArquivo"></div>
-                  <input hidden type="file" id="fupload" name="foto" class="fupload form-control" />
-              </div>
+    <main>
+        <div class="container">
+            <section class="img">
+                <form action="/cadastro" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <img src="../images/upload_image.png" id="imgUpload" alt="upload_image" class="upload-image">
+                        <label for="fupload" class="control-label label-bordered"><strong>Clique aqui</strong> <br> para escolher um arquivo</label>
+                        <div class="nomeArquivo"></div>
+                        <input hidden type="file" id="fupload" name="foto" class="fupload form-control" />
+                    </div>
             </section>
 
-    
+
             <section>
-              <div class="form">
-                  <h1>Cadastro</h1>
-                  <p>Escolha uma opção</p>
-                  <div class="escolha">
-                    <button class="button cliente darkMode"  type="button" name="button-cliente" >Cliente</button>
-                    <button class="button empresa "  type="button" name="button-empresa" >Empresa</button>
-                  </div>
-                  
-                  <div class= "form-input cliente " id="f-cliente">
-                      <input class = "nome" type="text" id="nome" name="name" placeholder="Nome">
-                      <input class = "cpf" type="text" id="cpf" name="cpf" placeholder="Cpf">
-                      <input class = "email" type="text" id="email" name="email" placeholder="E-mail">
-                      <input class = "senha" type="password" id="senha" name="password" placeholder="Senha" >
-                    
-                      <button type="submit" name="button">ENVIAR CADASTRO</button>
+                <div class="form">
+                    <h1>Ecocity Parceiros</h1>
+
+                    <div class="form-input empresa " id="f-empresa">
+                        <input class="nome" type="text" id="nome" name="name" placeholder="Nome">
+                        <input class="cnpj" type="text" id="cnpj" name="cnpj" placeholder="Cnpj">
+
+                        <button type="submit" name="button">ENVIAR CADASTRO</button>
                     </div>
-<!-- 
+                    <!-- 
                     <div hidden class= "form-input empresa " id="f-empresa" >
                       <input class = "nome" type="text" id="nomeEmpresa" name="name" placeholder="Nome">
                       <input class = "cnpj" type="text" id="cnpj" name="cnpj" placeholder="CNPJ">
@@ -43,12 +36,12 @@
                       <button type="submit" name="button">ENVIAR CADASTRO</button>
                     </div> -->
 
-                    
-                  </div>
-                </form>
-        </section>
-      
-      </div>
 
-<script src="./javascripts/cadastro.js"> </script>
-<%- include('./partials/footer') %>
+                </div>
+                </form>
+            </section>
+
+        </div>
+
+        <script src="../javascripts/cadastro.js">
+        </script>
