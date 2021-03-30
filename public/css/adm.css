@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+tr .bt-bt {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 td{
     height:100%;

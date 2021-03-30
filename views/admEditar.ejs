@@ -1,0 +1,68 @@
+<%- include('./partials/header') %>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" href="../css/adm.css">
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <h1 >Edição de cadastro</h1>
+      </div>
+    </div>
+    <form action="/editar?_method=PUT" method="post">
+      <div class="row">
+        <div class="col-md-12">
+          <br/>
+          <br/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive-md">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Email</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td  >
+                  <span class="form-control" > <strong><%= usuario.id %></strong>  </span> 
+                  </td>
+                  <td>
+                    <select class="form-control" name= Tipo id="tipo" >
+                      <option selected disabled value="">Cliente/Empresa</option>
+                      <option>Cliente</option>
+                      <option>Empresa</option>
+                    </select>  
+                  </td>
+                  <td>
+                    <Input type="text" class="form-control" name="nome" id="nome" placeholder="Insira o nome" value="<%= usuario.nome %> " />
+                  </td>
+                  <td>
+                    <Input type="email" class="form-control" name="email" id="email" placeholder="Insira o email" value="<%= usuario.email %> " />
+                  </td>
+                  <td>
+                    <button type="submit" class="btn btn-success col-lg">Enviar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+      
+      
+
+
+
+

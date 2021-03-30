@@ -16,10 +16,14 @@ router.get('/perfilUsuario', authMiddleware, pagesController.perfilUsuario)
 
 router.get('/menu', pagesController.menu)
 
-router.get('/perfilAdm/adm',  pagesController.admListar)
-router.delete('/perfilAdm/adm/deletar/:id',  pagesController.admDeletar)
-router.get('/perfilAdm/cadastroParceiro',  pagesController.cadastroParceiro)
 router.get('/perfilAdm', pagesController.perfilAdm)
+router.get('/perfilAdm/adm',  pagesController.listarForm)
+
+router.get('/perfilAdm/adm/:id/editar',  pagesController.alterarForm)
+router.put('/editar',  pagesController.editarForm)
+
+router.delete('/perfilAdm/adm/deletar/:id',  pagesController.deletarForm)
+router.get('/perfilAdm/cadastroParceiro',  pagesController.cadastroParceiro)
 
 router.get('/login', authController.create)
 router.post('/login', authController.store)

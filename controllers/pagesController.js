@@ -26,16 +26,38 @@ const pagesController = {
         return res.render("perfilAdm")
     },
 
-    admListar: async(_req,res) => {
+    listarForm: async(_req,res) => {
         const usuarios = await Usuario.findAll().then(function(usuarios){
             return res.render("adm", {usuarios})
         })
     },
+    alterarForm: async(req, res) => {
+        let{id} = req.params
+        const usuario = await Usuario.findByPk(id)
 
-    admDeletar: (req, res) => {
+       return res.render ('admEditar', {usuario})
+    },
+
+    editarForm: async (req, res) => {
+        const { name, email, id } = req.body
+
+      const usuario =  await Usuario.update({
+            nome: name,
+            id:id,
+            email: email,
+        }, {
+          where: {
+            id:id
+          }
+        }) 
+        console.log(usuario)
+        return res.redirect("/perfilAdm/adm")
+    },
+    deletarForm: (req, res) => {
         const {id} = req.params
+        
         // return res.render("adm")
-        return res.send("estou deletando o produto com id: " + id)
+        return res.send("estou deletando o usuario com id: " + id)
     },
 
     menu: (_req,res) => {
