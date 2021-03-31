@@ -11,9 +11,7 @@ let btEmpresa = select('.empresa')
 let formCliente = byId('f-cliente')
 let formEmpresa = byId('f-empresa')
 let submitEmpresa = select('.submitEmpresa')
-let inputEmpresa = document.createElement('input')
-inputEmpresa.setAttribute('type', 'text')
-inputEmpresa.setAttribute('name', 'cadastroEmpresa')
+let tipoEmpresa = select('#tipoEmpresa')
 
 btCliente.addEventListener('click', () => {
   if (!btCliente.classList.contains('darkMode')) {
@@ -21,7 +19,7 @@ btCliente.addEventListener('click', () => {
     btEmpresa.classList.toggle('darkMode')
     formEmpresa.hidden = true
     formCliente.hidden = false
-    formEmpresa.removeChild(inputEmpresa)
+    tipoEmpresa.setAttribute('value', 'false')
   }
 })
 
@@ -31,7 +29,8 @@ btEmpresa.addEventListener('click', () => {
     btCliente.classList.toggle('darkMode')
     formCliente.hidden = true
     formEmpresa.hidden = false
-    formEmpresa.insertBefore(inputEmpresa, submitEmpresa)
+    tipoEmpresa.setAttribute('value', 'true')
+
   }
 })
 

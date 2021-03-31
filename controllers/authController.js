@@ -1,9 +1,9 @@
-const { Usuario } = require("../models/")
+const { Usuario, Empresa_Coletora } = require("../models/")
 const Bcrypt = require("bcrypt")
 
 const authController = {
-    create: (_req, res) => res.render("login"),
-    store: async (req, res) => {
+    show: (_req, res) => res.render("login"),
+    loginUsuario: async (req, res) => {
         const { email, password } = req.body
 
         const usuario = await Usuario.findOne({ 
@@ -27,7 +27,35 @@ const authController = {
             nome: usuario.nome,
         }
 
-return res.redirect("/perfilUsuario")
+        return res.redirect("/perfilUsuario")
+
+    },
+    showEmpresa: (_req, res) => res.render("loginEmpresa"),
+    loginEmpresa: async (req, res) => {
+        const { email, password } = req.body
+
+        const empresa = await Empresa_Coletora.findOne({ 
+            where: { 
+                email,
+            },
+        })
+        if (!empresa) {
+            return res.send("Usuário ou senha inválidos")
+        }
+        if (!Bcrypt.compareSync(password, empresa.senha)) {
+            return res.send("Usuário ou senha inválidos")
+        }
+
+        if (empresa.email == "adm@adm.com"){
+            return res.redirect("/perfilAdm")
+        }
+
+        req.session.user = {
+            id: empresa.id,
+            nome: empresa.nome,
+        }
+
+        return res.redirect("/perfilEmpresa")
 
     },
 }

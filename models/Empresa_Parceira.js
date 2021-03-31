@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         imagem: DataTypes.STRING,
       },
       {
-        tableName: "empresa-parceira",
+        tableName: "empresa_parceira",
         timestamps: true,
       }
     )

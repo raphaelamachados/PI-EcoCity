@@ -22,8 +22,11 @@ const empresaController = {
     const { idCliente, material, peso, listMateriais, listPeso } = req.body;
     console.log(listMateriais, listPeso);
 
+    const idEmpresa = req.session.user.id
+   
     const pedido = await Pedido.create({
       usuario_id: idCliente,
+      empresa_coletora_id: idEmpresa,
     });
 
     const itens = listMateriais.map((material, index) => {

@@ -1,4 +1,4 @@
-const { Usuario } = require('../models')
+const { Usuario, Empresa_Coletora } = require('../models')
 const Bcrypt = require('bcrypt')
 const fs = require('fs')
 
@@ -9,35 +9,59 @@ const userController = {
    
     store: async(req,res) => {
         const {file } = req
+        if (req.body.tipoEmpresa == 'false'){
 
-        // if (req.body.cadastroEmpresa){
-        //     return res.send(req.body)
-        // }else{
-        //     return res.send(req.body)
-        // }
-        const { name, cpf, email, password, } = req.body
+            const { name, cpf, email, password, } = req.body
+            if (Usuario.findOne({
+                where: {
+                    email: email,
+                }
+            })) {
+                   
+                    // alert("Email já cadastrado")
+                //    return res.send("Email já cadastrado")
+            }
+            const usuario = await Usuario.create({
+                nome: name,
+                cpf: cpf,
+                email: email,
+                senha: Bcrypt.hashSync(password, 10),
+                imagem: file.filename, 
+            })
         
-        const usuario = await Usuario.create({
-            nome: name,
-            cpf: cpf,
-            email: email,
-            senha: Bcrypt.hashSync(password, 10),
+               
+        
+                if(!usuario) {
+                    fs.unlinkSync(file.path)
+                    return res.send("houve um erro ao salvar o usuario")
+                } 
+
+                return res.redirect("/login")
+
+
+    }else if
+    
+        (req.body.tipoEmpresa == 'true'){
+        
+        const { nameEmpresa, cnpj, emailEmpresa, passwordEmpresa, cep } = req.body
+            
+        const empresa = await Empresa_Coletora.create({
+            nome: nameEmpresa,
+            cnpj: cnpj,
+            cep: cep,
+            email: emailEmpresa,
+            senha: Bcrypt.hashSync(passwordEmpresa, 10),
             imagem: file.filename, 
+
         })
 
-        // if (email === usuario.email){
-        //     return alert("Usuário já cadastrado")
-        //     return res.send("Email já cadastrado")
-            
-        // }
-
-        if(!usuario) {
+        if(!empresa) {
             fs.unlinkSync(file.path)
             return res.send("houve um erro ao salvar o usuario")
         } 
 
-       
-         return res.redirect("/login")
+        return res.redirect("/loginEmpresa")
+    }
     },
 }
 

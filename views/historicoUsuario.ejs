@@ -12,10 +12,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 mt-0">
-        <h1 >Pagina do ADM</h1>
+        <h1 >Histórico Usuario</h1>
       </div>
     </div>
-    <form action="/adm" method="post">
+    <form action="" method="post">
       <div class="row">
         <div class="col-md-12">
           <br/>
@@ -28,29 +28,21 @@
             <table class="table  table-bordered table-hover mydatatable" style="width:100%">
               <thead class="thead-dark">
                 <tr>
-                  <th >id</th>
-                  <th >Tipo</th>
-                  <th >Nome</th>
-                  <th >Email</th>
-                  <th></th>
+                  <th >Pedido</th>
+                  <th >Empresa Coletora</th>
+                  <th >itens</th>
+                  <th>Pontos acumulados</th>
+                  <th >Data pedido</th>
                 </tr>
               </thead>
               <tbody class="col-md-12">
-                <% usuarios.forEach(usuario => { %>
+                <% pedidos.forEach(pedido => { %>
                   <tr>
-                    <th scope="row"><%= usuario.id %></th>
-                    <td>Cliente(ajustar)</td>
-                    <td><%= usuario.nome %>  </td>
-                    <td><%= usuario.email %>  </td> 
-                    <td class="bt-bt">
-                      <form action="/perfilAdm/adm/<%= usuario.id %>/editar?_method = PUT" method="post">
-                        <button type="submit" class="btn btn-primary" style="align-right"><i class="fas fa-edit"></i></button>
-                      </form>
-                    
-                      <form action="/perfilAdm/adm/deletar/<%= usuario.id %>?_method = DELETE" method="post">
-                        <button type="submit" class="btn btn-danger" ><i class="fas fa-trash"></i></button>
-                      </form>
-                    </td>
+                    <th scope="row"><%= pedido.id %></th>
+                    <td><%= pedido.empresa_coletora_id %></td>
+                    <!-- <td><%= pedido.Material.tipo %></td> -->
+                    <td>pedido.Item.peso </td>
+                    <td><%= pedido.createdAt %></td> 
                   </tr>
                 <% }) %>  
               </tbody>

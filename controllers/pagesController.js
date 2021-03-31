@@ -1,4 +1,4 @@
-const { Usuario } = require('../models')
+const { Usuario, Pedido, Item, Empresa_Coletora, Material } = require('../models')
 const pagesController = {
     index: (_req, res) => {
        return res.render("index")
@@ -21,6 +21,50 @@ const pagesController = {
       
         // console.log(usuario)
         return res.render("perfilUsuario", {usuario})
+    },
+
+    historicoUsuario: async (req,res) => {
+        // const pedidos = await Pedido.findAll().then(function(pedidos) {
+        //     return res.render("historicoUsuario", {pedidos})
+        // })
+
+        const { id } = req.session.user
+        const pedidos = await Pedido.findOne({
+            where: {
+                usuario_id: id,
+            },
+            include: [
+            {
+                model: Item,
+                as: 'item',
+                required: true,
+            },
+            {
+                model: Empresa_Coletora,
+                required: true,
+            },
+            // {
+            //     model: Material,
+            //     required: true,
+            // },
+        ],
+        // order: [["created_at, "DESC"]],
+
+        // const pedidosFormatados = pedidos.map((pedido) =>{
+        //     const data = new Date(pedido.createdAt)
+        //     const dataFormatada = new Intl.DateTimeFormat("pt-Br", {
+                    // dateStyle: "short",
+                    // timeStyle: "short",
+        //     }).format(data);
+
+        //     return { ...pedido, createdAt: dataFormatada}
+        // }) 
+        
+        
+        }).then(function(pedidos) {
+            return res.render("historicoUsuario", {pedidos})//: pedidosFormatados})//
+        })
+
     },
     perfilAdm: (_req,res) => {
         return res.render("perfilAdm")
@@ -63,8 +107,8 @@ const pagesController = {
     menu: (_req,res) => {
         return res.render("menu")
     },
-    cadastroParceiro: (_req,res) => {
-        return res.render("cadastroParceiro")
-    },
+    // cadastroParceiro: (_req,res) => {
+    //     return res.render("cadastroParceiro")
+    // },
 }
 module.exports = pagesController
