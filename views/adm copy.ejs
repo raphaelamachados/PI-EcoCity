@@ -1,0 +1,128 @@
+<%- include('./partials/header') %>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
+   <!-- cdn datatables  -->
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+ 
+   <!-- meu css --> 
+   <link rel="stylesheet" href="../css/adm.css">
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <h1 >Pagina do ADM</h1>
+      </div>
+    </div>
+    <form action="/adm" method="post">
+      <div class="row">
+        <div class="col-md-12">
+          <br/>
+          <br/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive-md">
+            <table class="mydatatable">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Email</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td >
+                    <Input type="number" class="form-control" name="id" id="id" placeholder="Id desejado" />
+                  </td>
+                  <td>
+                    <select class="form-control" name= Tipo id="tipo" >
+                      <option selected disabled value="">Cliente/Empresa</option>
+                      <option>Cliente</option>
+                      <option>Empresa</option>
+                    </select>  
+                  </td>
+                  <td>
+                    <Input type="text" class="form-control" name="nome" id="nome" placeholder="Insira o nome" />
+                  </td>
+                  <td>
+                    <Input type="email" class="form-control" name="email" id="email" placeholder="Insira o email"  />
+                  </td>
+                  <td>
+                    <button type="submit" class="btn btn-success col-lg">Filtrar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+      
+        <div class="col-md-12 mt-3"></div>
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th></th>
+              </tr>
+              <!-- <tr>
+                  <th><input type="number" id="txtColuna1" placeholder="id desejado"/></th>
+                  <th><input type="text" id="txtColuna2" placeholder="Insira Cliente/Empresa"/></th>
+                  <th><input type="text" id="txtColuna3" placeholder="Insira o nome"/></th>
+                  <th><input type="email" id="txtColuna4" placeholder="Insira o email"/></th>
+                  <th></th>
+              </tr> -->
+            </thead>
+            <tbody>
+              <% usuarios.forEach(usuario => { %>
+                <tr>
+                  <th scope="row"><%= usuario.id %></th>
+                  <td>Cliente(ajustar)</td>
+                  <td><%= usuario.nome %>  </td>
+                  <td><%= usuario.email %>  </td> 
+                  <td class="bt-bt">
+                    <form action="/perfilAdm/adm/<%= usuario.id %>/editar?_method = PUT" method="post">
+                      <button type="submit" class="btn btn-primary" style="align-right"><i class="fas fa-edit"></i></button>
+                    </form>
+                  
+                    <form action="/perfilAdm/adm/deletar/<%= usuario.id %>?_method = DELETE" method="post">
+                      <button type="submit" class="btn btn-danger" ><i class="fas fa-trash"></i></button>
+                    </form>
+                  </td>
+                </tr>
+              <% }) %>  
+            </tbody>
+          </table>
+      </div>
+
+      </div>
+  </div>
+
+<!-- cdn datatable  -->
+
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $('.mydatatable').DataTable();
+</script>
+
+
+
+
+
+
+
+
+
