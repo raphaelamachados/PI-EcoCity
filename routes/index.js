@@ -16,14 +16,25 @@ router.get('/coleta', pagesController.coleta)
 router.get('/perfilUsuario', authMiddleware, pagesController.perfilUsuario)
 router.get('/perfilUsuario/historico', authMiddleware, pagesController.historicoUsuario)
 
-router.get('/menu', pagesController.menu)
+// router.get('/menu', pagesController.menu)
 
 router.get('/perfilAdm', pagesController.perfilAdm)
-router.get('/perfilAdm/adm',  pagesController.listarForm)
+router.get('/perfilAdm/admFiltroUsuario',  pagesController.listarUsuario)
+router.get('/perfilAdm/admFiltroEmpresa',  empresaController.listarEmpresa)
+router.get('/perfilAdm/admFiltroParceiro',  parceiroController.listarParceiro)
 
-router.get('/perfilAdm/adm/:id/editar', pagesController.alterarForm)
-router.put('/perfilAdm/adm/:id/editar',  pagesController.editarForm)
-router.delete('/perfilAdm/adm/deletar/:id', pagesController.deletarForm)
+
+router.get('/perfilAdm/admFiltroUsuario/:id/admEditarUsuario', pagesController.alterarForm)
+router.put('/perfilAdm/admFiltroUsuario/:id/admEditarUsuario',  pagesController.editarForm)
+router.delete('/perfilAdm/admFiltroUsuario/deletar/:id', pagesController.deletarForm)
+
+router.get('/perfilAdm/admFiltroEmpresa/:id/admEditarEmpresa', empresaController.alterarForm)
+router.put('/perfilAdm/admFiltroEmpresa/:id/admEditarEmpresa',  empresaController.editarForm)
+router.delete('/perfilAdm/admFiltroEmpresa/deletar/:id', empresaController.deletarForm)
+
+router.get('/perfilAdm/admFiltroParceiro/:id/admEditarParceiro', parceiroController.alterarForm)
+router.put('/perfilAdm/admFiltroParceiro/:id/admEditarParceiro',  parceiroController.editarForm)
+router.delete('/perfilAdm/admFiltroParceiro/deletar/:id', parceiroController.deletarForm)
 
 router.get('/perfilAdm/cadastroParceiro', parceiroController.create)
 router.post('/perfilAdm/cadastroParceiro', uploads.single("foto"), parceiroController.store)

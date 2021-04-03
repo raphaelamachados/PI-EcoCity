@@ -1,4 +1,4 @@
-const { Item, Usuario, Material, Pedido } = require("../models");
+const { Item, Usuario, Material, Pedido, Empresa_Coletora } = require("../models");
 const fs = require("fs");
 
 const empresaController = {
@@ -17,6 +17,49 @@ const empresaController = {
     const materiais = await Material.findAll();
     res.render("perfilEmpresa", { materiais, usuario });
   },
+  listarEmpresa: async(_req, res) => {
+    
+    const empresas = await Empresa_Coletora.findAll().then(function(empresas){
+      return res.render("admFiltroEmpresa", {empresas})
+  })
+  },
+  alterarForm: async(req, res) => {
+    let{id} = req.params
+    const empresa = await Empresa_Coletora.findByPk(id)
+
+   return res.render ('admEditarEmpresa', {empresa})
+},
+
+  editarForm: async (req, res) => {
+      const {id} = req. params
+      const { name, email, cnpj } = req.body
+
+    const empresa =  await Empresa_Coletora.update({
+          nome: name,
+          id:id,
+          email: email,
+          cnpj: cnpj,
+      }, {
+        where: {
+          id:id
+        }
+      }) 
+      return res.redirect("/perfilAdm/admFiltroEmpresa")
+  },
+
+  deletarForm: async (req, res) => {
+      const { id } = req.params
+
+      const empresaDeletada = await Empresa_Coletora.destroy({
+        where: { id },
+      })
+
+      if (!empresaDeletada) {
+        return res.json({ message: 'Erro ao deletar empresa' })
+      }
+
+      return res.json({ message: 'Empresa deletada com sucesso!' })
+    },
 
   store: async (req, res) => {
     const { idCliente, material, peso, listMateriais, listPeso } = req.body;

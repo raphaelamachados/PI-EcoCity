@@ -1,0 +1,92 @@
+<%- include('./partials/header') %>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
+   <!-- cdn datatables  -->
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+ 
+   <!-- meu css --> 
+   <link rel="stylesheet" href="../css/adm.css">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-0">
+        <h1 >Pagina do ADM</h1>
+      </div>
+    </div>
+    <div class=" row ">
+      <div class="col-md-12 mt-2 btnBusca">
+        <a href="./admFiltroUSuario" type="submit" class="btn btn-primary" >Pesquisar por Usuários</a>
+        <a href="./admFiltroEmpresa" type="submit" class="btn btn-warning" >Pesquisar por Empresas</a>
+        <a href="./admFiltroParceiro" type="submit" class="btn btn-success" >Pesquisar por Parceiros</a>
+      </div>
+    </div>
+    <form action="/adm" method="post">
+      <div class="row">
+        <div class="col-md-12">
+          <br/>
+          <br/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive-md">
+            <table class="table  table-bordered table-hover mydatatable" style="width:100%">
+              <thead class="thead-dark">
+                <tr>
+                  <th >id</th>
+                  <th >Nome</th>
+                  <th >CNPJ</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody class="col-md-12">
+                <% parceiros.forEach(parceiro => { %>
+                  <tr>
+                    <th scope="row"><%= parceiro.id %></th>
+                    <td><%= parceiro.nome %></td>
+                    <td><%= parceiro.cnpj %>  </td>
+                    <td class="bt-bt">
+                      
+                         <a href=" /perfilAdm/admFiltroParceiro/<%= parceiro.id %>/admEditarParceiro" type="submit" class="btn btn-primary" ><i class="fas fa-edit"></i></a>
+                        
+                      <form action="/perfilAdm/admFiltroParceiro/deletar/<%= parceiro.id %>?_method=DELETE" method="post">
+                        <button type="submit" class="btn btn-danger" ><i class="fas fa-trash"></i></button>
+                      </form>
+                    </td>
+                  </tr>
+                <% }) %>  
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+<!-- cdn datatable  -->
+
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $('.mydatatable').DataTable({
+      "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Desculpe, nenhum registro encontrado",
+            "info": "Página _PAGE_ de _PAGES_",
+            "infoEmpty": "Nenhum registro disponível",
+            "infoFiltered": "filtrado de _MAX_ registros totais"
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+

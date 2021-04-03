@@ -70,40 +70,27 @@ const pagesController = {
         return res.render("perfilAdm")
     },
 
-    listarForm:  async (_req,res) => {
+    listarUsuario:  async (_req,res) => {
         
         const usuarios = await Usuario.findAll().then(function(usuarios){
-            return res.render("adm", {usuarios})
+            return res.render("admFiltroUsuario", {usuarios})
         })
-        
-        // function listarEmpresa(){
-        //     const empresas = Empresa_Coletora.findAll().then(function(empresas){
-        //         return res.render("adm", {empresas})
-        //     })
-        // }
-        // function listarParceiro(){
-        //     const parceiros = Empresa_Parceira.findAll().then(function(parceiros){
-        //         return res.render("adm", {parceiros})
-        //     })
-        // }
-        
-        // listarEmpresa()
-        // ListarParceiro()
-    },
+     },
     alterarForm: async(req, res) => {
         let{id} = req.params
         const usuario = await Usuario.findByPk(id)
 
-       return res.render ('admEditar', {usuario})
+       return res.render ('admEditarUsuario', {usuario})
     },
 
     editarForm: async (req, res) => {
         const {id} = req. params
-        const { name, email, } = req.body
+        const { name, email, cpf } = req.body
 
       const usuario =  await Usuario.update({
             nome: name,
             id:id,
+            cpf: cpf,
             email: email,
         }, {
           where: {
@@ -111,7 +98,7 @@ const pagesController = {
           }
         }) 
         console.log(usuario)
-        return res.redirect("/perfilAdm/adm")
+        return res.redirect("/perfilAdm/admFiltroUsuario")
     },
     deletarForm: async (req, res) => {
         const { id } = req.params
@@ -127,9 +114,9 @@ const pagesController = {
         return res.json({ message: 'Usuário deletado com sucesso!' })
       },
 
-    menu: (_req,res) => {
-        return res.render("menu")
-    },
+    // menu: (_req,res) => {
+    //     return res.render("menu")
+    // },
     // cadastroParceiro: (_req,res) => {
     //     return res.render("cadastroParceiro")
     // },

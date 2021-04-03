@@ -17,9 +17,9 @@
     </div>
     <div class=" row ">
       <div class="col-md-12 mt-2 btnBusca">
-        <button type="submit" class="btn btn-primary" >Pesquisar por Usuários</button>
-        <button type="submit" class="btn btn-warning" >Pesquisar por Empresas</button>
-        <button type="submit" class="btn btn-success" >Pesquisar por Parceiros</button>
+        <a href="./admFiltroUSuario" type="submit" class="btn btn-primary" >Pesquisar por Usuários</a>
+        <a href="./admFiltroEmpresa" type="submit" class="btn btn-warning" >Pesquisar por Empresas</a>
+        <a href="./admFiltroParceiro" type="submit" class="btn btn-success" >Pesquisar por Parceiros</a>
       </div>
     </div>
     <form action="/adm" method="post">
@@ -50,9 +50,9 @@
                     <td><%= usuario.cpf %>  </td>
                     <td><%= usuario.email %>  </td> 
                     <td class="bt-bt">
-                         <a href="/perfilAdm/adm/<%= usuario.id %>/editar" type="submit" class="btn btn-primary" ><i class="fas fa-edit"></i></a>
+                         <a href="/perfilAdm/admFiltroUsuario/<%= usuario.id %>/admEditarUsuario" type="submit" class="btn btn-primary" ><i class="fas fa-edit"></i></a>
                     
-                      <form action="/perfilAdm/adm/deletar/<%= usuario.id %>?_method=DELETE" method="post">
+                      <form action="/perfilAdm/admFiltroUsuario/deletar/<%= usuario.id %>?_method=DELETE" method="post">
                         <button type="submit" class="btn btn-danger" ><i class="fas fa-trash"></i></button>
                       </form>
                     </td>

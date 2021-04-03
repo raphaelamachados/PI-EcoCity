@@ -1,0 +1,61 @@
+<%- include('./partials/header') %>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" href="../css/adm.css">
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <h1 >Edição de cadastro</h1>
+      </div>
+    </div>
+    <form action="/perfilAdm/admFiltroParceiro/<%= parceiro.id %>/admEditarParceiro?_method=PUT" method="post">
+      <div class="row">
+        <div class="col-md-12">
+          <br/>
+          <br/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive-md">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">CNPJ</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td  >
+                  <span class="form-control" > <strong><%= parceiro.id %></strong>  </span> 
+                  </td>
+                  
+                  <td>
+                    <Input type="text" class="form-control" name="name" id="nome" placeholder="Insira o nome" value="<%= parceiro.nome %> " />
+                  </td>
+                  <td>
+                    <Input type="cnpj" class="form-control" name="cnpj" id="cnpj" placeholder="Insira o cnpj" value="<%= parceiro.cnpj %> " />
+                  </td>
+                  <td>
+                    <button type="submit" class="btn btn-success col-lg">Enviar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+      
+      
+
+
+
+

@@ -12,7 +12,7 @@
         <h1 >Edição de cadastro</h1>
       </div>
     </div>
-    <form action="/perfilAdm/adm/<%= usuario.id %>/editar?_method=PUT" method="post">
+    <form action="/perfilAdm/admFiltroEmpresa/<%= empresa.id %>/admEditarEmpresa?_method=PUT" method="post">
       <div class="row">
         <div class="col-md-12">
           <br/>
@@ -27,6 +27,7 @@
                 <tr>
                   <th scope="col">id</th>
                   <th scope="col">Nome</th>
+                  <th scope="col">CNPJ</th>
                   <th scope="col">Email</th>
                   <th></th>
                 </tr>
@@ -34,14 +35,17 @@
               <tbody>
                 <tr>
                   <td  >
-                  <span class="form-control" > <strong><%= usuario.id %></strong>  </span> 
+                  <span class="form-control" > <strong><%= empresa.id %></strong>  </span> 
                   </td>
                   
                   <td>
-                    <Input type="text" class="form-control" name="name" id="nome" placeholder="Insira o nome" value="<%= usuario.nome %> " />
+                    <Input type="text" class="form-control" name="name" id="nome" placeholder="Insira o nome" value="<%= empresa.nome %> " />
                   </td>
                   <td>
-                    <Input type="email" class="form-control" name="email" id="email" placeholder="Insira o email" value="<%= usuario.email %> " />
+                    <Input type="cnpj" class="form-control" name="cnpj" id="cnpj" placeholder="Insira o cnpj" value="<%= empresa.cnpj %> " />
+                  </td>
+                  <td>
+                    <Input type="email" class="form-control" name="email" id="email" placeholder="Insira o email" value="<%= empresa.email %> " />
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success col-lg">Enviar</button>
