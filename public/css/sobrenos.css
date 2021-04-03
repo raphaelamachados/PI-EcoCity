@@ -6,6 +6,9 @@
 body{
    background-color: #838789;
     height: 100vh;
+    background-image: url(../images/TeamBorder.png);
+    background-repeat: no-repeat;
+
 }
 
 main {
@@ -21,9 +24,12 @@ main .container{
     flex-direction: column;
     width: 90%;
     height: auto;
-    background-color: #E5E5E5;
+    background-color: #faf9f969;
     border-radius: 35px 35px 0px 0px ;
-    
+    background-image: url(../images/Team.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: 49%; 
 }
 section{
     padding: 10px;
@@ -44,7 +50,7 @@ h1{
     align-self: center;
     font-family: Nunito;
     font-weight: bold;
-    font-size: 3.6rem;
+    font-size: 3.7rem;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 40px;
