@@ -32,6 +32,7 @@ section.img {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 0;
 }
 /* section img.upload_image {
     width:20%;
@@ -42,9 +43,9 @@ section.img img.upload-image {
     justify-self: center;
 }
 #imgUpload{
-    width: 250px;
-    width: 250px;
-    /* object-fit:cover; */
+    width: 200px;
+    height: 200px;
+    object-fit:fill;
     border-radius:50%;
 }
 .control-label {
@@ -58,13 +59,14 @@ div.form-group {
     flex-direction: column;
     justify-content: center;
     align-self: center;
+    margin:0;
 }
 .control-label:hover {
     cursor: pointer;
 }
 
 
-section {
+.formulario{
     width:50%;
     height: 100%;
     display: flex;

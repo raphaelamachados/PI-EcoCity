@@ -21,9 +21,9 @@ router.get('/menu', pagesController.menu)
 router.get('/perfilAdm', pagesController.perfilAdm)
 router.get('/perfilAdm/adm',  pagesController.listarForm)
 
-router.get('/perfilAdm/adm/:id/editar',  pagesController.alterarForm)
-router.put('/editar',  pagesController.editarForm)
-router.delete('/perfilAdm/adm/deletar/:id',  pagesController.deletarForm)
+router.get('/perfilAdm/adm/:id/editar', pagesController.alterarForm)
+router.put('/perfilAdm/adm/:id/editar',  pagesController.editarForm)
+router.delete('/perfilAdm/adm/deletar/:id', pagesController.deletarForm)
 
 router.get('/perfilAdm/cadastroParceiro', parceiroController.create)
 router.post('/perfilAdm/cadastroParceiro', uploads.single("foto"), parceiroController.store)

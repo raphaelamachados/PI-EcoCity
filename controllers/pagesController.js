@@ -70,10 +70,25 @@ const pagesController = {
         return res.render("perfilAdm")
     },
 
-    listarForm: async(_req,res) => {
+    listarForm:  async (_req,res) => {
+        
         const usuarios = await Usuario.findAll().then(function(usuarios){
             return res.render("adm", {usuarios})
         })
+        
+        // function listarEmpresa(){
+        //     const empresas = Empresa_Coletora.findAll().then(function(empresas){
+        //         return res.render("adm", {empresas})
+        //     })
+        // }
+        // function listarParceiro(){
+        //     const parceiros = Empresa_Parceira.findAll().then(function(parceiros){
+        //         return res.render("adm", {parceiros})
+        //     })
+        // }
+        
+        // listarEmpresa()
+        // ListarParceiro()
     },
     alterarForm: async(req, res) => {
         let{id} = req.params
@@ -83,7 +98,8 @@ const pagesController = {
     },
 
     editarForm: async (req, res) => {
-        const { name, email, id } = req.body
+        const {id} = req. params
+        const { name, email, } = req.body
 
       const usuario =  await Usuario.update({
             nome: name,
@@ -97,12 +113,19 @@ const pagesController = {
         console.log(usuario)
         return res.redirect("/perfilAdm/adm")
     },
-    deletarForm: (req, res) => {
-        const {id} = req.params
-        
-        // return res.render("adm")
-        return res.send("estou deletando o usuario com id: " + id)
-    },
+    deletarForm: async (req, res) => {
+        const { id } = req.params
+    
+        const usuarioDeletado = await Usuario.destroy({
+          where: { id },
+        })
+    
+        if (!usuarioDeletado) {
+          return res.json({ message: 'Erro ao deletar usuário' })
+        }
+    
+        return res.json({ message: 'Usuário deletado com sucesso!' })
+      },
 
     menu: (_req,res) => {
         return res.render("menu")

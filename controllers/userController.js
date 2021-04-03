@@ -1,6 +1,9 @@
 const { Usuario, Empresa_Coletora } = require('../models')
 const Bcrypt = require('bcrypt')
 const fs = require('fs')
+// const swal = require('sweetalert') 
+
+
 
 const userController = {
     create: async (_req, res) => {
@@ -16,10 +19,10 @@ const userController = {
                 where: {
                     email: email,
                 }
-            })) {
+            })) 
+            {
                    
-                    // alert("Email já cadastrado")
-                //    return res.send("Email já cadastrado")
+                   return res.render('cadastro', {error:"Usuário já cadastrado"})
             }
             const usuario = await Usuario.create({
                 nome: name,

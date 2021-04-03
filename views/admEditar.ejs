@@ -12,7 +12,7 @@
         <h1 >Edição de cadastro</h1>
       </div>
     </div>
-    <form action="/editar?_method=PUT" method="post">
+    <form action="/perfilAdm/adm/<%= usuario.id %>/editar?_method=PUT" method="post">
       <div class="row">
         <div class="col-md-12">
           <br/>
@@ -26,7 +26,6 @@
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">id</th>
-                  <th scope="col">Tipo</th>
                   <th scope="col">Nome</th>
                   <th scope="col">Email</th>
                   <th></th>
@@ -37,15 +36,9 @@
                   <td  >
                   <span class="form-control" > <strong><%= usuario.id %></strong>  </span> 
                   </td>
+                  
                   <td>
-                    <select class="form-control" name= Tipo id="tipo" >
-                      <option selected disabled value="">Cliente/Empresa</option>
-                      <option>Cliente</option>
-                      <option>Empresa</option>
-                    </select>  
-                  </td>
-                  <td>
-                    <Input type="text" class="form-control" name="nome" id="nome" placeholder="Insira o nome" value="<%= usuario.nome %> " />
+                    <Input type="text" class="form-control" name="name" id="nome" placeholder="Insira o nome" value="<%= usuario.nome %> " />
                   </td>
                   <td>
                     <Input type="email" class="form-control" name="email" id="email" placeholder="Insira o email" value="<%= usuario.email %> " />

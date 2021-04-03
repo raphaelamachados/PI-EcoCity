@@ -11,6 +11,11 @@ tr .bt-bt {
 td{
     height:100%;
 }
+.btnBusca{
+    display: flex;
+    justify-content: space-evenly;
+
+}
 .form-control {
     width: 100%;
     border: none;

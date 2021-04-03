@@ -83,8 +83,10 @@ article.usuario h1{
 } 
 .card-title{
     font-size: 1.1rem;
+    color: #263238;
     font-weight: bold;
 }
 .card-text{
     font-size: .7rem;
+    color: #263238;
 }
