@@ -2,7 +2,7 @@ const { Usuario, Empresa_Coletora } = require("../models/")
 const Bcrypt = require("bcrypt")
 
 const authController = {
-    show: (_req, res) => res.render("login"),
+    show: (_req, res) => res.render("loginUsuario"),
     loginUsuario: async (req, res) => {
         const { email, password } = req.body
 
@@ -46,9 +46,9 @@ const authController = {
             return res.send("Usuário ou senha inválidos")
         }
 
-        if (empresa.email == "adm@adm.com"){
-            return res.redirect("/perfilAdm")
-        }
+        // if (empresa.email == "adm@adm.com"){
+        //     return res.redirect("/perfilAdm")
+        // }
 
         req.session.user = {
             id: empresa.id,

@@ -3,12 +3,7 @@ const pagesController = {
     index: (_req, res) => {
        return res.render("index")
     },
-    // login: (req,res) => {
-    //     return res.render("login")
-    // },
-    // cadastro: (req,res) => {
-    //     return res.render("cadastro")
-    // },
+   
     coleta: (_req,res) => {
         return res.render("coleta")
     },
@@ -19,7 +14,6 @@ const pagesController = {
         const { id } = req.session.user
         const usuario = await Usuario.findByPk(id)
       
-        // console.log(usuario)
         return res.render("perfilUsuario", {usuario})
     },
 
@@ -114,11 +108,6 @@ const pagesController = {
         return res.json({ message: 'Usuário deletado com sucesso!' })
       },
 
-    // menu: (_req,res) => {
-    //     return res.render("menu")
-    // },
-    // cadastroParceiro: (_req,res) => {
-    //     return res.render("cadastroParceiro")
-    // },
+   
 }
 module.exports = pagesController

@@ -10,12 +10,12 @@
       <section>
         <div class="form">
             <h1>Login</h1>
-            <form action="/login" method="post">
+            <form action="/loginUsuario" method="post">
                 <input class = "email" type="email" id="email" name="email" placeholder="E-mail">
                 <input class = "senha" type="password" id="senha" name="password" placeholder="Senha" >
                 <p>
                   Ainda não tem cadastro?
-                  <a  href="/cadastro">Clique aqui!</a> 
+                  <a  href="/cadastroUsuario">Clique aqui!</a> 
                 </p>
                 <button type="submit" name="button">ENTRAR</button>
             </form>
@@ -26,6 +26,12 @@
   </main>
 
 <%- include('./partials/footer') %>
+
+<% if(typeof error !== 'undefined') {%> 
+  <script>
+    swal("Ops!", "<%= error %>", "error");
+  </script>
+<% }  %> 
 
 
 

@@ -26,18 +26,35 @@ header .container{
     width: 70px;
 }
 
+.navbar-collapse.collapsing ul{
+    text-align: center;
+    max-width: 100%;
+    width:100%;
+} 
+.navbar-collapse.collapse.show ul{
+    text-align: center;
+    width:100%;
+
+} 
+
 .nav-item{
     margin-left: 10px;
 }
+.nav-item2 {
+    color: #8c9899;
+    font-size: 24px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+}
 
-.nav-item2 a::before{
-    content: '|';
-    margin-right: 35px;
-    margin-left: 25px;
+.dropdown-item {
+    content: none;
+    margin: 0;
 }
 
 @media (max-width: 990px){
-    .nav-item2 a::before{
-       display: none;
+    .nav-item2 {
+        display: none;
     }
 }

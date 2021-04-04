@@ -9,7 +9,15 @@ body{
     height: 100vh;
     font-family: Roboto;
 }
-
+h1{
+    text-align: center;
+    /* text-transform: uppercase; */
+    font-weight: bold;
+    color: #2ca546;
+}
+h3{
+    text-align: center;
+}
 
 td{
     height:100%;

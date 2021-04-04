@@ -1,8 +1,13 @@
 const { Item, Usuario, Material, Pedido, Empresa_Coletora } = require("../models");
+const Bcrypt = require('bcrypt')
 const fs = require("fs");
 
+
+
 const empresaController = {
+  
   create: async (req, res) => {
+    
     // recebendo o cpf do front para ligar com o ID do cliente que está no banco de dados
     const { cpf } = req.query;
     let usuario;
@@ -111,6 +116,41 @@ console.log(pontuacaoPedido)
     return res.redirect("/perfilEmpresa");
     console.log(item);
   },
+
+  criarCadastro: async (_req, res) => {
+    res.render("cadastroEmpresa")
+  },
+  salvarCadastro: async(req,res) => {
+    const {file } = req 
+    const { nameEmpresa, endereco, cnpj, emailEmpresa, passwordEmpresa, cep } = req.body
+        
+    const empresa = await Empresa_Coletora.create({
+        nome: nameEmpresa,
+        cnpj: cnpj,
+        endereco: endereco,
+        cep: cep,
+        email: emailEmpresa,
+        senha: Bcrypt.hashSync(passwordEmpresa, 10),
+        imagem: file.filename, 
+
+    })
+
+    if(!empresa) {
+        fs.unlinkSync(file.path)
+        return res.send("houve um erro ao salvar o usuario")
+    } 
+
+    return res.redirect("/loginEmpresa")
+
+  },
+
 };
 
 module.exports = empresaController;
+
+
+
+
+
+
+      

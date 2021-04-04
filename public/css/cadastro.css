@@ -48,6 +48,9 @@ section.img img.upload-image {
     object-fit:fill;
     border-radius:50%;
 }
+p {
+    margin: 0;
+}
 .control-label {
     margin-top: 20px;
     text-align: center;
@@ -90,6 +93,7 @@ section h1 {
     color:#7CB13E;
     font-weight: 550;
     font-size: 2.5rem;
+    margin: 0;
 }
 .escolha {
     width: 100%;
@@ -155,7 +159,7 @@ section .form-input {
 .form-input input.nome{
     margin: 10px 0;
 }
-.form-input input.email, .cpf, .senha, .cep, .cnpj {
+.form-input input.email, .cpf, .senha, .cep, .cnpj, .endereco {
     margin-bottom: 10px;
 }
 
@@ -217,7 +221,7 @@ section .form-input {
     }
 
     h1 {
-        margin-top: 20px;
+        /* margin-top: 20px; */
         display: none;
     }
     

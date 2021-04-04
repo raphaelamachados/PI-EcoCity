@@ -4,18 +4,18 @@
 
 <main>
   <div class="container">
-    <section class="img" >
-    <form action="/cadastro" method="post" enctype="multipart/form-data">
+            <section class="img" >
+          <form action="/cadastro" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                   <img src="./images/upload_image.png" id="imgUpload" alt="upload_image" class="upload-image">
-                  <label for="fupload" class="control-label label-bordered"><strong>Clique aqui</strong> <br>para escolher um arquivo</label>
-                  <!-- <div class="nomeArquivo"></div> -->
+                  <label for="fupload" class="control-label label-bordered"><strong>Clique aqui</strong> <br> para escolher um arquivo</label>
+                  <div class="nomeArquivo"></div>
                   <input hidden type="file" id="fupload" name="foto" class="fupload form-control" />
               </div>
             </section>
 
     
-            <section class="formulario">
+            <section>
               <div class="form">
                   <h1>Cadastro</h1>
                   <p>Escolha uma opção</p>
@@ -50,13 +50,12 @@
         </section>
       
       </div>
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-      <% if(typeof error !== 'undefined') {%> 
-        <script>
-          swal("Ops!", "<%= error %>", "error");
-        </script>
-      <% }  %> 
-      <a href="#" onclick="swal('oi Testanto o SweetAlert.');">Clique aqui</a>
+      <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+      <!-- <% if(typeof error !== 'undefined') {%>  -->
+        <!-- <script> -->
+          <!-- swal("Ops!", "<%= error%>", "error"); -->
+        <!-- </script> -->
+      <!-- <% }  %>  -->
      
 
 <script src="./javascripts/cadastro.js"> </script>

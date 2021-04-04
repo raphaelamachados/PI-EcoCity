@@ -1,0 +1,50 @@
+<%- include('./partials/header') %>
+<link rel="stylesheet" href="./css/cadastro.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<main>
+  <div class="container">
+            <section class="img" >
+          <form action="/cadastroEmpresa" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                  <img src="./images/upload_image.png" id="imgUpload" alt="upload_image" class="upload-image">
+                  <label for="fupload" class="control-label label-bordered"><strong>Clique aqui</strong> <br> para escolher um arquivo</label>
+                  <div class="nomeArquivo"></div>
+                  <input hidden type="file" id="fupload" name="foto" class="fupload form-control" />
+              </div>
+            </section>
+
+    
+            <section>
+              <div class="form">
+                  <h1>Cadastro</h1>
+                  <p>Escolha uma opção</p>
+                  <div class="escolha">
+                    <a href="/cadastroUsuario"><button class="button cliente "  type="button" name="button-cliente" >Cliente</button></a>
+                        <a href="/cadastroEmpresa"><button class="button empresa darkMode"  type="button" name="button-empresa" >Empresa</button></a>
+                  </div>
+                    <div class= "form-input empresa " id="f-empresa" >
+                      <input class = "nome" type="text" id="nomeEmpresa" name="nameEmpresa" placeholder="Nome">
+                      <input class = "cnpj" type="text" id="cnpj" name="cnpj" placeholder="CNPJ">
+                      <input class = "endereco" type="text" id="endereco" name="endereco" placeholder="Endereço">
+                      <input class = "cep" type="text" id="cep" name="cep" placeholder="Cep">
+                      <input class = "email" type="text" id="emailEmpresa" name="emailEmpresa" placeholder="E-mail">
+                      <input class = "senha" type="password" id="passwordEmpresa" name="passwordEmpresa" placeholder="Senha" >
+                    
+                      <button type="submit" id="submitEmpresa" name="button">ENVIAR CADASTRO</button>
+                    </div> 
+                  </div>
+                </form>
+        </section>
+      
+      </div>
+      <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+      <!-- <% if(typeof error !== 'undefined') {%>  -->
+        <!-- <script> -->
+          <!-- swal("Ops!", "<%= error%>", "error"); -->
+        <!-- </script> -->
+      <!-- <% }  %>  -->
+     
+
+<script src="./javascripts/cadastro.js"> </script>
+<%- include('./partials/footer') %>

@@ -2,7 +2,7 @@ module.exports = (req, res, next) =>{
     const user = req.session.user
     
     if (!user){
-        return res.redirect("/login")
+        return res.redirect("/")
     }
     res.locals.user = user
     return next()
