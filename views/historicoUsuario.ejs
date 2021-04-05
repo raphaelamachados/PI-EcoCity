@@ -1,4 +1,10 @@
-<%- include('./partials/header') %>
+<% if( !usuario ) { %> 
+  <%- include('./partials/header') %> 
+  <% } else { %> 
+  <%- include('./partials/header-logado') %> 
+  <% } %>
+  
+
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="script.js"></script>

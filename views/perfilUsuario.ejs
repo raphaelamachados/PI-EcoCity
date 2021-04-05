@@ -1,4 +1,8 @@
-<%- include('./partials/header') %>
+<% if( !user ) { %> 
+  <%- include('./partials/header') %> 
+  <% } else { %> 
+  <%- include('./partials/header-logado') %> 
+  <% } %>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@5.4.0/keen-slider.min.css"/>
 <link rel="stylesheet" href="./css/perfilUsuario.css">
     

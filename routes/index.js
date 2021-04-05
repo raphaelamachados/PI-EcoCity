@@ -18,6 +18,7 @@ router.get('/loginUsuario', authController.show)
 router.post('/loginUsuario', authController.loginUsuario)
 router.get('/loginEmpresa',  authController.showEmpresa)
 router.post('/loginEmpresa',  authController.loginEmpresa)
+router.get('/logout',  authController.logout)
 
 
 

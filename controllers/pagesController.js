@@ -61,7 +61,7 @@ const pagesController = {
 
     },
     perfilAdm: (_req,res) => {
-        return res.render("perfilAdm")
+        return res.render("perfilAdm", )
     },
 
     listarUsuario:  async (_req,res) => {

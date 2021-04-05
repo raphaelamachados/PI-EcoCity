@@ -1,4 +1,8 @@
-<%- include('./partials/header') %>
+<% if( !user ) { %> 
+  <%- include('./partials/header') %> 
+  <% } else { %> 
+  <%- include('./partials/header-logado') %> 
+  <% } %>
 
 <link rel="stylesheet" href="./css/perfilEmpresa.css">
 
