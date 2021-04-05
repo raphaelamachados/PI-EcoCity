@@ -61,8 +61,6 @@ const authController = {
     logout: (req,res) => {
         delete req.session.user
         delete res.locals.user
-        // delete req.session.usuario
-        // delete res.locals.usuario
 
         return res.redirect('/')
     },

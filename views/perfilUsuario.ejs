@@ -40,27 +40,12 @@
         <section class="parceiros">
           <article id="my-keen-slider" class="keen-slider">
             
-            <div class="keen-slider__slide number-slide">
-              <img class="img-parceiro" src="./images/lg_1.png" alt="...">
-            </div>
+            <% parceiros.forEach(parceiro => { %>
+              <div class="keen-slider__slide number-slide">
+                <img class="img-parceiro" src="/post/<%=parceiro.imagem %>" alt="...">
+              </div>
+                <% }) %> 
             
-            <div class="keen-slider__slide number-slide">
-              <img class="img-parceiro" src="./images/lg_2.png" alt="...">
-            </div>
-            
-            <div class="keen-slider__slide number-slide">
-              <img class="img-parceiro" src="./images/lg_3.png" alt="...">
-            </div>
-  
-            <div class="keen-slider__slide number-slide">
-              <img class="img-parceiro" src="./images/lg_4.png" alt="...">
-            </div>
-            <div class="keen-slider__slide number-slide">
-              <img class="img-parceiro" src="./images/lg_3.png" alt="...">
-            </div>
-            <div class="keen-slider__slide number-slide">
-              <img class="img-parceiro" src="./images/lg_2.png" alt="...">
-            </div>
           </article>
         </section>
       </div>

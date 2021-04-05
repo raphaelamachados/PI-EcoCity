@@ -1,4 +1,4 @@
-const { Usuario, Pedido, Item, Empresa_Coletora, Material } = require('../models')
+const { Usuario, Pedido, Item, Empresa_Coletora, Empresa_Parceira, Material } = require('../models')
 const pagesController = {
     index: (_req, res) => {
        return res.render("index")
@@ -13,8 +13,9 @@ const pagesController = {
     perfilUsuario: async(req,res) => {
         const { id } = req.session.user
         const usuario = await Usuario.findByPk(id)
+        const parceiros = await Empresa_Parceira.findAll()
       
-        return res.render("perfilUsuario", {usuario})
+        return res.render("perfilUsuario", {usuario, parceiros})
     },
 
     historicoUsuario: async (req,res) => {

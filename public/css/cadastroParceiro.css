@@ -47,11 +47,11 @@ section.img img.upload-image {
     justify-self: center;
 }
 
-#imgUpload {
-    width: 250px;
-    width: 250px;
-    object-fit: cover;
-    border-radius: 100%;
+#imgUpload{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius:50%;
 }
 
 .control-label {
