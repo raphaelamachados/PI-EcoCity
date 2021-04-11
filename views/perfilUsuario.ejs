@@ -23,7 +23,14 @@
             <div class="content">
               <img class="small-logo" src="./images/recicling-img.png" alt="recicling-card">
               <h3>Reciclagem</h3>
-              <h2><%= usuario.pontuacao%><span>pts</span></h2>
+              <h2>
+                <% if( usuario.pontuacao <=0 ) { %> 
+                  <%= "0" %> 
+                  <% } else { %> 
+                <%= usuario.pontuacao%>
+                  <% } %>
+                <span>pts</span>
+              </h2>
             </div>
           </div>
     

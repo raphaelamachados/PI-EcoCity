@@ -22,20 +22,20 @@ const parceiroController = {
  
         return res.redirect("/perfilAdm")
     },
-    listarParceiro: async(_req, res) => {
+    listarparceiro: async(_req, res) => {
     
         const parceiros = await Empresa_Parceira.findAll().then(function(parceiros){
           return res.render("admFiltroParceiro", {parceiros})
       })
       },
-      alterarForm: async(req, res) => {
+      alterarform: async(req, res) => {
         let{id} = req.params
         const parceiro = await Empresa_Parceira.findByPk(id)
     
        return res.render ('admEditarParceiro', {parceiro})
     },
     
-      editarForm: async (req, res) => {
+      editarform: async (req, res) => {
           const {id} = req. params
           const { name, email, cnpj } = req.body
     
@@ -51,7 +51,7 @@ const parceiroController = {
           return res.redirect("/perfilAdm/admFiltroParceiro")
       },
     
-      deletarForm: async (req, res) => {
+      deletarform: async (req, res) => {
           const { id } = req.params
     
           const parceiroDeletado = await Empresa_Parceira.destroy({

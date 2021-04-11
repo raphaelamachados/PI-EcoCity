@@ -4,11 +4,11 @@ const fs = require('fs')
 
 
 const userController = {
-    criarCadastro: async (_req, res) => {
+    criarcadastro: async (_req, res) => {
         res.render("cadastroUsuario")
     },
    
-    salvarCadastro: async(req,res) => {
+    salvarcadastro: async(req,res) => {
         const {file } = req
         const { name, cpf, email, password, } = req.body
 
@@ -25,6 +25,7 @@ const userController = {
             nome: name,
             cpf: cpf,
             email: email,
+            rule: "user",
             senha: Bcrypt.hashSync(password, 10),
             imagem: file.filename, 
         })

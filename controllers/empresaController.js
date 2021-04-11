@@ -22,20 +22,20 @@ const empresaController = {
     const materiais = await Material.findAll();
     res.render("perfilEmpresa", { materiais, usuario });
   },
-  listarEmpresa: async(_req, res) => {
+  listarempresa: async(_req, res) => {
     
     const empresas = await Empresa_Coletora.findAll().then(function(empresas){
       return res.render("admFiltroEmpresa", {empresas})
   })
   },
-  alterarForm: async(req, res) => {
+  alterarform: async(req, res) => {
     let{id} = req.params
     const empresa = await Empresa_Coletora.findByPk(id)
 
    return res.render ('admEditarEmpresa', {empresa})
 },
 
-  editarForm: async (req, res) => {
+  editarform: async (req, res) => {
       const {id} = req. params
       const { name, email, cnpj } = req.body
 
@@ -52,7 +52,7 @@ const empresaController = {
       return res.redirect("/perfilAdm/admFiltroEmpresa")
   },
 
-  deletarForm: async (req, res) => {
+  deletarform: async (req, res) => {
       const { id } = req.params
 
       const empresaDeletada = await Empresa_Coletora.destroy({
@@ -77,7 +77,7 @@ const empresaController = {
       empresa_coletora_id: idEmpresa,
     });
 
-    const itens = listMateriais.map((material, index) => {
+    const itens = await listMateriais.map((material, index) => {
       return {
         material_id: material,
         peso: listPeso[index],
@@ -117,10 +117,10 @@ console.log(pontuacaoPedido)
     console.log(item);
   },
 
-  criarCadastro: async (_req, res) => {
+  criarcadastro: async (_req, res) => {
     res.render("cadastroEmpresa")
   },
-  salvarCadastro: async(req,res) => {
+  salvarcadastro: async(req,res) => {
     const {file } = req 
     const { nameEmpresa, endereco, cnpj, emailEmpresa, passwordEmpresa, cep } = req.body
         

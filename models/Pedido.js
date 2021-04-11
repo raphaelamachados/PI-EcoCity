@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     })
         pedido.belongsTo(models.Empresa_Coletora, {
         foreignKey: "empresa_coletora_id",
-        
       })
       pedido.hasMany(models.Item, {
         foreignKey: "pedido_id",

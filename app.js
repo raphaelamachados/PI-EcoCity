@@ -8,6 +8,7 @@ const methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/perfilAdm', adminRouter);
 
 app.use((req, res) => {
   return res.status(404).render('error')

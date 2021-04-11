@@ -10,7 +10,7 @@ const pagesController = {
     sobrenos: (_req,res) => {
         return res.render("sobrenos")
     },
-    perfilUsuario: async(req,res) => {
+    perfilusuario: async(req,res) => {
         const { id } = req.session.user
         const usuario = await Usuario.findByPk(id)
         const parceiros = await Empresa_Parceira.findAll()
@@ -18,7 +18,7 @@ const pagesController = {
         return res.render("perfilUsuario", {usuario, parceiros})
     },
 
-    historicoUsuario: async (req,res) => {
+    historicousuario: async (req,res) => {
         // const pedidos = await Pedido.findAll().then(function(pedidos) {
         //     return res.render("historicoUsuario", {pedidos})
         // })
@@ -61,24 +61,24 @@ const pagesController = {
         })
 
     },
-    perfilAdm: (_req,res) => {
+    perfiladm: (_req,res) => {
         return res.render("perfilAdm", )
     },
 
-    listarUsuario:  async (_req,res) => {
+    listarusuario:  async (_req,res) => {
         
         const usuarios = await Usuario.findAll().then(function(usuarios){
             return res.render("admFiltroUsuario", {usuarios})
         })
      },
-    alterarForm: async(req, res) => {
+    alterarform: async(req, res) => {
         let{id} = req.params
         const usuario = await Usuario.findByPk(id)
 
        return res.render ('admEditarUsuario', {usuario})
     },
 
-    editarForm: async (req, res) => {
+    editarform: async (req, res) => {
         const {id} = req. params
         const { name, email, cpf } = req.body
 
@@ -95,7 +95,7 @@ const pagesController = {
         console.log(usuario)
         return res.redirect("/perfilAdm/admFiltroUsuario")
     },
-    deletarForm: async (req, res) => {
+    deletarform: async (req, res) => {
         const { id } = req.params
     
         const usuarioDeletado = await Usuario.destroy({
