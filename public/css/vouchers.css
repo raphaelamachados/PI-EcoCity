@@ -1,0 +1,58 @@
+            * {
+                box-sizing: border-box;
+            }
+            
+            .container {
+                margin: auto;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 90vw;
+                justify-content: center;
+            }
+            
+            .card {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                margin: 20px;
+                max-width: 250px;
+                border: 2px solid#000;
+                border-radius: 15px;
+            }
+            
+            .card>img {
+                border-radius: 15px 15px 0 0;
+            }
+            
+            .card-content {
+                padding: 10px 10px 20px;
+            }
+            
+            .card-content>.card-name {
+                font-size: 1.5 em;
+            }
+            
+            .card-image {
+                transition: transform 0.8s;
+            }
+            
+            .card-image:hover {
+                transform: rotateY(180deg);
+            }
+            
+            h1 {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 25;
+            }
+            
+            ol {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 15;
+            }
+            
+            .card-desc {
+                font-size: 8;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: bold;
+            }
