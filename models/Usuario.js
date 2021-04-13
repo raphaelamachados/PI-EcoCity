@@ -1,3 +1,4 @@
+const Sequelize = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
     const usuario = sequelize.define(
@@ -16,11 +17,12 @@ module.exports = (sequelize, DataTypes) => {
         senha: DataTypes.STRING,
         imagem: DataTypes.STRING,
         pontuacao: DataTypes.NUMBER,
-     
+        createdAt: {type: DataTypes.DATE, defaultValue:Sequelize.NOW} ,
+        updatedAt: {type: DataTypes.DATE, defaultValue:Sequelize.NOW} ,
       },
       {
         tableName: "usuario",
-        timestamps: true,
+        timestamps: false,
       }
     );
 

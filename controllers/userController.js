@@ -11,16 +11,17 @@ const userController = {
     salvarcadastro: async(req,res) => {
         const {file } = req
         const { name, cpf, email, password, } = req.body
-
-        // if (Usuario.findAll({
-        //     where: {
-        //         email: email,
-        //     }
-        // })) 
-        // {
-        //        return res.send("email já cadastrado")
-        //     //    return res.render('cadastro', {error:"Usuário já cadastrado"})
-        // }
+        const usuarioExistente =  await Usuario.findOne({
+            where: {
+                email: email,
+            }
+        })
+            if (usuarioExistente)  
+            {
+                // return res.send("email já cadastrado")
+                   return res.render('cadastroUsuario', {error:"Usuário já cadastrado"})
+            }
+            
         const usuario = await Usuario.create({
             nome: name,
             cpf: cpf,
@@ -36,7 +37,7 @@ const userController = {
             return res.send("houve um erro ao salvar o usuario")
         } 
 
-        return res.redirect("/loginUsuario")
+        return res.render("loginUsuario", {success: "Usuário Cadastrado"})
     
     },
 }

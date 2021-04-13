@@ -12,11 +12,13 @@ module.exports = (sequelize, DataTypes) => {
       }
     );
     material.associate = (models) => {
-      material.hasMany(models.Item, {
+      material.belongsToMany(models.Pedido, {
+      through: 'item',
       foreignKey: "material_id",
-      as: "item"
+      as: "pedidos"
     })
   }
   
     return material
 }
+

@@ -5,4 +5,8 @@ module.exports = {
   port: 3306,
   password: "",
   database: "ecocity",
+  define: 
+  {
+    timestamps: false
+  }
 };

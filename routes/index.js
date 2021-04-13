@@ -23,7 +23,7 @@ router.get('/logout',  authController.logout)
 
 
 router.get('/perfilUsuario', authMiddleware, pagesController.perfilusuario)
-router.get('/perfilUsuario/historico', authMiddleware, pagesController.historicousuario)
+router.get('/perfilUsuario/historico', pagesController.historicousuario)
 
 router.get('/cadastroUsuario', userController.criarcadastro)
 router.post('/cadastroUsuario', uploads.single("foto"), userController.salvarcadastro)

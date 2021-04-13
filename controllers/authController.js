@@ -12,12 +12,12 @@ const authController = {
             },
         })
         if (!usuario) {
-            return res.send("Usuário ou senha inválidos")
+            // return res.send("Usuário ou senha inválidos")
+            return res.render('loginUsuario', {error:"Usuário ou senha inválidos"})
         }
         if (!Bcrypt.compareSync(password, usuario.senha)) {
-            return res.send("Usuário ou senha inválidos")
+            return res.render('loginUsuario', {error:"Usuário ou senha inválidos"})
         }
-
         
         req.session.user = {
             id: usuario.id,
@@ -25,9 +25,6 @@ const authController = {
             rule: usuario.rule,
         }
         
-        if (usuario.email == "adm@adm.com"){
-            return res.redirect("/perfilAdm")
-        }
         return res.redirect("/perfilUsuario")
 
     },
@@ -41,15 +38,11 @@ const authController = {
             },
         })
         if (!empresa) {
-            return res.send("Usuário ou senha inválidos")
+            return res.render('loginUsuario', {error:"Usuário ou senha inválidos"})
         }
         if (!Bcrypt.compareSync(password, empresa.senha)) {
-            return res.send("Usuário ou senha inválidos")
+            return res.render('loginUsuario', {error:"Usuário ou senha inválidos"})
         }
-
-        // if (empresa.email == "adm@adm.com"){
-        //     return res.redirect("/perfilAdm")
-        // }
 
         req.session.user = {
             id: empresa.id,

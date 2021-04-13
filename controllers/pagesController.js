@@ -19,46 +19,45 @@ const pagesController = {
     },
 
     historicousuario: async (req,res) => {
-        // const pedidos = await Pedido.findAll().then(function(pedidos) {
-        //     return res.render("historicoUsuario", {pedidos})
-        // })
-
         const { id } = req.session.user
-        const pedidos = await Pedido.findOne({
+        const usuario = await Usuario.findByPk(id)
+        const pedidos = await Pedido.findAll({
             where: {
                 usuario_id: id,
             },
             include: [
             {
-                model: Item,
-                as: 'item',
+                model: Material,
+                as: 'materiais',
                 required: true,
+                attributes:["tipo"]
             },
             {
                 model: Empresa_Coletora,
                 required: true,
             },
-            // {
-            //     model: Material,
-            //     required: true,
-            // },
+           
         ],
-        // order: [["created_at, "DESC"]],
-
-        // const pedidosFormatados = pedidos.map((pedido) =>{
-        //     const data = new Date(pedido.createdAt)
-        //     const dataFormatada = new Intl.DateTimeFormat("pt-Br", {
-                    // dateStyle: "short",
-                    // timeStyle: "short",
-        //     }).format(data);
-
-        //     return { ...pedido, createdAt: dataFormatada}
-        // }) 
         
+    })
+        const pedidosFormatados = pedidos.map((pedido) =>{
+            const data = new Date(pedido.createdAt)
+            const dataFormatada = new Intl.DateTimeFormat("pt-Br", {
+                    dateStyle: "short",
+            }).format(data);
+            
+            const newPedido = {
+                id : pedido.id,
+                Empresa_Coletora: pedido.Empresa_Coletora,
+                item: pedido.materiais.map((itemPedido)=>itemPedido.tipo),
+                createdAt: dataFormatada
+            }
+            console.log(pedido.materiais)
+            return newPedido
+        }) 
+            console.log(pedidosFormatados)
+            return res.render("historicoUsuario", {usuario, pedidos: pedidosFormatados })
         
-        }).then(function(pedidos) {
-            return res.render("historicoUsuario", {pedidos})//: pedidosFormatados})//
-        })
 
     },
     perfiladm: (_req,res) => {

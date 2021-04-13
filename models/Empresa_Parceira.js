@@ -1,4 +1,4 @@
-
+const Sequelize = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
     const empresa_parceira = sequelize.define(
       "Empresa_Parceira",
@@ -6,10 +6,12 @@ module.exports = (sequelize, DataTypes) => {
         nome: DataTypes.STRING,
         cnpj: DataTypes.NUMBER,
         imagem: DataTypes.STRING,
+        createdAt: {type: DataTypes.DATE, defaultValue:Sequelize.NOW} ,
+        updatedAt: {type: DataTypes.DATE, defaultValue:Sequelize.NOW} ,
       },
       {
         tableName: "empresa_parceira",
-        timestamps: true,
+        timestamps: false,
       }
     )
      empresa_parceira.associate = (models) => {

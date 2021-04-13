@@ -1,3 +1,5 @@
+const Sequelize = require('sequelize')
+
 module.exports = (sequelize, DataTypes) => {
   const voucher = sequelize.define(
     "Voucher",
@@ -6,10 +8,12 @@ module.exports = (sequelize, DataTypes) => {
       codigo: DataTypes.STRING,
       empresa_parceira_id: DataTypes.STRING,
       usuario_id: DataTypes.INTEGER,
+      createdAt: {type: DataTypes.DATE, defaultValue:Sequelize.NOW} ,
+      updatedAt: {type: DataTypes.DATE, defaultValue:Sequelize.NOW} ,
     },
     {
       tableName: "voucher",
-      timestamps: true,
+      timestamps: false,
     }
   );
       voucher.associate = (models) => {

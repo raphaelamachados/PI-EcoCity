@@ -1,8 +1,6 @@
-<% if( !usuario ) { %> 
-  <%- include('./partials/header') %> 
-  <% } else { %> 
+
   <%- include('./partials/header-logado') %> 
-  <% } %>
+
   
 
 
@@ -17,8 +15,8 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-12 mt-0">
-        <h1 >Histórico Usuario</h1>
+      <div class="col-md-12 mt-4">
+        <h1 >Histórico de Coletas</h1>
       </div>
     </div>
     <form action="" method="post">
@@ -36,19 +34,19 @@
                 <tr>
                   <th >Pedido</th>
                   <th >Empresa Coletora</th>
-                  <th >itens</th>
-                  <th>Pontos acumulados</th>
-                  <th >Data pedido</th>
+                  <th >Item</th>
+                  <th>Peso</th>
+                  <th>Data pedido</th>
                 </tr>
               </thead>
               <tbody class="col-md-12">
                 <% pedidos.forEach(pedido => { %>
                   <tr>
                     <th scope="row"><%= pedido.id %></th>
-                    <td><%= pedido.empresa_coletora_id %></td>
-                    <!-- <td><%= pedido.Material.tipo %></td> -->
-                    <td>pedido.Item.peso </td>
-                    <td><%= pedido.createdAt %></td> 
+                    <td><%= pedido.Empresa_Coletora.nome %></td>
+                    <td><%= pedido.item %></td>
+                    <td></td>
+                    <td><%= pedido.createdAt %></td>
                   </tr>
                 <% }) %>  
               </tbody>
