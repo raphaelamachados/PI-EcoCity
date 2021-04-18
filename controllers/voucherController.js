@@ -17,7 +17,7 @@ const voucherController = {
     if(!vouchers) {
         return res.send("houve um erro ao salvar Voucher")
     }
- 
+      return res.render("perfilAdm", {success: "Voucher Cadastrado"})
         return res.redirect("/perfilAdm")
     },
     listarvoucher: async(_req, res) => {
@@ -56,12 +56,16 @@ const voucherController = {
           const voucherDeletado = await Voucher.destroy({
             where: { id },
           })
-    
-          if (!voucherDeletado) {
-            return res.json({ message: 'Erro ao deletar voucher' })
-          }
-    
-          return res.json({ message: 'Voucher deletado com sucesso!' })
+
+         
+        
+        if (!voucherDeletado) {
+          return res.json({ message: 'Erro ao deletar voucher' })
+          // return res.render( "admFiltroParceiro", {error: "Erro ao deletar parceiro"})
+        }
+        
+        // return res.json({ message: 'Voucher deletado com sucesso!' })
+        return res.render("perfilAdm", {success: "Voucher deletado com sucesso"})    
         },
 }
 

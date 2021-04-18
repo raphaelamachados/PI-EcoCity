@@ -17,10 +17,11 @@ const parceiroController = {
         })
     if(!parceiro) {
         fs.unlinkSync(file.path)
-        return res.send("houve um erro ao salvar a empresa parceira")
+        return res.render("perfilAdm", {error: "Houve um erro ao salvar a empresa parceira"})
+        // return res.send("houve um erro ao salvar a empresa parceira")
     }
- 
-        return res.redirect("/perfilAdm")
+        return res.render("perfilAdm", {success: "Parceiro Cadastrado"})
+        // return res.redirect("/perfilAdm")
     },
     listarparceiro: async(_req, res) => {
     
@@ -48,7 +49,9 @@ const parceiroController = {
               id:id
             }
           }) 
-          return res.redirect("/perfilAdm/admFiltroParceiro")
+        
+            return res.render("perfilAdm", {success: "Parceiro editado com sucesso"})                            
+            // return res.render("admFiltroParceiro", {success: "Parceiro editado com sucesso"})                            
       },
     
       deletarform: async (req, res) => {
@@ -59,10 +62,11 @@ const parceiroController = {
           })
     
           if (!parceiroDeletado) {
-            return res.json({ message: 'Erro ao deletar parceiro' })
+            // return res.json({ message: 'Erro ao deletar parceiro' })
+            return res.render( "admFiltroParceiro", {error: "Erro ao deletar parceiro"})
           }
-    
-          return res.json({ message: 'Parceiro deletado com sucesso!' })
+            // return res.render( "admFiltroParceiro", {success: "Parceiro deletado com Sucesso"})
+            return res.render("perfilAdm", {success: "Parceiro deletado com sucesso"})    
         },
 }
 

@@ -123,6 +123,15 @@ console.log(pontuacaoPedido)
   salvarcadastro: async(req,res) => {
     const {file } = req 
     const { nameEmpresa, endereco, cnpj, emailEmpresa, passwordEmpresa, cep } = req.body
+    const empresaExistente =  await Empresa_Coletora.findOne({
+      where: {
+          email: emailEmpresa,
+      }
+  })
+      if (empresaExistente)  
+      {
+             return res.render('cadastroEmpresa', {error:"Empresa já cadastrada"})
+      }
         
     const empresa = await Empresa_Coletora.create({
         nome: nameEmpresa,
@@ -139,8 +148,8 @@ console.log(pontuacaoPedido)
         fs.unlinkSync(file.path)
         return res.send("houve um erro ao salvar o usuario")
     } 
-
-    return res.redirect("/loginEmpresa")
+    return res.render("loginEmpresa", {success: "Empresa Cadastrada"})
+    // return res.redirect("/loginEmpresa")
 
   },
 

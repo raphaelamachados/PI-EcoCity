@@ -238,7 +238,9 @@ div.keen-slider__slide{
     font-family: Nunito, sans-serif;
     border-radius: 10px;
     border: 1px solid #B0C2B8;
+    cursor: pointer;
 }
+
 
 div.keen-slider__slide img{
     
