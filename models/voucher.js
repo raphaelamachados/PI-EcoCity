@@ -4,8 +4,9 @@ module.exports = (sequelize, DataTypes) => {
   const voucher = sequelize.define(
     "Voucher",
     {
-      voucher: DataTypes.STRING,
       codigo: DataTypes.STRING,
+      descricao: DataTypes.STRING,
+      pontos_troca: DataTypes.NUMBER,
       empresa_parceira_id: DataTypes.STRING,
       usuario_id: DataTypes.INTEGER,
       createdAt: {type: DataTypes.DATE, defaultValue:Sequelize.NOW} ,

@@ -1,0 +1,30 @@
+<%- include('./partials/header') %>
+    <link rel="stylesheet" href="../css/cadastroVoucher.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>  -->
+
+
+    <main>
+        <div class="container">
+          <section class="img" >
+            <img src="/images/voucher.png" alt="voucher_image" class="login_image">
+          </section>
+          
+          <section class="form">
+            <div class="blocoFormulario">
+                <h1> Cadastro Voucher</h1>
+                <form action="/perfilAdm/cadastroVoucher" method="post">
+                    <input class = "codigo" type="text" id="codigo" name="codigo" placeholder="Código">
+                    <input class = "descricao" type="text" id="descricao" name="descricao" placeholder="Descrição" >
+                    <input class = "pontosTroca" type="number" id="pontosTroca" name="pontosTroca" placeholder="Pontos para Troca" >
+                   
+                    <button type="submit" name="button">CADASTRAR</button>
+                </form>
+            </div>
+          </section>
+        
+        </div>
+      </main>
+
+
+ 

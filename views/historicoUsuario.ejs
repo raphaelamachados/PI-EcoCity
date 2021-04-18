@@ -35,7 +35,6 @@
                   <th >Pedido</th>
                   <th >Empresa Coletora</th>
                   <th >Item</th>
-                  <th>Peso</th>
                   <th>Data pedido</th>
                 </tr>
               </thead>
@@ -45,7 +44,6 @@
                     <th scope="row"><%= pedido.id %></th>
                     <td><%= pedido.Empresa_Coletora.nome %></td>
                     <td><%= pedido.item %></td>
-                    <td></td>
                     <td><%= pedido.createdAt %></td>
                   </tr>
                 <% }) %>  

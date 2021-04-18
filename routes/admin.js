@@ -4,18 +4,18 @@ const router = express.Router();
 const pagesController = require("../controllers/pagesController")
 const empresaController = require("../controllers/empresaController")
 const parceiroController = require("../controllers/parceiroController")
+const voucherController = require("../controllers/voucherController")
 
 const authMiddleware = require("../middlewares/auth")
 const adminMiddleware = require("../middlewares/admin")
 const uploads = require("../configs/uploads")
-
-
 
 router.use(adminMiddleware) 
 router.get('/', pagesController.perfiladm)
 router.get('/admFiltroUsuario', pagesController.listarusuario)
 router.get('/admFiltroEmpresa', empresaController.listarempresa)
 router.get('/admFiltroParceiro', parceiroController.listarparceiro)
+
 
 
 router.get('/admFiltroUsuario/:id/admEditarUsuario',pagesController.alterarform)
@@ -33,7 +33,8 @@ router.delete('/admFiltroParceiro/deletar/:id', parceiroController.deletarform)
 router.get('/cadastroParceiro', parceiroController.create)
 router.post('/cadastroParceiro', uploads.single("foto"), parceiroController.store)
 
-// router.get('/perfilAdm/cadastroParceiro',  pagesController.cadastroParceiro)
+router.get('/cadastroVoucher', voucherController.index)
+router.post('/cadastroVoucher', voucherController.create)
 
 
 

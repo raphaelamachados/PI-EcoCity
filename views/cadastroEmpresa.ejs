@@ -1,6 +1,8 @@
 <%- include('./partials/header') %>
 <link rel="stylesheet" href="./css/cadastro.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script> -->
+
 
 <main>
   <div class="container">
@@ -24,12 +26,12 @@
                         <a href="/cadastroEmpresa"><button class="button empresa darkMode"  type="button" name="button-empresa" >Empresa</button></a>
                   </div>
                     <div class= "form-input empresa " id="f-empresa" >
-                      <input class = "nome" type="text" id="nomeEmpresa" name="nameEmpresa" placeholder="Nome">
-                      <input class = "cnpj" type="text" id="cnpj" name="cnpj" placeholder="CNPJ">
-                      <input class = "endereco" type="text" id="endereco" name="endereco" placeholder="Endereço">
-                      <input class = "cep" type="text" id="cep" name="cep" placeholder="Cep">
-                      <input class = "email" type="text" id="emailEmpresa" name="emailEmpresa" placeholder="E-mail">
-                      <input class = "senha" type="password" id="passwordEmpresa" name="passwordEmpresa" placeholder="Senha" >
+                      <input type="text" data-mask = "00.000.000/0000-00" onblur="checkCnpj(this.value)"  class="cnpj" id="cnpj" name="cnpj" placeholder="CNPJ">
+                      <input class="nome" type="text" id="nomeEmpresa" name="nameEmpresa" placeholder="Nome">
+                      <input class="endereco" type="text" id="endereco" name="endereco" placeholder="Endereço">
+                      <input class="cep" type="text" id="cep" name="cep" placeholder="Cep">
+                      <input class="email" type="text" id="emailEmpresa" name="emailEmpresa" placeholder="E-mail">
+                      <input class="senha" type="password" id="passwordEmpresa" name="passwordEmpresa" placeholder="Senha" >
                     
                       <button type="submit" id="submitEmpresa" name="button">ENVIAR CADASTRO</button>
                     </div> 
@@ -44,7 +46,29 @@
           <!-- swal("Ops!", "<%= error%>", "error"); -->
         <!-- </script> -->
       <!-- <% }  %>  -->
-     
 
-<script src="./javascripts/cadastro.js"> </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+      <script >
+        
+        function checkCnpj(cnpj)
+        {
+          $.ajax({
+            'url': 'https://www.receitaws.com.br/v1/cnpj/' + cnpj.replace(/[^0-9]/g, ''),
+            'type': 'GET',
+            'dataType': 'jasonp',
+            'succsess': function(data){
+              if(data.nome == undefined){
+                alert(data.status + "" + data.message)
+              }else {
+                document.getElementById('nomeEmpresa').value = data.nome
+                document.getElementById('endereco').value = data.logradouro
+                document.getElementById('cep').value = data.cep
+              }
+              console.log(data);
+            }
+          })
+        }
+      </script>
+  <script src="./javascripts/cadastro.js"> </script>
 <%- include('./partials/footer') %>

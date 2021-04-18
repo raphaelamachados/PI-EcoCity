@@ -60,10 +60,6 @@ const pagesController = {
         
 
     },
-    perfiladm: (_req,res) => {
-        return res.render("perfilAdm", )
-    },
-
     listarusuario:  async (_req,res) => {
         
         const usuarios = await Usuario.findAll().then(function(usuarios){
@@ -107,6 +103,9 @@ const pagesController = {
     
         return res.json({ message: 'Usuário deletado com sucesso!' })
       },
+      perfiladm: (_req,res) => {
+        return res.render("perfilAdm", )
+    },
 
    
 }

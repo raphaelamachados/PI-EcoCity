@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #838789;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+main .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 700px;
+    height: 350px;
+    max-width: 90%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+section.img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+section img {
+    width:80%;
+}
+
+section.form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: roboto, sans-serif;
+}
+
+
+
+section h1 {
+    
+    color: #7CB13E;
+    font-weight: 550;
+    font-size: 2.3rem;
+}
+
+
+input.codigo, .descricao, .pontosTroca  {
+    border-radius: 10px;
+    background-color: rgba(205, 216, 187, 0.6);
+    border: none;
+    width: 85%;
+    padding: 6px;
+    height: 35px;
+    margin: 10px 0;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(38, 50, 56, 0.35);
+}
+
+form input:focus {
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid rgba(38, 50, 56, 0.45);
+}
+
+
+button {
+    align-self: center;
+    background-color: #7CB13E;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    width: 85%;
+    margin: 20px 0 10px ;
+}
+
+.form-input button:focus {
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #547a27;
+}
+
+
+@media (max-width: 576px) {
+
+    section.img {
+        display: none;
+    }
+  
+    section.form {
+        /* display: flex; */
+        flex-direction: row;
+        width: 90%;
+    }
+    section.img {
+        display: none;
+    }
+    section {
+        width: 100%;
+    }
+    section form {
+        width: 100%;
+    }
+   input button {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    footer {
+        display: none;
+    }
+}
