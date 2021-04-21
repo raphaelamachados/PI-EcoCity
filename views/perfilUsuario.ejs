@@ -23,14 +23,13 @@
             <div class="content">
               <img class="small-logo" src="./images/recicling-img.png" alt="recicling-card">
               <h3>Reciclagem</h3>
-              <h2>
+              <h2 id="pontuacaoTotal">
                 <% if( usuario.pontuacao <=0 ) { %> 
                   <%= "0" %> 
                 <% } else { %> 
                   <%= usuario.pontuacao%>
                 <% } %>
-                <span>pts</span>
-              </h2>
+              <span>pts</span>
             </div>
           </div>
     
@@ -62,11 +61,8 @@
 
 
 
-  
+<!---------------------------------------- Modal---------------------------------------- -->
 
-
-  
-  <!-- Modal -->
 <div class="modal fade" id="siteModal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered " role="document">
     <div class="modal-content">
@@ -76,18 +72,34 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="description ">
         <%= vouchers.descricao%>
+        <hr>
+          <span class= info  > Custo do Voucher: </span>
+          <span ><strong id="voucher"><%= vouchers.pontos_troca %></strong></span>
+          <span class= info >pontos  </span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Realizar Troca</button>
+        <button id="btn" type="submit"  class="btn btn-primary" onclick="trocaPontos()">Realizar Troca</button>
       </div>
     </div>
   </div>
 </div>
 
+<script >
 
+  
+let pontosTotais = document.querySelector ('#pontuacaoTotal')
+let pontosVoucher = document.querySelector ('#voucher')
+
+function trocaPontos(){
+  document.getElementById("btn")
+    pontosRestantes = pontosTotais - pontosVoucher
+  }
+  console.log(pontosRestantes)
+
+</script>
 
 
   

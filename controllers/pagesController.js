@@ -12,10 +12,16 @@ const pagesController = {
     },
     perfilusuario: async(req,res) => {
         const { id } = req.session.user
+        const { idParceiro } = req.body
         const usuario = await Usuario.findByPk(id)
         const parceiros = await Empresa_Parceira.findAll()
-        const vouchers = await Voucher.findOne()
-       console.log(vouchers)
+        const vouchers = await Voucher.findOne(
+            {
+            where: {
+                empresa_parceira_id:idParceiro,
+            },
+        })
+      
         return res.render("perfilUsuario", {usuario, parceiros, vouchers})
     },
 

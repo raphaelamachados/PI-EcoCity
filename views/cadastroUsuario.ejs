@@ -6,7 +6,7 @@
 <main>
   <div class="container">
               <section class="img" >
-          <form action="/cadastroUsuario" method="post" enctype="multipart/form-data">
+          <form action="/cadastroUsuario" method="post" id="form-cadastro" enctype="multipart/form-data">
                 <div class="form-group">
                   <img src="./images/upload_image.png" id="imgUpload" alt="upload_image" class="upload-image">
                   <label for="fupload" class="control-label label-bordered"><strong>Clique aqui</strong> <br> para escolher um arquivo</label>
@@ -14,25 +14,25 @@
                   <input hidden type="file" id="fupload" name="foto" class="fupload form-control" />
                 </div>
               </section>
-    
               <section>
-                    <div class="form">
-                      <h1>Cadastro</h1>
-                      <p>Escolha uma opção</p>
-                      <div class="escolha">
-                        <a href="/cadastroUsuario"><button class="button cliente darkMode"  type="button" name="button-cliente" >Cliente</button></a>
-                        <a href="/cadastroEmpresa"><button class="button empresa "  type="button" name="button-empresa" >Empresa</button></a>
-                    </div>
-                  
-                    <div class= "form-input cliente " id="f-cliente">
-                      <input class = "nome" type="text" id="nome" name="name" placeholder="Nome">
-                      <input class = "cpf" type="text" id="cpf" name="cpf" placeholder="Cpf">
-                      <input class = "email" type="text" id="email" name="email" placeholder="E-mail">
-                      <input class = "senha" type="password" id="password" name="password" placeholder="Senha" >
-                    
-                      <button type="submit" name="button">ENVIAR CADASTRO</button>
-                    </div>
+                <div class="form">
+                  <h1>Cadastro</h1>
+                  <p>Escolha uma opção</p>
+                  <div class="escolha">
+                    <a href="/cadastroUsuario"><button class="button cliente darkMode"  type="button" name="button-cliente" >Cliente</button></a>
+                    <a href="/cadastroEmpresa"><button class="button empresa "  type="button" name="button-empresa" >Empresa</button></a>
                   </div>
+                  
+                  <div class= "form-input cliente " id="f-cliente">
+                    <input class = "nome" type="text" id="nome" name="name" placeholder="Nome" required>
+                    <input class = "cpf" type="text" id="cpf" name="cpf" placeholder="Cpf" required>
+                    <input class = "email" type="email" id="email" name="email" placeholder="E-mail" required>
+                    <input class = "senha" type="password" id="password" name="password" placeholder="Senha" required>
+                    
+                    <button type="submit" name="button">ENVIAR CADASTRO</button>
+                  </div>
+                </div>
+                 
           </form>
               </section>
 </div>

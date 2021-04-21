@@ -191,9 +191,9 @@ div.historico-mobile{
 }
 
 div.historico h2{
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
-    font-weight: 900;
+    font-weight: 750;
 }
 
 span.parceiro{
@@ -270,6 +270,19 @@ img.arrow{
 img.arrow:hover{
     opacity: 0.5;
 }
+.description{
+    margin-left: 15px;
+}
+
+.info{
+    color: #838789;
+    
+}
+.info strong{
+    color: #838789;
+    font-size: 1.3rem;
+}
+
 
 /*--------------------- responsividade ------------------------------------*/
 

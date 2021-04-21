@@ -59,14 +59,14 @@ section h1 {
 }
 
 
-input.codigo, .descricao, .pontosTroca  {
+input.codigo, .descricao, .pontosTroca , .idParceiro {
     border-radius: 10px;
     background-color: rgba(205, 216, 187, 0.6);
     border: none;
     width: 85%;
     padding: 6px;
     height: 35px;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 ::-webkit-input-placeholder {

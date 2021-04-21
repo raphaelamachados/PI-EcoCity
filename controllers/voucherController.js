@@ -7,18 +7,18 @@ const voucherController = {
       return res.render("cadastroVoucher")
   },
     create: async(req,res) => {
-        const { codigo, descricao, pontosTroca  } = req.body
+        const { codigo, descricao, pontosTroca, idParceiro  } = req.body
         
         const vouchers = await Voucher.create({
             codigo: codigo,
             descricao: descricao,
             pontos_troca: pontosTroca,
+            empresa_parceira_id: idParceiro,
         })
     if(!vouchers) {
         return res.send("houve um erro ao salvar Voucher")
     }
       return res.render("perfilAdm", {success: "Voucher Cadastrado"})
-        return res.redirect("/perfilAdm")
     },
     listarvoucher: async(_req, res) => {
     
@@ -27,12 +27,12 @@ const voucherController = {
       })
       },
 
-      alterarform: async(req, res) => {
-        let{id} = req.params
-        const voucher = await Voucher.findByPk(id)
+    //   alterarform: async(req, res) => {
+    //     let{id} = req.params
+    //     const voucher = await Voucher.findByPk(id)
     
-       return res.render ('editarVoucher', {voucher})
-    },
+    //    return res.render ('editarVoucher', {voucher})
+    // },
     
       // editarform: async (req, res) => {
       //     const {id} = req. params

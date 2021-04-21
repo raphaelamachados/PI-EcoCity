@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       codigo: DataTypes.STRING,
       descricao: DataTypes.STRING,
       pontos_troca: DataTypes.NUMBER,
-      empresa_parceira_id: DataTypes.STRING,
+      empresa_parceira_id:  DataTypes.INTEGER,
       usuario_id: DataTypes.INTEGER,
       createdAt: {type: DataTypes.DATE, defaultValue:Sequelize.NOW} ,
       updatedAt: {type: DataTypes.DATE, defaultValue:Sequelize.NOW} ,

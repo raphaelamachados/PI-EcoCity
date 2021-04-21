@@ -10,10 +10,35 @@ $(function(){
 })
 
 
-    // mascaras para cpf, cnpj, cep 
+    //=========== mascaras para cpf, cnpj, cep =================
    
 $("#cep").mask("99999-999");
 
 $("#cpf").mask("999.999.999-99");
 
 // $("#cnpj").mask("99.999.999/9999-99");
+
+
+
+    // ============= validação de formularios ===================
+
+function selectId(id) {
+    return document.getElementById(id)
+}
+// function errorMessage(message){
+//     errorListUl.innerHtml += "<li>" + message + "</li>"
+// }
+
+let form = selectId('form-cadastro')
+let foto  = selectId('fupload')
+
+form.addEventListener("submit", (ev)=> {
+    
+    if(foto.value === "undefined" || foto.value === "" ){
+        ev.preventDefault()
+        alert("Ecolha uma imagem")
+    }
+    
+})
+
+

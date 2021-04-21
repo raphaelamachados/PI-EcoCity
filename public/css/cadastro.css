@@ -68,6 +68,10 @@ div.form-group {
     cursor: pointer;
 }
 
+#error-list {
+    width: 100%;
+    position: relative;
+}
 
 .formulario{
     width:50%;

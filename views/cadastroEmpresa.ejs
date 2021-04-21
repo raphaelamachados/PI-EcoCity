@@ -7,7 +7,7 @@
 <main>
   <div class="container">
             <section class="img" >
-          <form action="/cadastroEmpresa" method="post" enctype="multipart/form-data">
+          <form action="/cadastroEmpresa" id="form-cadastro"method="post" enctype="multipart/form-data">
                 <div class="form-group">
                   <img src="./images/upload_image.png" id="imgUpload" alt="upload_image" class="upload-image">
                   <label for="fupload" class="control-label label-bordered"><strong>Clique aqui</strong> <br> para escolher um arquivo</label>
@@ -26,12 +26,12 @@
                         <a href="/cadastroEmpresa"><button class="button empresa darkMode"  type="button" name="button-empresa" >Empresa</button></a>
                   </div>
                     <div class= "form-input empresa " id="f-empresa" >
-                      <input type="text" data-mask = "00.000.000/0000-00" onblur="checkCnpj(this.value)"  class="cnpj" id="cnpj" name="cnpj" placeholder="CNPJ">
-                      <input class="nome" type="text" id="nomeEmpresa" name="nameEmpresa" placeholder="Nome">
-                      <input class="endereco" type="text" id="endereco" name="endereco" placeholder="Endereço">
-                      <input class="cep" type="text" id="cep" name="cep" placeholder="Cep">
-                      <input class="email" type="text" id="emailEmpresa" name="emailEmpresa" placeholder="E-mail">
-                      <input class="senha" type="password" id="passwordEmpresa" name="passwordEmpresa" placeholder="Senha" >
+                      <input type="text" data-mask = "00.000.000/0000-00" onblur="checkCnpj(this.value)"  class="cnpj" id="cnpj" name="cnpj" placeholder="CNPJ" required>
+                      <input class="nome" type="text" id="nomeEmpresa" name="nameEmpresa" placeholder="Nome" required>
+                      <input class="endereco" type="text" id="endereco" name="endereco" placeholder="Endereço" required>
+                      <input class="cep" type="text" id="cep" name="cep" placeholder="Cep" required>
+                      <input class="email" type="text" id="emailEmpresa" name="emailEmpresa" placeholder="E-mail" required>
+                      <input class="senha" type="password" id="passwordEmpresa" name="passwordEmpresa" placeholder="Senha" required >
                     
                       <button type="submit" id="submitEmpresa" name="button">ENVIAR CADASTRO</button>
                     </div> 
