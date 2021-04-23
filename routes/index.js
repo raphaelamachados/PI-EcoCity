@@ -7,7 +7,6 @@ const authController = require("../controllers/authController")
 const empresaController = require("../controllers/empresaController")
 const parceiroController = require("../controllers/parceiroController")
 
-const authMiddleware = require("../middlewares/auth")
 const uploads = require("../configs/uploads")
 
 router.get('/', pagesController.index)
@@ -16,8 +15,9 @@ router.get('/coleta', pagesController.coleta)
 
 router.get('/loginUsuario', authController.show)
 router.post('/loginUsuario', authController.loginusuario)
-router.get('/loginEmpresa',  authController.showempresa)
-router.post('/loginEmpresa',  authController.loginempresa)
+// router.get('/loginEmpresa',  authController.showempresa)
+// router.post('/loginEmpresa',  authController.loginempresa)
+const authMiddleware = require("../middlewares/auth")
 router.get('/logout',  authController.logout)
 
 
@@ -30,11 +30,11 @@ router.post('/cadastroUsuario', uploads.single("foto"), userController.salvarcad
 
 
 
-router.get('/perfilEmpresa', authMiddleware, empresaController.create)
-router.post('/perfilEmpresa', authMiddleware, empresaController.store)
+// router.get('/perfilEmpresa', authMiddleware, empresaController.create)
+// router.post('/perfilEmpresa', authMiddleware, empresaController.store)
 
-router.get('/cadastroEmpresa', empresaController.criarcadastro)
-router.post('/cadastroEmpresa', uploads.single("foto"), empresaController.salvarcadastro)
+// router.get('/cadastroEmpresa', empresaController.criarcadastro)
+// router.post('/cadastroEmpresa', uploads.single("foto"), empresaController.salvarcadastro)
 
 
 

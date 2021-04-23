@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
       "Empresa_Coletora",
       {
         nome: DataTypes.STRING,
+        rule: "empresa",
         cnpj: DataTypes.NUMBER,
         endereco: DataTypes.STRING,
         cep: DataTypes.STRING,

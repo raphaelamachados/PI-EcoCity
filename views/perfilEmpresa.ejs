@@ -1,10 +1,8 @@
-<% if( !user ) { %> 
-  <%- include('./partials/header') %> 
-  <% } else { %> 
-  <%- include('./partials/header-logado') %> 
-  <% } %>
 
-<link rel="stylesheet" href="./css/perfilEmpresa.css">
+  <%- include('./partials/header-logado') %> 
+
+
+<link rel="stylesheet" href="/css/perfilEmpresa.css">
 
 
 <div class="container">
@@ -20,7 +18,7 @@
   
   <div class="row mt-5 my-3"> 
     <div class="col-md-4 ">
-      <form  action="/perfilEmpresa" method="get">
+      <form  action="perfilEmpresa" method="get">
         <tbody>
           <tr>
             <td>
@@ -49,13 +47,13 @@
       </form>
   </div>
 
-  <form action="/perfilEmpresa" id="form-empresa" method="post">
+  <form action="perfilEmpresa" id="form-empresa" method="post">
     <div class="row">
       <div class="col-md-12">
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">Id</th>
+              <th scope="col"></th>
               <th scope="col">id do usuario</th>
               <th scope="col">Material</th>
               <th scope="col">Peso (kg)</th>
@@ -70,7 +68,7 @@
               <% if(typeof usuario !="undefined"){ %>
                 <div class="col-5">
                    <!-- --------------------passando o idCcliente para o backend, ------------------- -->
-                  <input type="text" name="idCliente" value="<%= usuario.id %> " readonly>
+                  <input type="text" name="idCliente" id= "cpf" value="<%= usuario.id %> " readonly>
                 
               <% } %> 
               </td>
@@ -123,6 +121,6 @@
   </form>
 </div>
 
-   
+<script src="/javascripts/cadastro.js"> </script>
 <%- include('./partials/footer') %>
-<script src="./javascripts/crudEmpresa.js"></script>  
+<script src="/javascripts/crudEmpresa.js"></script>  

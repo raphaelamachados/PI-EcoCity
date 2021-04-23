@@ -47,9 +47,10 @@ const authController = {
         req.session.user = {
             id: empresa.id,
             nome: empresa.nome,
+            rule: empresa.rule,
         }
 
-        return res.redirect("/perfilEmpresa")
+        return res.redirect("perfilEmpresa")
 
     },
     logout: (req,res) => {

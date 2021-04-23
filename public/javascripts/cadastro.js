@@ -25,9 +25,6 @@ $("#cpf").mask("999.999.999-99");
 function selectId(id) {
     return document.getElementById(id)
 }
-// function errorMessage(message){
-//     errorListUl.innerHtml += "<li>" + message + "</li>"
-// }
 
 let form = selectId('form-cadastro')
 let foto  = selectId('fupload')

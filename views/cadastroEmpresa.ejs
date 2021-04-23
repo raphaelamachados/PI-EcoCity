@@ -1,5 +1,5 @@
 <%- include('./partials/header') %>
-<link rel="stylesheet" href="./css/cadastro.css">
+<link rel="stylesheet" href="/css/cadastro.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script> -->
 
@@ -9,7 +9,7 @@
             <section class="img" >
           <form action="/cadastroEmpresa" id="form-cadastro"method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                  <img src="./images/upload_image.png" id="imgUpload" alt="upload_image" class="upload-image">
+                  <img src="/images/upload_image.png" id="imgUpload" alt="upload_image" class="upload-image">
                   <label for="fupload" class="control-label label-bordered"><strong>Clique aqui</strong> <br> para escolher um arquivo</label>
                   <div class="nomeArquivo"></div>
                   <input hidden type="file" id="fupload" name="foto" class="fupload form-control" />
@@ -23,7 +23,7 @@
                   <p>Escolha uma opção</p>
                   <div class="escolha">
                     <a href="/cadastroUsuario"><button class="button cliente "  type="button" name="button-cliente" >Cliente</button></a>
-                        <a href="/cadastroEmpresa"><button class="button empresa darkMode"  type="button" name="button-empresa" >Empresa</button></a>
+                        <a href="#"><button class="button empresa darkMode"  type="button" name="button-empresa" >Empresa</button></a>
                   </div>
                     <div class= "form-input empresa " id="f-empresa" >
                       <input type="text" data-mask = "00.000.000/0000-00" onblur="checkCnpj(this.value)"  class="cnpj" id="cnpj" name="cnpj" placeholder="CNPJ" required>

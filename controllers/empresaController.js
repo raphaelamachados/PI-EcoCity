@@ -110,6 +110,7 @@ console.log(pontuacaoPedido)
       }
     );
 
+
     if (!item) {
       return res.send("Houve um erro ao cadastrar o pedido");
     }
@@ -139,6 +140,7 @@ console.log(pontuacaoPedido)
         endereco: endereco,
         cep: cep,
         email: emailEmpresa,
+        rule: "empresa",
         senha: Bcrypt.hashSync(passwordEmpresa, 10),
         imagem: file.filename, 
 
