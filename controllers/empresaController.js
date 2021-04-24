@@ -49,7 +49,9 @@ const empresaController = {
           id:id
         }
       }) 
-      return res.redirect("/perfilAdm/admFiltroEmpresa")
+      // return res.redirect("/perfilAdm/admFiltroEmpresa")
+      return res.render("perfilAdm", {success: "Empresa editada com sucesso"})   
+       
   },
 
   deletarform: async (req, res) => {
@@ -60,10 +62,11 @@ const empresaController = {
       })
 
       if (!empresaDeletada) {
-        return res.json({ message: 'Erro ao deletar empresa' })
+        // return res.json({ message: 'Erro ao deletar empresa' })
+        return res.render("perfilAdm", {error: 'Erro ao deletar empresa'}) 
       }
-
-      return res.json({ message: 'Empresa deletada com sucesso!' })
+      // return res.json({ message: 'Empresa deletada com sucesso!' })
+        return res.render("perfilAdm", {success: "Empresa deletada com sucesso"}) 
     },
 
   store: async (req, res) => {
@@ -158,7 +161,7 @@ const empresaController = {
         fs.unlinkSync(file.path)
         return res.send("houve um erro ao salvar o usuario")
     } 
-    return res.render("loginEmpresa", {success: "Empresa Cadastrada"})
+    return res.render("loginEmpresa", {success: "Empresa cadastrada com sucesso"})
     // return res.redirect("/loginEmpresa")
 
   },

@@ -40,10 +40,10 @@ const authController = {
             },
         })
         if (!empresa) {
-            return res.render('loginUsuario', {error:"Usuário ou senha inválidos"})
+            return res.render('loginEmpresa', {error:"Usuário ou senha inválidos"})
         }
         if (!Bcrypt.compareSync(password, empresa.senha)) {
-            return res.render('loginUsuario', {error:"Usuário ou senha inválidos"})
+            return res.render('loginEmpresa', {error:"Usuário ou senha inválidos"})
         }
 
         req.session.user = {
@@ -52,7 +52,7 @@ const authController = {
             rule: empresa.rule,
         }
 
-        return res.redirect("perfilEmpresa")
+        return res.redirect("/empresa/perfilEmpresa")
 
     },
     logout: (req,res) => {

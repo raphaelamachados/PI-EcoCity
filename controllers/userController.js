@@ -37,7 +37,7 @@ const userController = {
             return res.send("houve um erro ao salvar o usuario")
         } 
 
-        return res.render("loginUsuario", {success: "Usuário Cadastrado"})
+        return res.render("loginUsuario", {success: "Usuário cadastrado com sucesso"})
     
     },
 }

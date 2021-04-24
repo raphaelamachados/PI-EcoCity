@@ -15,12 +15,12 @@ const pagesController = {
         const { idParceiro } = req.body
         const usuario = await Usuario.findByPk(id)
         const parceiros = await Empresa_Parceira.findAll()
-        const vouchers = await Voucher.findOne(
-            {
-            where: {
-                empresa_parceira_id:idParceiro,
-            },
-        })
+        const vouchers = await Voucher.findOne()
+        //     {
+        //     where: {
+        //         empresa_parceira_id:idParceiro,
+        //     },
+        // })
       
         return res.render("perfilUsuario", {usuario, parceiros, vouchers})
     },
@@ -95,7 +95,9 @@ const pagesController = {
           }
         }) 
         console.log(usuario)
-        return res.redirect("/perfilAdm/admFiltroUsuario")
+        // return res.redirect("/perfilAdm/admFiltroUsuario")
+        return res.render("perfilAdm", {success: "Usuário editado com sucesso"})   
+
     },
     deletarform: async (req, res) => {
         const { id } = req.params
@@ -105,10 +107,13 @@ const pagesController = {
         })
     
         if (!usuarioDeletado) {
-          return res.json({ message: 'Erro ao deletar usuário' })
+        //   return res.json({ message: 'Erro ao deletar usuário' })
+          return res.render("perfilAdm", {error: 'Erro ao deletar usuário'})   
         }
     
-        return res.json({ message: 'Usuário deletado com sucesso!' })
+        return res.render("perfilAdm", {success: "Usuário deletado com sucesso"})   
+        // return res.json({ message: 'Usuário deletado com sucesso!' })
+
       },
       perfiladm: (_req,res) => {
         return res.render("perfilAdm", )

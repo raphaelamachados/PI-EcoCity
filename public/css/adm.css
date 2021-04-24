@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+h1{
+    text-align: center;
+}
 tr .bt-bt {
     display: flex;
     justify-content: space-evenly;

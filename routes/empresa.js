@@ -23,28 +23,4 @@ router.post('/perfilEmpresa', empresaController.store)
 
 router.get('/logout',  authController.logout)
 
-
-
-
-// router.get('/', pagesController.index)
-// router.get('/sobrenos', pagesController.sobrenos)
-// router.get('/coleta', pagesController.coleta)
-
-// router.get('/loginUsuario', authController.show)
-// router.post('/loginUsuario', authController.loginusuario)
-
-// router.get('/perfilUsuario', authMiddleware, pagesController.perfilusuario)
-// router.get('/perfilUsuario/historico', pagesController.historicousuario)
-
-// router.get('/cadastroUsuario', userController.criarcadastro)
-// router.post('/cadastroUsuario', uploads.single("foto"), userController.salvarcadastro)
-
-
-
-
-
-
-
-
-
 module.exports = router;
