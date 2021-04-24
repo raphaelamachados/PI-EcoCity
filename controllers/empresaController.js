@@ -68,8 +68,18 @@ const empresaController = {
 
   store: async (req, res) => {
     const { idCliente, material, peso, listMateriais, listPeso } = req.body;
-    console.log(listMateriais, listPeso);
-
+    console.log(listMateriais, "debug");
+   
+    let listaMateriaisFormatada = []
+    if(typeof listaMateriais == "string"){
+      listaMateriaisFormatada.push(listMateriais)
+    }else{
+      listaMateriaisFormatada = [...listMateriais]
+    }
+    console.log(listMateriais)
+    let listaPesoFormatada = typeof listPeso == "string"?[listPeso]: [...listPeso]
+    
+    
     const idEmpresa = req.session.user.id
    
     const pedido = await Pedido.create({
@@ -77,14 +87,13 @@ const empresaController = {
       empresa_coletora_id: idEmpresa,
     });
 
-    const itens = await listMateriais.map((material, index) => {
+    const itens = listaMateriaisFormatada.map((material, index) => {
       return {
         material_id: material,
-        peso: listPeso[index],
+        peso: listaPesoFormatada[index],
         pedido_id: pedido.id,
       };
     });
-    console.log(itens)
 
     const item = await Item.bulkCreate(itens);
 
@@ -98,7 +107,6 @@ const empresaController = {
     })
    
     const tabelaUsuario = await Usuario.findByPk(idCliente);
-console.log(pontuacaoPedido)
     await Usuario.update(
       {
         pontuacao: tabelaUsuario.pontuacao + pontuacaoPedido,
@@ -114,7 +122,7 @@ console.log(pontuacaoPedido)
     if (!item) {
       return res.send("Houve um erro ao cadastrar o pedido");
     }
-    return res.redirect("/perfilEmpresa");
+    return res.redirect("/empresa/perfilEmpresa");
     console.log(item);
   },
 

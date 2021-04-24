@@ -20,8 +20,6 @@ router.post('/loginUsuario', authController.loginusuario)
 const authMiddleware = require("../middlewares/auth")
 router.get('/logout',  authController.logout)
 
-
-
 router.get('/perfilUsuario', authMiddleware, pagesController.perfilusuario)
 router.get('/perfilUsuario/historico', pagesController.historicousuario)
 

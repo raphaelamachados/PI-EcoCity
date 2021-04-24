@@ -24,7 +24,9 @@ const authController = {
             nome: usuario.nome,
             rule: usuario.rule,
         }
-        
+        if (usuario.rule == "admin"){
+            return res.redirect("/perfilAdm")
+        }
         return res.redirect("/perfilUsuario")
 
     },
