@@ -1,0 +1,96 @@
+<%- include('./partials/header-logado') %> 
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
+   <!-- cdn datatables  -->
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+ 
+   <!-- meu css --> 
+   <link rel="stylesheet" href="/css/adm.css">
+
+   <a href="/perfilUsuario" class="back"><i class="back fas fa-caret-square-left"></i>Voltar</a>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-0">
+        <h1 >Troca de Vouchers</h1>
+      </div>
+    </div>
+    
+    <form action="/perfilUsuario" method="post">
+      <div class="row">
+        <div class="col-md-12 mt-0">
+          <input hidden class = "idParceiro" type="number" id="idParceiro" name="idParceiro"  readonly>  
+          <img class="img-parceiro" src="<%=parceiros.imagem %>"  alt="...">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <br/>
+          <br/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive-md">
+            <table class="table  table-bordered table-hover mydatatable" style="width:100%">
+              <thead class="thead-dark">
+                <tr>
+                  <th >id</th>
+                  <th >Código</th>
+                  <th>Descição</th>
+                  <th>Pontos para troca</th>
+                  <th>Empresa</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody class="col-md-12">
+                <% vouchers.forEach(voucher => { %>
+                  <tr>
+                    <th scope="row"><%= voucher.id %></th>
+                    <td><%= voucher.codigo %></td>
+                    <td><%= voucher.descricao %>  </td>
+                    <td><%= voucher.pontos_troca %>  </td> 
+                    <td><%= voucher.empresa_parceira_id %>  </td> 
+                    <td class="bt-bt">
+                      <form action="/perfilAdm/admFiltroUsuario/deletar/<%= voucher.id %>?_method=DELETE" method="post">
+                        <button type="submit" class="btn btn-primary" >Trocar</button>
+                      </form>
+                    </td>
+                  </tr>
+                <% }) %>  
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <br><br><br>
+
+<!-- cdn datatable  -->
+
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $('.mydatatable').DataTable({
+      "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Desculpe, nenhum registro encontrado",
+            "info": "Página _PAGE_ de _PAGES_",
+            "infoEmpty": "Nenhum registro disponível",
+            "infoFiltered": "filtrado de _MAX_ registros totais"
+        }
+    });
+</script>
+<%- include('./partials/footer') %>
+
+
+
+
+
+
+
+
+
