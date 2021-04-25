@@ -48,9 +48,11 @@
             
             <% parceiros.forEach(parceiro => { %>
               <div class="keen-slider__slide number-slide">
-                <img data-toggle= "modal" data-target="#siteModal" class="img-parceiro" src="/post/<%=parceiro.imagem %>" alt="...">
-                
-              </div>
+                  <a href="/perfilAdm/listarVoucher">
+                  <img class="img-parceiro" src="/post/<%=parceiro.imagem %>" alt="...">
+                </a>
+                  
+                </div>
                 <% }) %> 
             
           </article>
@@ -61,7 +63,7 @@
 
 
 
-<!---------------------------------------- Modal---------------------------------------- -->
+<!-- -------------------------------------- Modal----------------------------------------
 
 <div class="modal fade" id="siteModal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered " role="document">
@@ -85,9 +87,9 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<script >
+<!-- <script >
 
   
 let pontosTotais = document.querySelector ('#pontuacaoTotal')
@@ -99,7 +101,7 @@ function trocaPontos(){
   }
   console.log(pontosRestantes)
 
-</script>
+</script> -->
 
 
   

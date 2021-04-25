@@ -4,7 +4,7 @@ const router = express.Router();
 const pagesController = require("../controllers/pagesController")
 const userController = require("../controllers/userController")
 const authController = require("../controllers/authController")
-const empresaController = require("../controllers/empresaController")
+const voucherController = require("../controllers/voucherController")
 const parceiroController = require("../controllers/parceiroController")
 
 const uploads = require("../configs/uploads")
@@ -24,6 +24,9 @@ router.get('/perfilUsuario/historico', pagesController.historicousuario)
 
 router.get('/cadastroUsuario', userController.criarcadastro)
 router.post('/cadastroUsuario', uploads.single("foto"), userController.salvarcadastro)
+
+router.get('/perfilUsuario/listarVoucher', voucherController.listarvoucher)
+
 
 
 

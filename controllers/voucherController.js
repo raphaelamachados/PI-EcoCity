@@ -20,35 +20,23 @@ const voucherController = {
     }
       return res.render("perfilAdm", {success: "Voucher Cadastrado"})
     },
-    listarvoucher: async(_req, res) => {
-    
-        const vouchers = await Voucher.findAll().then(function(vouchers){
-          return res.render("listarVoucher", {vouchers})
+    listarvoucher: async(req, res) => {
+      const { idParceiro } = req.body
+        const parceiros = await Empresa_Parceira.findOne(idParceiro)
+      
+    console.log(parceiros)
+        const vouchers = await Voucher.findAll(
+        //   {
+        //     where: {
+        //         empresa_parceira_id:idParceiro,
+        //     },
+        // }
+        ).then(function(vouchers){
+          return res.render("listarVoucher", {vouchers, parceiros})
       })
       },
 
-    //   alterarform: async(req, res) => {
-    //     let{id} = req.params
-    //     const voucher = await Voucher.findByPk(id)
-    
-    //    return res.render ('editarVoucher', {voucher})
-    // },
-    
-      // editarform: async (req, res) => {
-      //     const {id} = req. params
-      //     const { name, email, cnpj } = req.body
-    
-      //   const voucher =  await voucher.update({
-      //         nome: name,
-      //         id:id,
-      //         cnpj: cnpj,
-      //     }, {
-      //       where: {
-      //         id:id
-      //       }
-      //     }) 
-      //     return res.redirect("/perfilAdm/admFiltroParceiro")
-      // },
+  
     
       deletarform: async (req, res) => {
           const { id } = req.params

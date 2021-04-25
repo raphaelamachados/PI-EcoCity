@@ -6,6 +6,26 @@
 h1{
     text-align: center;
 }
+a.back{
+    width: 50px;
+    height:10px;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 30px;
+    text-decoration: none;
+    color: #263238;;
+    transition-duration:  0.3s;
+}
+i.back{
+    margin-right: 5px;
+}
+a.back:hover  {
+    text-decoration: none;
+    opacity: 0.7;
+}
+
 tr .bt-bt {
     display: flex;
     justify-content: space-evenly;
