@@ -17,7 +17,6 @@ const pagesController = {
         const parceiros = await Empresa_Parceira.findAll()
         const vouchers = await Voucher.findOne()
        
-      
         return res.render("perfilUsuario", {usuario, parceiros, vouchers})
     },
 
