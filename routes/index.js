@@ -25,7 +25,8 @@ router.get('/perfilUsuario/historico', pagesController.historicousuario)
 router.get('/cadastroUsuario', userController.criarcadastro)
 router.post('/cadastroUsuario', uploads.single("foto"), userController.salvarcadastro)
 
-router.get('/perfilUsuario/listarVoucher', voucherController.listarvoucher)
+router.get('/perfilUsuario/listarVoucher/:id', voucherController.listarvoucher)
+router.post('/perfilUsuario/trocaVoucher', voucherController.efetuartroca)
 
 
 

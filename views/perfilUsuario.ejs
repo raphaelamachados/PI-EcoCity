@@ -48,8 +48,8 @@
             
             <% parceiros.forEach(parceiro => { %>
               <div class="keen-slider__slide number-slide">
-                  <a href="/perfilUsuario/listarVoucher">
-                  <img class="img-parceiro" src="/post/<%=parceiro.imagem %>" value="<%=parceiro.id %> " alt="...">
+                  <a href="/perfilUsuario/listarVoucher/<%= parceiro.id %> ">
+                  <img class="img-parceiro" src="/post/<%=parceiro.imagem %>" alt="...">
                 </a>
                   
                 </div>

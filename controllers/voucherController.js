@@ -21,40 +21,82 @@ const voucherController = {
       return res.render("perfilAdm", {success: "Voucher Cadastrado"})
     },
     listarvoucher: async(req, res) => {
-      const { idParceiro } = req.body
-        const parceiros = await Empresa_Parceira.findOne(idParceiro)
+        const {id} = req.params
+        
+        const parceiro = await Empresa_Parceira.findByPk(id)
       
-    console.log(parceiros)
+      // console.log(parceiros)
+      try {
+        
         const vouchers = await Voucher.findAll(
-        //   {
-        //     where: {
-        //         empresa_parceira_id:idParceiro,
-        //     },
-        // }
-        ).then(function(vouchers){
-          return res.render("listarVoucher", {vouchers, parceiros})
-      })
-      },
+          {
 
+            where: {
+                empresa_parceira_id:id,
+            },
+        })
+          return res.render("listarVoucher", {vouchers, parceiro})
+      
+      } catch (error) {
+        console.log(error)
+      }
+       
+      },
+      efetuartroca: async(req, res) => {
+        const { id } = req.session.user
+        const { idVoucher, idParceiro} = req.body
+        const usuario =  await Usuario.findByPk(id)
+        const voucher =  await Voucher.findByPk(idVoucher)
+        const parceiro =  await Empresa_Parceira.findByPk(idParceiro) 
+        const cupom =   Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)
+        
+        const vouchers = await Voucher.findAll(
+          {
+
+            where: {
+                empresa_parceira_id:id,
+            },
+        })
+
+        if(usuario.pontuacao < voucher.pontos_troca){
+        
+          return res.render("listarVoucher", {error: "Você não possui pontos suficientes para a troca"})   
+        
+        }
+        const pontosRestantes = usuario.pontuacao - voucher.pontos_troca
+
+        const pontosAtualizados =  await Usuario.update(
+          {
+            pontuacao: pontosRestantes,
+          }, 
+          {
+          where: {
+            id:id
+          },
+        }) 
+        // não se se é correto passar pontos atualizados
+        // return res.render("listarVoucher",{user: req.session.user, parceiro:parceiro, vouchers, success: `Troca realizada com sucesso <br> Seu cupom é : ${cupom}`, })   
+        return res.render("listarVoucher",{parceiro:{}} )   
+      },
   
     
-      deletarform: async (req, res) => {
-          const { id } = req.params
+      // deletarform: async (req, res) => {
+      //     const { id } = req.params
     
-          const voucherDeletado = await Voucher.destroy({
-            where: { id },
-          })
+      //     const voucherDeletado = await Voucher.destroy({
+      //       where: { id },
+      //     })
 
          
         
-        if (!voucherDeletado) {
-          return res.json({ message: 'Erro ao deletar voucher' })
-          // return res.render( "admFiltroParceiro", {error: "Erro ao deletar parceiro"})
-        }
+      //   if (!voucherDeletado) {
+      //     return res.json({ message: 'Erro ao deletar voucher' })
+      //     // return res.render( "admFiltroParceiro", {error: "Erro ao deletar parceiro"})
+      //   }
         
-        // return res.json({ message: 'Voucher deletado com sucesso!' })
-        return res.render("perfilAdm", {success: "Voucher deletado com sucesso"})    
-        },
+      //   // return res.json({ message: 'Voucher deletado com sucesso!' })
+      //   return res.render("perfilAdm", {success: "Voucher deletado com sucesso"})    
+      //   },
 }
 
 module.exports = voucherController

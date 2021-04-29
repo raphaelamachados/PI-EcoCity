@@ -56,3 +56,10 @@ td{
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 } 
+
+.img-parceiro{
+    display: block;
+    margin: 20px auto 0;
+    max-height:150px;
+    max-width: 200px;
+}
