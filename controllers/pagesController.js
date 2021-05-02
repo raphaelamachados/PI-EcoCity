@@ -54,10 +54,8 @@ const pagesController = {
                 item: pedido.materiais.map((itemPedido)=>itemPedido.tipo),
                 createdAt: dataFormatada
             }
-            console.log(pedido.materiais)
             return newPedido
         }) 
-            console.log(pedidosFormatados)
             return res.render("historicoUsuario", {usuario, pedidos: pedidosFormatados })
         
 
@@ -89,7 +87,6 @@ const pagesController = {
             id:id
           }
         }) 
-        console.log(usuario)
         // return res.redirect("/perfilAdm/admFiltroUsuario")
         return res.render("perfilAdm", {success: "Usuário editado com sucesso"})   
 

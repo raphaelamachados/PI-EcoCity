@@ -71,7 +71,6 @@ const empresaController = {
 
   store: async (req, res) => {
     const { idCliente, material, peso, listMateriais, listPeso } = req.body;
-    console.log(listMateriais, "debug");
    
     let listaMateriaisFormatada = []
     if(typeof listaMateriais == "string"){
@@ -79,7 +78,6 @@ const empresaController = {
     }else{
       listaMateriaisFormatada = [...listMateriais]
     }
-    console.log(listMateriais)
     let listaPesoFormatada = typeof listPeso == "string"?[listPeso]: [...listPeso]
     
     
@@ -105,8 +103,6 @@ const empresaController = {
     itens.forEach(async item =>{
       const materialBanco = await Material.findByPk(item.material_id)
       pontuacaoPedido += materialBanco.pontos_por_peso * item.peso
-      // console.log(materialBanco.pontos_por_peso, item.peso)
-      console.log(materialBanco, item.material_id)
     })
    
     const tabelaUsuario = await Usuario.findByPk(idCliente);
@@ -126,7 +122,6 @@ const empresaController = {
       return res.send("Houve um erro ao cadastrar o pedido");
     }
     return res.redirect("/empresa/perfilEmpresa");
-    console.log(item);
   },
 
   criarcadastro: async (_req, res) => {

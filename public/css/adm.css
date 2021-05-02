@@ -63,3 +63,13 @@ td{
     max-height:150px;
     max-width: 200px;
 }
+img.foto{
+    z-index: 1;
+    width: 85px;
+    height: 85px;
+    object-fit:fill;
+    border-radius:50%;
+    position: relative;
+    top:-60px;
+    left: 20px;
+}

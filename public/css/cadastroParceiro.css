@@ -67,15 +67,13 @@ section.img img.upload-image {
     /* align-self: center; */
     justify-self: center;
 }
-
 #imgUpload{
     width: 200px;
     height: 200px;
-    object-fit:fill;
-    object-fit:fill;
+    object-fit:none;
+    /* object-fit:fill; */
     border-radius:50%;
 }
-
 
 .control-label {
     margin-top: 20px;
