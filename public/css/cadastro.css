@@ -43,6 +43,8 @@ section.img img.upload-image {
     justify-self: center;
 }
 #imgUpload{
+    display: flex;
+    align-self:center;
     width: 200px;
     height: 200px;
     object-fit:fill;
@@ -200,61 +202,40 @@ section .form-input {
 }
 
 @media (max-width: 700px) {
+  
     section img.upload_image {
-        max-height: 100%;
+        max-height: 90%;
      }
-    
      .form-input button {
-        
         width: 200px;
     }
-
 }
-
-
 
 @media (max-width: 576px) {     
 
-    main .container {
-        display: flex;
+    .form h1{
+        font-size: 35px;
+    }
+    p{
+        font-size:12px;
+    }
+   .control-label{
+    font-size: 12px;
+   }
+   .control-label  strong{
+       font-size: 14px;
+   }
+   img#imgUpload{
+       display: flex;
+       align-self:center;
+       width: 70%;
+       height: 70%;
+   }
+    .form{
+        flex-direction:row;
         justify-content: center;
-        align-items: center;
-        padding: 0;
-        width: 700px;
-        height: 450px;
-        max-width: 90%;
-        background-color: white;
-        border-radius: 35px;
-    }
-
-    h1 {
-        /* margin-top: 20px; */
-        display: none;
-    }
-    
-
-    .img-phone{
-        display: flex;
-        float: right;
-        width:50%;
-        margin-bottom: 10px;
-    }
-    .img-phone h1 {
-        display: flex;
-    }
-        .form{
-            /* display: flex; */
-            flex-direction:row;
-         width: 75%;
+        max-width: 80%;
      }
-     section.img {
-        display: none;
-        
-    }
-    section{
-        width: 100%;
-      
-    }
       section form {
         width:100%;
      }  
