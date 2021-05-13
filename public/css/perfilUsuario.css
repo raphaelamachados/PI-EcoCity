@@ -118,30 +118,6 @@ div.card{
     position: absolute;
     top: -20px;
 }
-/* .bar{
-    width:90%;
-    border-radius: 5px;;
-    background-color:white;
-    margin-top: 10px;
-    position: relative;
-    top: 10px;
-}
-
-.progress-bar{
-    background-color: #7CB13E;
-    border-radius: 5px;;
-    height: 10px;
-    width: 60%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
-.bar span {
-    justify-content: flex-end;
-    position: relative;
-    top: -5px;
-} */
 
 div.card span{
     color: #263238;
@@ -354,19 +330,10 @@ img.arrow:hover{
     }
     
     div.card h2{
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         margin-top: -10px;
     }
 
-    /* .bar{
-        margin-top: 5px;
-        position: relative;
-        top: 10px;
-    }
-    
-    .bar span {
-        font-size: .8rem;
-    } */
     
     div.historico {
         display:none;
@@ -412,4 +379,11 @@ img.arrow:hover{
     div.card-parceiro{
         width:40%;
     }
+
+    div.card h2 {
+        color: #263238;
+        font-size: 1rem;
+        font-weight: 900;
+    }
+    
 }
